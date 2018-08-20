@@ -45,10 +45,8 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'dotenv-rails'
 gem 'bootstrap'
-gem 'jquery-rails'
 gem 'active_model_serializers'
-gem 'handlebars_assets'
-gem 'foreman'
+gem 'foreman', '~> 0.82.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
