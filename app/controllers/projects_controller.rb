@@ -3,10 +3,13 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.all
+    render json: @projects
+=begin
     respond_to do |format|
       format.html { render :index }
       format.json { render json: @projects}
     end
+=end 
   end
 
   def new

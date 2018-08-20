@@ -2,10 +2,13 @@ class VideosController < ApplicationController
 
   def index
     @videos = Video.all
+    render json: @videos
+=begin
     respond_to do |format|
       format.html { render :index }
       format.json { render json: @videos}
     end
+=end
   end
 
   def new

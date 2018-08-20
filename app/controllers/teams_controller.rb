@@ -2,10 +2,13 @@ class TeamsController < ApplicationController
 
   def index
     @teams = Team.all
+    render json: @teams
+=begin
     respond_to do |format|
       format.html { render :index }
       format.json { render json: @teams}
     end
+=end 
   end
 
   def new

@@ -2,10 +2,13 @@ class CommentsController < ApplicationController
 
   def index
     @comments = Comment.all
+    render json: @comments
+=begin
     respond_to do |format|
       format.html { render :index }
       format.json { render json: @comments}
     end
+=end
   end
 
   def new

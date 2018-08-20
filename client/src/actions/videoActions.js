@@ -1,10 +1,11 @@
 
+
 export function fetchVideos() {
  return (dispatch) => {
-   dispatch({ type: 'LOADING_CATS' });
-   return fetch('/api/videos')
+   dispatch({ type: 'LOADING_VIDEOS' });
+   return fetch('/videos')
      .then(response => response.json() )
-     .then(response => dispatch({ type: 'FETCH_CATS', payload: response.images }));
+     .then(response => dispatch({ type: 'FETCH_VIDEOS', payload: response }));
  };// end return
 
-}//end fetchCats
+}//end fetchVideos **/
