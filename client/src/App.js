@@ -3,6 +3,12 @@ import { connect } from 'react-redux'
 import logo from './logo.svg';
 import './App.css';
 
+import VideosContainer from './containers/VideosContainer';
+import UsersContainer from './containers/UsersContainer';
+import ProjectsContainer from './containers/ProjectsContainer';
+import TeamsContainer from './containers/TeamsContainer';
+import CommentsContainer from './containers/CommentsContainer';
+
 import { fetchVideos } from  './actions/videoActions';
 import { fetchUsers } from  './actions/userActions';
 import { fetchTeams } from  './actions/teamActions';
@@ -17,21 +23,20 @@ class App extends Component {
      //this.props.fetchUsers()
      //this.props.fetchTeams()
      //this.props.fetchProjects()
-     this.props.fetchComments()
+     //this.props.fetchComments()
    }
 
 
   render() {
-    console.log(this.props.comments)
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React TEst</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+
+        < CommentsContainer />
+
       </div>
     );
   }
@@ -40,7 +45,6 @@ class App extends Component {
 const mapStateToProps = (state) => {
   return { videos: state.videos, users: state.users, teams: state.teams, projects: state.projects, comments: state.comments
    }
-  //its cats.pictures, vs just .pictures because of the combiner
 }
 
 const mapDispatchToProps = dispatch => ({

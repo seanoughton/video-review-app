@@ -1,30 +1,43 @@
 import React, { Component } from 'react'
-import RestaurantInput from '../components/restaurants/RestaurantInput'
-import Restaurants from '../components/restaurants/Restaurants'
-
 import { connect } from 'react-redux'
+import { fetchVideos } from  '../actions/videoActions';
 
-class RestaurantsContainer extends Component {
+import Video from '../components/video/VideoComponent'
+
+class VideosContainer extends Component {
+
+  componentDidMount() {
+     this.props.fetchVideos()
+   }
 
   render() {
+    console.log(this.props.videos.videos)
+    let allVideos = this.props.videos.videos
+
+    let videos = allVideos.map((video,index) => <li> < Video key={index}   video={video}/> </li>)
+
 
     return (
       <div>
-        <RestaurantInput addRestaurant={this.props.addRestaurant}/>
-        <Restaurants restaurants={this.props.restaurants} deleteRestaurant={this.props.deleteRestaurant}/>
+        <h1> All Videos </h1>
+        <ul>
+          {videos}
+        </ul>
+
       </div>
     )
   }
 }
 
-//export default RestaurantsContainer
 
-const mapStateToProps = ({ restaurants }) => ({ restaurants })
+
+const mapStateToProps = (state) => {
+  return { videos: state.videos}
+}
+
 
 const mapDispatchToProps = dispatch => ({
-  addRestaurant: name => dispatch({ type: "ADD_RESTAURANT", name }),
-  deleteRestaurant: id => dispatch({ type: "DELETE_RESTAURANT", id })
-
+  fetchVideos: () => dispatch(fetchVideos())
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(RestaurantsContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(VideosContainer)

@@ -19,5 +19,11 @@ user.save
 team = Team.create(team_name: 'Sample Team')
 
 project = Project.create(project_name: 'First Project', team_id: team.id)
-video = Video.create(video_name: 'AWS | Pitney Bowes', url:'https://vimeo.com/225178837/42ad8da73d',user_id:user.id, team_id:team.id, project_id: project.id)
-comment = Comment.create(content: 'Sample Comment', user_id:user.id, team_id:team.id, video_id:video.id)
+
+video01 = Video.create(video_name: 'AWS | Pitney Bowes', url:'https://player.vimeo.com/video/225178837',user_id:user.id, team_id:team.id, project_id: project.id)
+
+video02 = Video.create(video_name: 'AutoCAD | Behind the Scenes', url:'https://player.vimeo.com/video/226518977',user_id:user.id, team_id:team.id, project_id: project.id)
+
+video03 = Video.create(video_name: 'SPLUNK', url:'https://player.vimeo.com/video/217564062',user_id:user.id, team_id:team.id, project_id: project.id)
+
+comment = Comment.create(content: 'Sample Comment', user_id:user.id, team_id:team.id, video_id:video01.id)
