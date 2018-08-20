@@ -1,0 +1,9 @@
+
+<h1> Here are all of the videos <h1>
+<h4>
+   <ul>
+     <%@videos.each do |video| %>
+       <li><%=link_to video.video_name, video%></li>
+     <%end%>
+   </ul>
+</h4>

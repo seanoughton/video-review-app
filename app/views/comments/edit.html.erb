@@ -1,0 +1,10 @@
+<h2>Edit this Comment</h2>
+
+<%= form_for @comment, controller: 'comments', action: 'update' do |f| %>
+
+  <%= f.label :content%>
+  <%= f.text_field :content %><br>
+
+
+  <%= f.submit  %>
+<% end %>

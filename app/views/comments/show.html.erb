@@ -1,0 +1,7 @@
+<h1> Here is this comment <h1>
+<h4>
+   <%= @comment.content %>
+   <%= link_to "Delete Comment", @comment, method: :delete, data: {confirm: "Really?!"} %>
+
+    <%= link_to "Edit Comment", controller: "comments", action: "edit", id: @comment %>
+</h4>

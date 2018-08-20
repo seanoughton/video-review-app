@@ -1,0 +1,9 @@
+
+<h1> Here are all of the projects <h1>
+<h4>
+   <ul>
+     <%@projects.each do |project| %>
+       <li><%=link_to project.project_name, project%></li>
+     <%end%>
+   </ul>
+</h4>
