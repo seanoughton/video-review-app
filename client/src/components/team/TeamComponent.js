@@ -10,7 +10,7 @@ class Team extends Component {
       <div>
 
           {team.id}
-
+          {team.team_name}
 
       </div>
     );

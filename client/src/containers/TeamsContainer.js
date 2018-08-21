@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchTeams } from  '../actions/teamActions';
-
+import { addTeam } from  '../actions/teamActions';
 import Team from '../components/team/TeamComponent'
+import TeamInput from '../components/team/TeamInput'
 
 class TeamsContainer extends Component {
 
@@ -11,10 +12,8 @@ class TeamsContainer extends Component {
    }
 
   render() {
-    console.log(this.props.teams.teams)
     let allTeams= this.props.teams.teams
-
-    let teams = allTeams.map((team,index) => <li> < Team key={index}   team={team}/> </li>)
+    let teams = allTeams.map((team,index) => <li key={index}> < Team team={team}/> </li>)
 
 
     return (
@@ -23,7 +22,7 @@ class TeamsContainer extends Component {
         <ul>
           {teams}
         </ul>
-
+        < TeamInput addTeam={this.props.addTeam}/>
       </div>
     )
   }
@@ -37,7 +36,8 @@ const mapStateToProps = (state) => {
 
 
 const mapDispatchToProps = dispatch => ({
-  fetchTeams: () => dispatch(fetchTeams())
+  fetchTeams: () => dispatch(fetchTeams()),
+  addTeam: team_name => dispatch(addTeam(team_name))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(TeamsContainer)

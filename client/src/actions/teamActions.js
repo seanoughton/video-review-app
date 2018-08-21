@@ -7,3 +7,22 @@ export function fetchTeams() {
  };// end return
 
 }//end fetchTeams **/
+
+export function addTeam(team_name) {
+ return (dispatch) => {
+   var url = '/teams';
+   var data = {team:{team_name: team_name} };
+
+   return fetch(url, {
+     method: 'POST',
+     body: JSON.stringify(data),
+     headers:{
+       'Content-Type': 'application/json'
+       },
+     }).then(res => res.json())
+       .then(response => dispatch({ type: 'ADD_TEAM', payload: response }));
+       //.then(response => console.log('Success:', response))
+       //.catch(error => console.error('Error:', error));
+ };// end return
+
+}//end addTeam **/

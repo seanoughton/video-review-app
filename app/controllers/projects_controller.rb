@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
 
+  skip_before_action :verify_authenticity_token
 
   def index
     @projects = Project.all
@@ -14,6 +15,7 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
+    #render json: @project
   end
 
   def create
@@ -26,26 +28,31 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    render json: @project
+=begin
     respond_to do |format|
       format.html { render :show }
       format.json { render json: @project}
     end
+=end
   end
 
   def edit
     @project = Project.find(params[:id])
+    render json: @project
   end
 
   def update
     @project = Project.find(params[:id])
     @project.update(project_params)
-    redirect_to projects_url
+    render json: @project
+    #redirect_to projects_url
   end
 
   def destroy
     @project = Project.find(params[:id])
     @project.destroy
-    redirect_to projects_url
+    #redirect_to projects_url
   end
 
   private

@@ -1,5 +1,7 @@
 class TeamsController < ApplicationController
 
+  skip_before_action :verify_authenticity_token
+
   def index
     @teams = Team.all
     render json: @teams
@@ -8,7 +10,7 @@ class TeamsController < ApplicationController
       format.html { render :index }
       format.json { render json: @teams}
     end
-=end 
+=end
   end
 
   def new
@@ -18,7 +20,8 @@ class TeamsController < ApplicationController
   def create
     @team = Team.new(team_params)
     @team.save
-    redirect_to teams_url
+    render json: @team
+    #redirect_to teams_url
   end
 
   def show

@@ -9,5 +9,14 @@ export default function commentsReducer(state = {loading: false, comments: []}, 
 
     default:
       return state;
+
+    case "ADD_COMMENT":
+      let comment = action.payload
+      return {
+        ...state,
+        comments: [ ...state.comments, comment]
+      }
+
+
   }
 }

@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
 
+  skip_before_action :verify_authenticity_token
+
   def index
     @comments = Comment.all
     render json: @comments
@@ -21,7 +23,8 @@ class CommentsController < ApplicationController
     @comment.user_id = User.first.id
     @comment.video_id = Video.first.id
     @comment.save
-    redirect_to comments_url
+    #redirect_to comments_url
+    render json: @comment
   end
 
   def show
