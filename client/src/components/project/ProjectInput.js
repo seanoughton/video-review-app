@@ -18,7 +18,7 @@ class ProjectInput extends Component {
 
   handleOnSubmit(event) {
     event.preventDefault();
-    this.props.addProject(this.state.project_name);
+    this.props.addProject(this.state);
     this.setState({
       project_name: '',
     });

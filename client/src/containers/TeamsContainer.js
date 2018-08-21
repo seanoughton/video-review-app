@@ -37,7 +37,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => ({
   fetchTeams: () => dispatch(fetchTeams()),
-  addTeam: team_name => dispatch(addTeam(team_name))
+  addTeam: team_state => dispatch(addTeam(team_state))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(TeamsContainer)

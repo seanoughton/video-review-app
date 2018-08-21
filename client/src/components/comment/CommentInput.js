@@ -4,8 +4,9 @@ class CommentInput extends Component {
 
   state = {
     content: '',
-    project_id: 1,
-    user_id: 1
+    user_id: 1,
+    team_id: 1,
+    video_id: 1
   }
 
   handleOnChange(event) {
@@ -19,7 +20,7 @@ class CommentInput extends Component {
 
   handleOnSubmit(event) {
     event.preventDefault();
-    this.props.addComment(this.state.content);
+    this.props.addComment(this.state);
     this.setState({
       content: '',
     });

@@ -17,7 +17,7 @@ class TeamInput extends Component {
 
   handleOnSubmit(event) {
     event.preventDefault();
-    this.props.addTeam(this.state.team_name);
+    this.props.addTeam(this.state);
     this.setState({
       team_name: '',
     });

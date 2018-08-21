@@ -8,10 +8,10 @@ export function fetchTeams() {
 
 }//end fetchTeams **/
 
-export function addTeam(team_name) {
+export function addTeam(team_state) {
  return (dispatch) => {
    var url = '/teams';
-   var data = {team:{team_name: team_name} };
+   var data = {team: team_state };
 
    return fetch(url, {
      method: 'POST',

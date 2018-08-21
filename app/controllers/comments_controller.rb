@@ -19,9 +19,9 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
-    @comment.team_id = Team.first.id
-    @comment.user_id = User.first.id
-    @comment.video_id = Video.first.id
+    #@comment.team_id = Team.first.id
+    #@comment.user_id = User.first.id
+    #@comment.video_id = Video.first.id
     @comment.save
     #redirect_to comments_url
     render json: @comment

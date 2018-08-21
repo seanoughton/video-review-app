@@ -10,10 +10,10 @@ export function fetchComments() {
 
 }//end fetchComments **/
 
-export function addComment(content) {
+export function addComment(comment_state) {
  return (dispatch) => {
    var url = '/comments';
-   var data = {comment:{content: content, user_id: 1, video_id: 1, team_id: 1}};
+   var data = {comment:comment_state};
 
    return fetch(url, {
      method: 'POST',

@@ -20,7 +20,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
-    @project.team_id = Project.first.id
+    #@project.team_id = Project.first.id
     @project.save
     render json: @project, status: 201
     #redirect_to projects_url

@@ -10,10 +10,10 @@ export function fetchProjects() {
 
 }//end fetchProjects **/
 
-export function addProject(project_name) {
+export function addProject(project_state) {
  return (dispatch) => {
    var url = '/projects';
-   var data = {project:{project_name: project_name, team_id: 1}};
+   var data = {project:project_state};
 
    return fetch(url, {
      method: 'POST',

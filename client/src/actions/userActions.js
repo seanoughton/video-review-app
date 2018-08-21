@@ -9,7 +9,6 @@ export function fetchUsers() {
 }//end fetchUsers **/
 
 export function addUser(user_state) {
-  console.log(user_state)
  return (dispatch) => {
    var url = '/users';
    var data = {user:user_state };

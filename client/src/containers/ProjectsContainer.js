@@ -40,8 +40,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => ({
   fetchProjects: () => dispatch(fetchProjects()),
-  //addProject: project_name => dispatch({ type: "ADD_PROJECT", project_name })
-  addProject: project_name => dispatch(addProject(project_name), project_name)
+  addProject: project_state => dispatch(addProject(project_state))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProjectsContainer)
