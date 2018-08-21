@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  skip_before_action :verify_authenticity_token
+
   def index
     @users = User.all
     render json: @users
@@ -18,7 +20,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.save
-    redirect_to users_url
+    #redirect_to users_url
+    render json: @user
   end
 
   def show

@@ -1,5 +1,7 @@
 class VideosController < ApplicationController
 
+  skip_before_action :verify_authenticity_token
+
   def index
     @videos = Video.all
     render json: @videos
@@ -17,11 +19,12 @@ class VideosController < ApplicationController
 
   def create
     @video = Video.new(video_params)
-    @video.user_id = User.first.id
-    @video.project_id = Project.first.id
-    @video.team_id = Team.first.id
+    #@video.user_id = User.first.id
+    #@video.project_id = Project.first.id
+    #@video.team_id = Team.first.id
     @video.save
-    redirect_to videos_url
+    #redirect_to videos_url
+    render json: @video
   end
 
   def show

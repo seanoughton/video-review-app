@@ -5,6 +5,7 @@ class TeamsController < ApplicationController
   def index
     @teams = Team.all
     render json: @teams
+
 =begin
     respond_to do |format|
       format.html { render :index }

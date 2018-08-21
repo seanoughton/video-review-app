@@ -9,8 +9,8 @@ class Video extends Component {
     return (
       <div>
 
-          <iframe src={video.url} width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowFullScreen></iframe>
 
+        {video.video_name}
 
       </div>
     );
@@ -18,3 +18,7 @@ class Video extends Component {
 };
 
 export default Video;
+
+/**
+  <iframe src={video.url} width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowFullScreen></iframe>
+  **/

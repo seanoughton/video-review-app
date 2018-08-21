@@ -9,7 +9,6 @@ class Team extends Component {
     return (
       <div>
 
-          {team.id}
           {team.team_name}
 
       </div>

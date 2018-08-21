@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchVideos } from  '../actions/videoActions';
+import { addVideo } from  '../actions/videoActions';
+import VideoInput from '../components/video/VideoInput'
 
 import Video from '../components/video/VideoComponent'
 
@@ -14,7 +16,7 @@ class VideosContainer extends Component {
     console.log(this.props.videos.videos)
     let allVideos = this.props.videos.videos
 
-    let videos = allVideos.map((video,index) => <li> < Video key={index}   video={video}/> </li>)
+    let videos = allVideos.map((video,index) => <li key={index}> < Video video={video}/> </li>)
 
 
     return (
@@ -23,7 +25,7 @@ class VideosContainer extends Component {
         <ul>
           {videos}
         </ul>
-
+        < VideoInput addVideo={this.props.addVideo}/>
       </div>
     )
   }
@@ -37,7 +39,8 @@ const mapStateToProps = (state) => {
 
 
 const mapDispatchToProps = dispatch => ({
-  fetchVideos: () => dispatch(fetchVideos())
+  fetchVideos: () => dispatch(fetchVideos()),
+  addVideo: (video_state) => dispatch(addVideo(video_state))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(VideosContainer)
