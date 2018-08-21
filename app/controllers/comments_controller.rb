@@ -48,7 +48,8 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
-    redirect_to comments_url
+    render json: {comment_id: params[:id]}
+    #redirect_to comments_url
   end
 
   private

@@ -28,3 +28,19 @@ export function addComment(comment_state) {
  };// end return
 
 }//end addComment **/
+
+
+export function deleteComment(comment_id) {
+ return (dispatch) => {
+   var url = `/comments/${comment_id}`;
+
+   return fetch(url, {
+     method: 'DELETE',
+     headers:{
+       'Content-Type': 'application/json'
+       },
+     }).then(res => res.json())
+       .then(response => dispatch({ type: 'DELETE_COMMENT', payload: response }));
+ };// end return
+
+}//end deleteComment **/
