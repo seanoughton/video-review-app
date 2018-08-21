@@ -9,7 +9,7 @@ class ProjectsController < ApplicationController
       format.html { render :index }
       format.json { render json: @projects}
     end
-=end 
+=end
   end
 
   def new
@@ -20,7 +20,8 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     @project.team_id = Project.first.id
     @project.save
-    redirect_to projects_url
+    render json: @project, status: 201
+    #redirect_to projects_url
   end
 
   def show
