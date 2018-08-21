@@ -27,3 +27,18 @@ export function addVideo(video_state) {
  };// end return
 
 }//end addUser **/
+
+export function deleteVideo(video_id) {
+ return (dispatch) => {
+   var url = `/videos/${video_id}`;
+
+   return fetch(url, {
+     method: 'DELETE',
+     headers:{
+       'Content-Type': 'application/json'
+       },
+     }).then(res => res.json())
+       .then(response => dispatch({ type: 'DELETE_VIDEO', payload: response }));
+ };// end return
+
+}//end deleteUser **/

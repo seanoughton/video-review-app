@@ -16,6 +16,8 @@ class Comment extends Component {
           {comment.content}
           <button onClick={this.handleOnClick}> x </button>
 
+
+
       </div>
     );
   }

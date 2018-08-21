@@ -46,7 +46,8 @@ class TeamsController < ApplicationController
   def destroy
     @team = Team.find(params[:id])
     @team.destroy
-    redirect_to teams_url
+    #redirect_to teams_url
+    render json: {team_id: params[:id]}
   end
 
   private

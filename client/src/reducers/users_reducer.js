@@ -14,6 +14,11 @@ export default function usersReducer(state = {loading: false, users: []}, action
         users: [ ...state.users, user]
       }
 
+    case 'DELETE_USER':
+      let id = parseInt(action.payload.user_id,10)
+      const users = state.users.filter(user => user.id !== id);
+      return { ...state, users}
+
     default:
       return state;
   }

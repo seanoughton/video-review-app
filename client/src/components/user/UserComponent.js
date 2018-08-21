@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 
 class User extends Component {
 
+  handleOnClick = () => {
+    this.props.deleteUser (this.props.user.id)
+  }
 
   render() {
     const { user } = this.props;
@@ -11,6 +14,7 @@ class User extends Component {
 
           {user.user_name}<br></br>
           {user.email}
+          <button onClick={this.handleOnClick}> x </button>
 
       </div>
     );

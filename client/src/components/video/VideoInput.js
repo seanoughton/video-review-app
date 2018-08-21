@@ -51,14 +51,14 @@ class VideoInput extends Component {
             <input
               id="video_name"
               type="text"
-              value={this.state.user_name}
+              value={this.state.video_name}
               onChange={(event) => this.handleOnChange(event)} /><br></br>
 
               <label>URL</label>
               <input
                 id="url"
                 type="text"
-                value={this.state.email}
+                value={this.state.url}
                 onChange={(event) => this.handleOnChange(event)} /><br></br>
 
 

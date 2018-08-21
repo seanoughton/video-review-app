@@ -25,3 +25,18 @@ export function addUser(user_state) {
  };// end return
 
 }//end addUser **/
+
+export function deleteUser(user_id) {
+ return (dispatch) => {
+   var url = `/users/${user_id}`;
+
+   return fetch(url, {
+     method: 'DELETE',
+     headers:{
+       'Content-Type': 'application/json'
+       },
+     }).then(res => res.json())
+       .then(response => dispatch({ type: 'DELETE_USER', payload: response }));
+ };// end return
+
+}//end deleteUser **/

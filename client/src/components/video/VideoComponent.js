@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 
 class Video extends Component {
 
+  handleOnClick = () => {
+    this.props.deleteVideo (this.props.video.id)
+  }
 
   render() {
     const { video } = this.props;
@@ -11,7 +14,7 @@ class Video extends Component {
 
 
         {video.video_name}
-
+        <button onClick={this.handleOnClick}> x </button>
       </div>
     );
   }

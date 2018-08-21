@@ -28,3 +28,18 @@ export function addProject(project_state) {
  };// end return
 
 }//end addProject **/
+
+export function deleteProject(project_id) {
+ return (dispatch) => {
+   var url = `/projects/${project_id}`;
+
+   return fetch(url, {
+     method: 'DELETE',
+     headers:{
+       'Content-Type': 'application/json'
+       },
+     }).then(res => res.json())
+       .then(response => dispatch({ type: 'DELETE_PROJECT', payload: response }));
+ };// end return
+
+}//end deleteProject **/

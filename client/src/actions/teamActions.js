@@ -26,3 +26,18 @@ export function addTeam(team_state) {
  };// end return
 
 }//end addTeam **/
+
+export function deleteTeam(team_id) {
+ return (dispatch) => {
+   var url = `/teams/${team_id}`;
+
+   return fetch(url, {
+     method: 'DELETE',
+     headers:{
+       'Content-Type': 'application/json'
+       },
+     }).then(res => res.json())
+       .then(response => dispatch({ type: 'DELETE_TEAM', payload: response }));
+ };// end return
+
+}//end deleteTeam **/

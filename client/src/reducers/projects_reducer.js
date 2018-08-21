@@ -15,33 +15,16 @@ export default function projectsReducer(state = {loading: false, projects: []}, 
         projects: [ ...state.projects, project]
       }
 
-/**
-    case "ADD_PROJECT":
-      var url = '/projects';
-      var data = {project:{project_name: action.project_name, team_id: 1}};
-      let project = {}
 
+    case 'DELETE_PROJECT':
+      let id = parseInt(action.payload.project_id,10)
+      const projects = state.projects.filter(project => project.id !== id);
+      return { ...state, projects}
 
-      fetch(url, {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers:{
-          'Content-Type': 'application/json'
-          },
-        }).then(res => res.json())
-          .then(response => console.log(response))
-          .then(response => project = response)
-          //.then(response => console.log('Success:', response))
-          .catch(error => console.error('Error:', error));
-
-          return {
-            ...state,
-            projects: [ ...state.projects, project]
-          }
-**/
 
 
     default:
       return state;
+
   }
 }

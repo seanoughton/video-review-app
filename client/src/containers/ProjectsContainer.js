@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchProjects } from  '../actions/projectActions';
 import { addProject } from  '../actions/projectActions';
+import { deleteProject } from  '../actions/projectActions';
 
 import Project from '../components/project/ProjectComponent'
 import ProjectInput from '../components/project/ProjectInput'
@@ -15,7 +16,7 @@ class ProjectsContainer extends Component {
   render() {
     let allProjects = this.props.projects.projects
 
-    let projects = allProjects.map( (project,index) => <li key={index}> < Project    project={project}/> </li>)
+    let projects = allProjects.map( (project,index) => <li key={index}> < Project    project={project} deleteProject={this.props.deleteProject} /> </li>)
 
 
     return (
@@ -40,7 +41,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => ({
   fetchProjects: () => dispatch(fetchProjects()),
-  addProject: project_state => dispatch(addProject(project_state))
+  addProject: project_state => dispatch(addProject(project_state)),
+  deleteProject: project_id => dispatch(deleteProject(project_id))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProjectsContainer)

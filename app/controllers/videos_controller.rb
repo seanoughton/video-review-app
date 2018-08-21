@@ -48,7 +48,8 @@ class VideosController < ApplicationController
   def destroy
     @video = Video.find(params[:id])
     @video.destroy
-    redirect_to videos_url
+    #redirect_to videos_url
+    render json: {video_id: params[:id]}
   end
 
   private

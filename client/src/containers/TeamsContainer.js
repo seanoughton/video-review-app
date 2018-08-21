@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchTeams } from  '../actions/teamActions';
 import { addTeam } from  '../actions/teamActions';
+import { deleteTeam } from  '../actions/teamActions';
+
 import Team from '../components/team/TeamComponent'
 import TeamInput from '../components/team/TeamInput'
 
@@ -13,7 +15,7 @@ class TeamsContainer extends Component {
 
   render() {
     let allTeams= this.props.teams.teams
-    let teams = allTeams.map((team,index) => <li key={index}> < Team team={team}/> </li>)
+    let teams = allTeams.map((team,index) => <li key={index}> < Team team={team} deleteTeam={this.props.deleteTeam}  /> </li>)
 
 
     return (
@@ -37,7 +39,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => ({
   fetchTeams: () => dispatch(fetchTeams()),
-  addTeam: team_state => dispatch(addTeam(team_state))
+  addTeam: team_state => dispatch(addTeam(team_state)),
+  deleteTeam: team_id => dispatch(deleteTeam(team_id))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(TeamsContainer)

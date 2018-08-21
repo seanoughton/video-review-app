@@ -2,8 +2,10 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchUsers } from  '../actions/userActions';
 import { addUser } from  '../actions/userActions';
-import UserInput from '../components/user/UserInput'
+import { deleteUser } from  '../actions/userActions';
 
+
+import UserInput from '../components/user/UserInput'
 import User from '../components/user/UserComponent'
 
 class UsersContainer extends Component {
@@ -15,7 +17,7 @@ class UsersContainer extends Component {
   render() {
     let allUsers = this.props.users.users
 
-    let users = allUsers.map((user,index) => <li key={index}> < User user={user}/> </li>)
+    let users = allUsers.map((user,index) => <li key={index}> < User user={user} deleteUser={this.props.deleteUser}  /> </li>)
 
 
     return (
@@ -39,7 +41,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => ({
   fetchUsers: () => dispatch(fetchUsers()),
-  addUser: user_state => dispatch(addUser(user_state))
+  addUser: user_state => dispatch(addUser(user_state)),
+  deleteUser: user_id => dispatch(deleteUser(user_id))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer)

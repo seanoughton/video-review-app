@@ -15,6 +15,11 @@ export default function teamsReducer(state = {loading: false, teams: []}, action
         teams: [ ...state.teams, team]
       }
 
+    case 'DELETE_TEAM':
+      let id = parseInt(action.payload.team_id,10)
+      const teams = state.teams.filter(team => team.id !== id);
+      return { ...state, teams}
+
     default:
       return state;
   }
