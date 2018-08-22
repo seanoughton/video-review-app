@@ -4,12 +4,14 @@ import { Link } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 
 
+
 import { fetchProjects } from  '../actions/projectActions';
 import { addProject } from  '../actions/projectActions';
 import { deleteProject } from  '../actions/projectActions';
 
 import Project from '../components/project/ProjectComponent'
 import ProjectInput from '../components/project/ProjectInput'
+
 
 
 class ProjectsContainer extends Component {
@@ -21,15 +23,14 @@ class ProjectsContainer extends Component {
 
 
   render() {
+
     let allProjects = this.props.projects.projects
 
-    //let projects = allProjects.map( (project,index) => <li key={index}> < Project    project={project} deleteProject={this.props.deleteProject} /> </li>)
 
     let projects = allProjects.map( (project,index) => <li key={index}>
     <Link to={`/projects/${project.id}`}>
-      < Project project={project} deleteProject={this.props.deleteProject} />
+      {project.project_name}
     </Link>
-
     </li>)
 
 
@@ -40,8 +41,6 @@ class ProjectsContainer extends Component {
           {projects}
         </ul>
         < ProjectInput addProject={this.props.addProject}/>
-
-        <Route path={`${this.props.match.url}/:projectId`} render={routerProps => <Project {...routerProps}  /> }/>
 
       </div>
     )

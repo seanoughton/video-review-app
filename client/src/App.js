@@ -16,6 +16,8 @@ import ProjectsContainer from './containers/ProjectsContainer';
 import TeamsContainer from './containers/TeamsContainer';
 import CommentsContainer from './containers/CommentsContainer';
 import NavBar from './components/navbar/NavBar';
+import TestComponent from './components/test/TestComponent'
+import Project from './components/project/ProjectComponent'
 
 
 import { fetchVideos } from  './actions/videoActions';
@@ -36,22 +38,23 @@ class App extends Component {
    }
 
 
+
    render() {
      return (
        <Router>
          <div className="app">
            <NavBar />
            <Route exact path="/" component={ProjectsContainer} />
-           <Route path="/comments" component={CommentsContainer} />
-           <Route path="/videos" component={VideosContainer} />
+           <Route exact path="/comments" component={CommentsContainer} />
+           <Route exact path="/videos" component={VideosContainer} />
 
+           <Route exact path="/projects" component={ProjectsContainer}/>
 
-           
+           <Route exact path='/projects/:id' render={routerProps => <Project {...routerProps} />} />
 
-           <Route path='/projects' render={routerProps => <ProjectsContainer {...routerProps} />} />
-
-           <Route path="/users" component={UsersContainer} />
-           <Route path="/teams" component={TeamsContainer} />
+           <Route exact path="/users" component={UsersContainer} />
+           <Route exact path="/teams" component={TeamsContainer} />
+           <Route exact path="/test" component={TestComponent} />
          </div>
        </Router>
      );
@@ -73,12 +76,6 @@ const mapDispatchToProps = dispatch => ({
 
 export default connect(mapStateToProps,mapDispatchToProps)(App)
 //export default App;
-
 /**
-render() {
-  return (
-    <div >
-      < CommentsContainer />
-    </div>
-  );
-}//end render**/
+<Route exact path='/projects/:id' render={routerProps => <Project {...routerProps} allProjects={this.props.projects}/>} />
+**/

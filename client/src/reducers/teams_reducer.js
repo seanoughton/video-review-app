@@ -5,7 +5,6 @@ export default function teamsReducer(state = {loading: false, teams: []}, action
       return Object.assign({},state, {loading:true})
 
     case "FETCH_TEAMS":
-      console.log(action.payload)
       return {loading: false, teams: action.payload}
 
     case "ADD_TEAM":
