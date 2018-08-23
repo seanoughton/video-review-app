@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+
+import CommentInput from '../../components/comment/CommentInput'
+
+import { addComment } from  '../../actions/commentActions';
 import { deleteVideo } from  '../../actions/videoActions';
 
 class Video extends Component {
@@ -14,7 +19,14 @@ class Video extends Component {
     let allVideos = this.props.videos.videos
     let videoId = parseInt(this.props.match.params.id,10)
     let video = allVideos.find(video =>  video.id === videoId)
-    
+
+    let videoComments = video.comments.map((comment,index) => <li key={index}>
+    <Link to={`/comments/${comment.id}`}>
+      {comment.content}
+    </Link>
+    </li>)
+
+
     return (
       <div>
 
@@ -22,8 +34,17 @@ class Video extends Component {
 
         <h4>Video Version {video.version}</h4>
 
+      <iframe src={video.url} width="640" height="360" frameBorder="0" webkitallowfullscreen mozallowfullscreen allowFullScreen></iframe>
 
-        <button onClick={this.handleOnClick}> x </button>
+        < CommentInput
+        addComment={this.props.addComment}
+        />
+
+        <h3>Here all of the comments</h3>
+        {videoComments}
+
+
+
       </div>
     );
   }
@@ -34,11 +55,12 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  deleteVideo: video_id => dispatch(deleteVideo(video_id))
+  deleteVideo: video_id => dispatch(deleteVideo(video_id)),
+  addComment: comment_state => dispatch(addComment(comment_state))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Video)
 
 /**
-  <iframe src={video.url} width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowFullScreen></iframe>
+<button onClick={this.handleOnClick}> x </button>
   **/

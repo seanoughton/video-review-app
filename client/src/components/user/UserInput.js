@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+
+import { addUser } from  '../../actions/userActions';
 
 class UserInput extends Component {
 
@@ -97,4 +100,13 @@ class UserInput extends Component {
   }
 };
 
-export default UserInput;
+const mapStateToProps = (state) => {
+  return { users: state.users}
+}
+
+
+const mapDispatchToProps = dispatch => ({
+  addUser: user_state => dispatch(addUser(user_state))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserInput)

@@ -19,8 +19,6 @@ class User extends Component {
     let userId = parseInt(this.props.match.params.id,10)
     let user = allUsers.find(user =>  user.id === userId)
 
-    //let userProjects = user.projects
-
     let userProjects = user.projects.map((project,index) => <li key={index}>
     <Link to={`/projects/${project.id}`}>
       {project.project_name}

@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { addComment } from  '../../actions/commentActions';
 
 class CommentInput extends Component {
 
   state = {
     content: '',
+    timecode: 0,
     user_id: 1,
-    team_id: 1,
     video_id: 1
   }
 
@@ -46,4 +48,13 @@ class CommentInput extends Component {
   }
 };
 
-export default CommentInput;
+const mapStateToProps = (state) => {
+  return { comments: state.comments}
+}
+
+
+const mapDispatchToProps = dispatch => ({
+  addComment: comment_state => dispatch(addComment(comment_state))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(CommentInput)

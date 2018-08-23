@@ -47,15 +47,17 @@ class App extends Component {
            <NavBar />
            <Route exact path="/" component={ProjectsContainer} />
 
-           <Route exact path="/comments" component={CommentsContainer} />
-           <Route exact path='/comments/:id' render={routerProps => <Comment {...routerProps} />} />
+           <Route exact path="/comments" render={routerProps => <CommentsContainer {...routerProps} comments={this.props.comments}/>} />
+           <Route exact path='/comments/:id' render={routerProps => <Comment {...routerProps} comments={this.props.comments}/>} />
 
 
-           <Route exact path="/videos" component={VideosContainer} />
-           <Route exact path='/videos/:id' render={routerProps => <Video {...routerProps} />} />
 
-           <Route exact path="/projects" component={ProjectsContainer}/>
-           <Route exact path='/projects/:id' render={routerProps => <Project {...routerProps} />} />
+           <Route exact path="/videos" render={routerProps => <VideosContainer {...routerProps} videos={this.props.videos} />} />
+
+           <Route exact path='/videos/:id' render={routerProps => <Video {...routerProps} videos={this.props.videos} />} />
+
+           <Route exact path="/projects" render={routerProps => <ProjectsContainer {...routerProps} projects={this.props.projects}/>}/>
+           <Route exact path='/projects/:id' render={routerProps => <Project {...routerProps} projects={this.props.projects} />} />
 
 
            <Route exact path='/users' render={routerProps => <UsersContainer {...routerProps} users={this.props.users} />} />
@@ -84,6 +86,9 @@ const mapDispatchToProps = dispatch => ({
 export default connect(mapStateToProps,mapDispatchToProps)(App)
 //export default App;
 /**
+<Route exact path="/projects" component={ProjectsContainer}/>
+<Route exact path="/comments" component={CommentsContainer} />
+<Route exact path="/videos" component={VideosContainer} />
 <Route exact path='/projects/:id' render={routerProps => <Project {...routerProps} allProjects={this.props.projects}/>} />
 **/
 

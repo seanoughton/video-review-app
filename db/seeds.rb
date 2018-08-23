@@ -33,5 +33,21 @@ video02 = Video.create(url:'https://player.vimeo.com/video/226518977',version: 1
 
 video03 = Video.create(url:'https://player.vimeo.com/video/217564062', version: 1, video_name: 'SPLUNK', project_id: project03.id)
 
-#COMMENT
-comment = Comment.create(content: 'Sample Comment', timecode: 1.15, user_id:user01.id, video_id:video01.id)
+#COMMENTS
+comment01 = Comment.create(content: 'Video 1 Comment 01', timecode: 1.15, user_id:user01.id, video_id:video01.id)
+
+comment02 = Comment.create(content: 'Video 1 Comment 02', timecode: 2.00, user_id:user02.id, video_id:video01.id)
+
+comment03 = Comment.create(content: 'Video 1 Comment 03', timecode: 1.00, user_id:user03.id, video_id:video01.id)
+
+comment04 = Comment.create(content: 'Video 2 Comment 01', timecode: 2.00, user_id:user01.id, video_id:video02.id)
+
+comment05 = Comment.create(content: 'Video 2 Comment 02', timecode: 2.00, user_id:user02.id, video_id:video02.id)
+
+comment06 = Comment.create(content: 'Video 2 Comment 03', timecode: 1.00, user_id:user03.id, video_id:video02.id)
+
+comment07 = Comment.create(content: 'Video 3 Comment 01', timecode: 2.00, user_id:user01.id, video_id:video03.id)
+
+comment08 = Comment.create(content: 'Video 3 Comment 02', timecode: 2.00, user_id:user02.id, video_id:video03.id)
+
+comment09 = Comment.create(content: 'Video 3 Comment 03', timecode: 1.00, user_id:user03.id, video_id:video03.id)

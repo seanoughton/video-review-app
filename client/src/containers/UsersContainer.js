@@ -3,9 +3,6 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
 
 
-import { addUser } from  '../actions/userActions';
-import { deleteUser } from  '../actions/userActions';
-
 
 import UserInput from '../components/user/UserInput'
 import User from '../components/user/UserComponent'
@@ -15,7 +12,7 @@ class UsersContainer extends Component {
 
 
   render() {
-    
+
     let allUsers = this.props.users.users
 
     let users = allUsers.map((user,index) => <li key={index}>
@@ -31,7 +28,7 @@ class UsersContainer extends Component {
         <ul>
           {users}
         </ul>
-        < UserInput addUser={this.props.addUser}/>
+        < UserInput/>
       </div>
     )
   }
@@ -39,14 +36,4 @@ class UsersContainer extends Component {
 
 
 
-const mapStateToProps = (state) => {
-  return { users: state.users}
-}
-
-
-const mapDispatchToProps = dispatch => ({
-  addUser: user_state => dispatch(addUser(user_state)),
-  deleteUser: user_id => dispatch(deleteUser(user_id))
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer)
+export default UsersContainer

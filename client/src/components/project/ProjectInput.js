@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { Route } from 'react-router-dom';
+
+import { addProject } from  '../../actions/projectActions';
 
 class ProjectInput extends Component {
 
@@ -43,4 +47,13 @@ class ProjectInput extends Component {
   }
 };
 
-export default ProjectInput;
+const mapStateToProps = (state) => {
+  return { projects: state.projects}
+}
+
+
+const mapDispatchToProps = dispatch => ({
+  addProject: project_state => dispatch(addProject(project_state))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProjectInput)

@@ -3,10 +3,6 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 
-
-
-import { fetchProjects } from  '../actions/projectActions';
-import { addProject } from  '../actions/projectActions';
 import { deleteProject } from  '../actions/projectActions';
 
 import Project from '../components/project/ProjectComponent'
@@ -16,9 +12,7 @@ import ProjectInput from '../components/project/ProjectInput'
 
 class ProjectsContainer extends Component {
 
-  componentDidMount() {
-     this.props.fetchProjects()
-   }
+
 
 
 
@@ -40,7 +34,7 @@ class ProjectsContainer extends Component {
         <ul>
           {projects}
         </ul>
-        < ProjectInput addProject={this.props.addProject}/>
+        < ProjectInput/>
 
       </div>
     )
@@ -49,15 +43,6 @@ class ProjectsContainer extends Component {
 
 
 
-const mapStateToProps = (state) => {
-  return { projects: state.projects}
-}
 
 
-const mapDispatchToProps = dispatch => ({
-  fetchProjects: () => dispatch(fetchProjects()),
-  addProject: project_state => dispatch(addProject(project_state)),
-  deleteProject: project_id => dispatch(deleteProject(project_id))
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(ProjectsContainer)
+export default ProjectsContainer
