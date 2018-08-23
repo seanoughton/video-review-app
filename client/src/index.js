@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import SetStore from './SetStore';
+
 
 import registerServiceWorker from './registerServiceWorker';
 
@@ -31,7 +31,6 @@ ReactDOM.render(
   <Provider store={store}>
     <div>
       <App />
-      <SetStore />
     </div>
 
   </Provider>,

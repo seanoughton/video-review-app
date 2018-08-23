@@ -6,29 +6,32 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-#TEAM
-team = Team.create(team_name: 'Sample Team')
 
-#USER
-user = User.new
-user.user_name = "admin"
-user.email = "admin@gmail.com"
-user.password = "password"
-user.admin = true
-user.team_id = team.id
-user.save
+admin = User.create(user_name: "admin", email: "admin@user.com", password: "password", admin: true)
+user01 = User.create(user_name: "user01", email: "user01@user.com", password: "password", admin: false)
+user02 = User.create(user_name: "user02", email: "user02@user.com", password: "password", admin: false)
+user03 = User.create(user_name: "user03", email: "user03@user.com", password: "password", admin: false)
 
 
+#PROJECTS
+project01 = Project.create(project_name: 'Project 01')
+project02 = Project.create(project_name: 'Project 02')
+project03 = Project.create(project_name: 'Project 03')
 
-#PROJECT
-project = Project.create(project_name: 'First Project', team_id: team.id)
+
+#UsersProject
+userproject01 = Userproject.create(user_id: user01.id, project_id: project01.id)
+userproject02 = Userproject.create(user_id: user02.id, project_id: project02.id)
+userproject03 = Userproject.create(user_id: user01.id, project_id: project02.id)
+userproject04 = Userproject.create(user_id: user03.id, project_id: project01.id)
+userproject05 = Userproject.create(user_id: user02.id, project_id: project01.id)
 
 #VIDEOS
-video01 = Video.create(url:'https://player.vimeo.com/video/225178837',version: 1, video_name: 'AWS | Pitney Bowes', project_id: project.id)
+video01 = Video.create(url:'https://player.vimeo.com/video/225178837',version: 1, video_name: 'AWS | Pitney Bowes', project_id: project01.id)
 
-video02 = Video.create(url:'https://player.vimeo.com/video/226518977',version: 1, video_name: 'AutoCAD | Behind the Scenes', project_id: project.id)
+video02 = Video.create(url:'https://player.vimeo.com/video/226518977',version: 1, video_name: 'AutoCAD | Behind the Scenes', project_id: project02.id)
 
-video03 = Video.create(url:'https://player.vimeo.com/video/217564062', version: 1, video_name: 'SPLUNK', project_id: project.id)
+video03 = Video.create(url:'https://player.vimeo.com/video/217564062', version: 1, video_name: 'SPLUNK', project_id: project03.id)
 
 #COMMENT
-comment = Comment.create(content: 'Sample Comment', timecode: 1.15, user_id:user.id, video_id:video01.id)
+comment = Comment.create(content: 'Sample Comment', timecode: 1.15, user_id:user01.id, video_id:video01.id)

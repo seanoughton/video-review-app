@@ -1,8 +1,10 @@
 class Project < ApplicationRecord
 
   #RELATIONSHIPS
-  belongs_to :team
   has_many :videos
 
+  has_many :userprojects
+
+  has_many :users, through: :userprojects
 
 end

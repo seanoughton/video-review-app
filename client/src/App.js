@@ -34,16 +34,17 @@ import { fetchComments } from  './actions/commentActions';
 class App extends Component {
 
   componentDidMount() {
-     //this.props.fetchVideos()
-     //this.props.fetchUsers()
-     //this.props.fetchTeams()
-     //this.props.fetchProjects()
-     //this.props.fetchComments()
+     this.props.fetchVideos()
+     this.props.fetchUsers()
+     this.props.fetchTeams()
+     this.props.fetchProjects()
+     this.props.fetchComments()
    }
 
 
 
    render() {
+     
      return (
        <Router>
          <div className="app">
