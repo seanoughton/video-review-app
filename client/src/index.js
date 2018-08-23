@@ -2,9 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import SetStore from './SetStore';
+
 import registerServiceWorker from './registerServiceWorker';
 
-import { fetchProjects } from  './actions/projectActions';
 
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
@@ -28,7 +29,11 @@ const store = createStore(
 ReactDOM.render(
 
   <Provider store={store}>
-    <App />
+    <div>
+      <App />
+      <SetStore />
+    </div>
+
   </Provider>,
     document.getElementById('root')
 );

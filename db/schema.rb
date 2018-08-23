@@ -14,8 +14,8 @@ ActiveRecord::Schema.define(version: 2018_08_17_213709) do
 
   create_table "comments", force: :cascade do |t|
     t.string "content"
+    t.float "timecode"
     t.integer "user_id"
-    t.integer "team_id"
     t.integer "video_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -41,15 +41,15 @@ ActiveRecord::Schema.define(version: 2018_08_17_213709) do
     t.boolean "admin", default: false
     t.string "uid"
     t.string "image"
+    t.integer "team_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "videos", force: :cascade do |t|
     t.string "url"
+    t.integer "version"
     t.string "video_name"
-    t.integer "user_id"
-    t.integer "team_id"
     t.integer "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -7,7 +7,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
     	t.boolean :admin, default: false
       t.string :uid
       t.string :image
-      #t.integer :team_id
+      t.integer :team_id
 
       t.timestamps
     end

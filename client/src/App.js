@@ -60,8 +60,9 @@ class App extends Component {
            <Route exact path="/projects" component={ProjectsContainer}/>
            <Route exact path='/projects/:id' render={routerProps => <Project {...routerProps} />} />
 
-           <Route exact path="/users" component={UsersContainer} />
-           <Route exact path='/users/:id' render={routerProps => <User {...routerProps} />} />
+
+           <Route exact path='/users' render={routerProps => <UsersContainer {...routerProps} users={this.props.users} />} />
+           <Route exact path='/users/:id' render={routerProps => <User {...routerProps} users={this.props.users} projects={this.props.projects}/>} />
 
            <Route exact path="/teams" component={TeamsContainer} />
             <Route exact path='/teams/:id' render={routerProps => <Team {...routerProps} />} />
@@ -90,3 +91,5 @@ export default connect(mapStateToProps,mapDispatchToProps)(App)
 /**
 <Route exact path='/projects/:id' render={routerProps => <Project {...routerProps} allProjects={this.props.projects}/>} />
 **/
+
+//<Route exact path="/users" component={UsersContainer} />
