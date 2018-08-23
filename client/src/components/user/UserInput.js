@@ -6,8 +6,7 @@ class UserInput extends Component {
     user_name: '',
     email: '',
     password: '',
-    password_confirmation:'',
-    team_id: 1
+    password_confirmation:''
   }
 
   handleOnChange(event) {

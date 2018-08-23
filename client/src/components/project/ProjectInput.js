@@ -3,8 +3,7 @@ import React, { Component } from 'react';
 class ProjectInput extends Component {
 
   state = {
-    project_name: '',
-    team_id: 1
+    project_name: ''
   }
 
   handleOnChange(event) {

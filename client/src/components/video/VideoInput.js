@@ -3,10 +3,9 @@ import React, { Component } from 'react';
 class VideoInput extends Component {
 
   state = {
-    video_name: '',
     url: '',
-    user_id: 1,
-    team_id:1,
+    version: '',
+    video_name: '',
     project_id: 1
   }
 
@@ -23,6 +22,12 @@ class VideoInput extends Component {
       });// end setState
     }// end if
 
+    if (event.target.id === 'version') {
+      this.setState({
+        version: event.target.value,
+      });// end setState
+    }// end if
+
 
 
   }
@@ -35,7 +40,8 @@ class VideoInput extends Component {
     this.props.addVideo(this.state)
     this.setState({
       video_name: '',
-      url:''
+      url:'',
+      version: ''
     });
   }
 
@@ -52,14 +58,24 @@ class VideoInput extends Component {
               id="video_name"
               type="text"
               value={this.state.video_name}
-              onChange={(event) => this.handleOnChange(event)} /><br></br>
+              onChange={(event) => this.handleOnChange(event)} />
+            <br></br>
 
               <label>URL</label>
               <input
                 id="url"
                 type="text"
                 value={this.state.url}
-                onChange={(event) => this.handleOnChange(event)} /><br></br>
+                onChange={(event) => this.handleOnChange(event)} />
+              <br></br>
+
+                <label>Version</label>
+                <input
+                  id="version"
+                  type="text"
+                  value={this.state.version}
+                  onChange={(event) => this.handleOnChange(event)} />
+                <br></br>
 
 
 
