@@ -40,21 +40,20 @@ class App extends Component {
 
 
    render() {
-
+     console.log('app fired')
      return (
        <Router>
          <div className="app">
            <NavBar />
-           <Route exact path="/" component={ProjectsContainer} />
+           <Route exact path="/" render={routerProps => <ProjectsContainer {...routerProps} projects={this.props.projects}/>} />
 
            <Route exact path="/comments" render={routerProps => <CommentsContainer {...routerProps} comments={this.props.comments}/>} />
            <Route exact path='/comments/:id' render={routerProps => <Comment {...routerProps} comments={this.props.comments}/>} />
 
 
 
-           <Route exact path="/videos" render={routerProps => <VideosContainer {...routerProps} videos={this.props.videos} />} />
-
-           <Route exact path='/videos/:id' render={routerProps => <Video {...routerProps} videos={this.props.videos} />} />
+           <Route exact path="/videos" render={routerProps => <VideosContainer {...routerProps} videos={this.props.videos}  />} />
+           <Route exact path='/videos/:id' render={routerProps => <Video {...routerProps} videos={this.props.videos} comments={this.props.comments} />} />
 
            <Route exact path="/projects" render={routerProps => <ProjectsContainer {...routerProps} projects={this.props.projects}/>}/>
            <Route exact path='/projects/:id' render={routerProps => <Project {...routerProps} projects={this.props.projects} />} />

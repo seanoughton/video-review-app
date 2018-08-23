@@ -14,11 +14,14 @@ class Comment extends Component {
     let allComments = this.props.comments.comments
     let commentId = parseInt(this.props.match.params.id,10)
     let comment = allComments.find(comment =>  comment.id === commentId)
-
+    console.log(comment)
     return (
       <div>
 
-          {comment.content}
+        <h4>Content: {comment.content} </h4>
+        <h4>Comment Id: {comment.id}</h4>
+        <h4>Timecode: {comment.timecode}</h4>
+
           <button onClick={this.handleOnClick}> x </button>
 
 

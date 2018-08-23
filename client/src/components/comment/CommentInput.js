@@ -6,15 +6,26 @@ class CommentInput extends Component {
 
   state = {
     content: '',
-    timecode: 0,
+    timecode: '',
     user_id: 1,
-    video_id: 1
+    video_id: this.props.videoId
   }
 
   handleOnChange(event) {
-    this.setState({
-      content: event.target.value,
-    });
+
+    if (event.target.id === 'timecode') {
+      this.setState({
+        timecode: event.target.value,
+      });// end setState
+    }// end if
+
+    if (event.target.id === 'content') {
+      this.setState({
+        content: event.target.value,
+      });// end setState
+    }// end if
+
+
   }
 
 
@@ -25,6 +36,7 @@ class CommentInput extends Component {
     this.props.addComment(this.state);
     this.setState({
       content: '',
+      timecode: ''
     });
   }
 
@@ -35,11 +47,22 @@ class CommentInput extends Component {
       <div>
         <div>
           <form onSubmit={(event) => this.handleOnSubmit(event)}>
+
+            <label>Enter TimeCode</label><br></br>
+            <input
+              id="timecode"
+              type="text"
+              value={this.state.timecode}
+              onChange={(event) => this.handleOnChange(event)} /><br></br>
+
             <label>Enter Comment</label><br></br>
             <input
+              id="content"
               type="text"
               value={this.state.content}
               onChange={(event) => this.handleOnChange(event)} />
+
+
             <input type="submit" />
           </form>
         </div>

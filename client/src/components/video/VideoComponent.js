@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import CommentInput from '../../components/comment/CommentInput'
 
-import { addComment } from  '../../actions/commentActions';
-import { deleteVideo } from  '../../actions/videoActions';
 
 class Video extends Component {
 
@@ -20,47 +17,46 @@ class Video extends Component {
     let videoId = parseInt(this.props.match.params.id,10)
     let video = allVideos.find(video =>  video.id === videoId)
 
-    let videoComments = video.comments.map((comment,index) => <li key={index}>
+    let allComments = this.props.comments.comments
+    //filter all of the comments based on the video
+    let comments = allComments.filter(comment => comment.video.id === videoId)
+    let videoComments = comments.map((comment,index) => <li key={index}>
     <Link to={`/comments/${comment.id}`}>
       {comment.content}
     </Link>
     </li>)
+
+    console.log(comments)
 
 
     return (
       <div>
 
         <h4>Video Name {video.video_name} </h4>
+        <h4>Video Id: {video.id}</h4>
 
         <h4>Video Version {video.version}</h4>
+        <iframe src={video.url} width="640" height="360" frameBorder="0" webkitallowfullscreen mozallowfullscreen allowFullScreen></iframe>
 
-      <iframe src={video.url} width="640" height="360" frameBorder="0" webkitallowfullscreen mozallowfullscreen allowFullScreen></iframe>
+        < CommentInput videoId={videoId}/>
 
-        < CommentInput
-        addComment={this.props.addComment}
-        />
-
-        <h3>Here all of the comments</h3>
+        <h3>Here all of the comments for this video</h3>
         {videoComments}
 
 
+
+      <br></br>
 
       </div>
     );
   }
 };
 
-const mapStateToProps = (state) => {
-  return { videos: state.videos}
-}
 
-const mapDispatchToProps = dispatch => ({
-  deleteVideo: video_id => dispatch(deleteVideo(video_id)),
-  addComment: comment_state => dispatch(addComment(comment_state))
-})
 
-export default connect(mapStateToProps, mapDispatchToProps)(Video)
+export default Video
 
 /**
 <button onClick={this.handleOnClick}> x </button>
+
   **/
