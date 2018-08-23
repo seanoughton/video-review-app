@@ -1,5 +1,5 @@
 class VideoSerializer < ActiveModel::Serializer
-  attributes :id, :video_name, :url
+  attributes :id, :video_name, :url, :version
   belongs_to :project
   has_many :comments
 

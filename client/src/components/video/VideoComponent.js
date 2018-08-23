@@ -14,12 +14,15 @@ class Video extends Component {
     let allVideos = this.props.videos.videos
     let videoId = parseInt(this.props.match.params.id,10)
     let video = allVideos.find(video =>  video.id === videoId)
-
+    
     return (
       <div>
 
+        <h4>Video Name {video.video_name} </h4>
 
-        {video.video_name}
+        <h4>Video Version {video.version}</h4>
+
+
         <button onClick={this.handleOnClick}> x </button>
       </div>
     );
