@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 
 import { deleteUser } from  '../../actions/userActions';
@@ -13,21 +14,31 @@ class User extends Component {
   }
 
   render() {
-    console.log(this.props)
+
     let allUsers = this.props.users.users
     let userId = parseInt(this.props.match.params.id,10)
     let user = allUsers.find(user =>  user.id === userId)
 
-    let allProjects = this.props.projects.projects
-    //filter all projects that have this user id
+    //let userProjects = user.projects
+
+    let userProjects = user.projects.map((project,index) => <li key={index}>
+    <Link to={`/projects/${project.id}`}>
+      {project.project_name}
+    </Link>
+    </li>)
 
     return (
       <div>
 
           {user.user_name}<br></br>
+          {user.id}<br></br>
           {user.email}
           <button onClick={this.handleOnClick}> x </button>
 
+          <h3>Here all of this users projects</h3>
+          {userProjects}
+
+          <h3>Add a Project</h3>
       </div>
     );
   }
