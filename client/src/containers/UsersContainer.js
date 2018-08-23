@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom';
+
 import { fetchUsers } from  '../actions/userActions';
 import { addUser } from  '../actions/userActions';
 import { deleteUser } from  '../actions/userActions';
@@ -17,7 +19,13 @@ class UsersContainer extends Component {
   render() {
     let allUsers = this.props.users.users
 
-    let users = allUsers.map((user,index) => <li key={index}> < User user={user} deleteUser={this.props.deleteUser}  /> </li>)
+    //let users = allUsers.map((user,index) => <li key={index}> < User user={user} deleteUser={this.props.deleteUser}  /> </li>)
+
+    let users = allUsers.map((user,index) => <li key={index}>
+    <Link to={`/users/${user.id}`}>
+      {user.user_name}
+    </Link>
+    </li>)
 
 
     return (

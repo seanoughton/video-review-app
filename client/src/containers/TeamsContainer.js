@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom';
+
 import { fetchTeams } from  '../actions/teamActions';
 import { addTeam } from  '../actions/teamActions';
 import { deleteTeam } from  '../actions/teamActions';
@@ -15,7 +17,11 @@ class TeamsContainer extends Component {
 
   render() {
     let allTeams= this.props.teams.teams
-    let teams = allTeams.map((team,index) => <li key={index}> < Team team={team} deleteTeam={this.props.deleteTeam}  /> </li>)
+    let teams = allTeams.map((team,index) => <li key={index}>
+      <Link to={`/teams/${team.id}`}>
+        {team.team_name}
+      </Link>
+      </li>)
 
 
     return (

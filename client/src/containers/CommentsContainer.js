@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom';
+
 import { fetchComments } from  '../actions/commentActions';
 import { addComment } from  '../actions/commentActions';
 import { deleteComment } from  '../actions/commentActions';
@@ -16,7 +18,13 @@ class CommentsContainer extends Component {
   render() {
     let allComments = this.props.comments.comments
 
-    let comments = allComments.map( (comment,index) => <li key={index} > < Comment    comment={comment} deleteComment={this.props.deleteComment} /> </li>)
+    //let comments = allComments.map( (comment,index) => <li key={index} > < Comment    comment={comment} deleteComment={this.props.deleteComment} /> </li>)
+
+    let comments = allComments.map( (comment,index) => <li key={index} >
+    <Link to={`/comments/${comment.id}`}>
+      {comment.content}
+    </Link>
+    </li>)
 
 
     return (

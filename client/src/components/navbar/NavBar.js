@@ -15,6 +15,10 @@ const NavBar = () => {
 
       <NavLink to="/teams"> Teams </NavLink><br></br>
 
+      <NavLink to="/videos"> Videos </NavLink><br></br>
+
+      <NavLink to="/comments"> Comments </NavLink><br></br>
+
     </div>
   );
 };

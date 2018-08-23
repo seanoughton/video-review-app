@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom';
+
 import { fetchVideos } from  '../actions/videoActions';
 import { addVideo } from  '../actions/videoActions';
 import { deleteVideo } from  '../actions/videoActions';
@@ -15,10 +17,15 @@ class VideosContainer extends Component {
    }
 
   render() {
-    console.log(this.props.videos.videos)
     let allVideos = this.props.videos.videos
 
-    let videos = allVideos.map((video,index) => <li key={index}> < Video video={video} deleteVideo={this.props.deleteVideo}  /> </li>)
+    //let videos = allVideos.map((video,index) => <li key={index}> < Video video={video} deleteVideo={this.props.deleteVideo}  /> </li>)
+
+    let videos = allVideos.map((video,index) => <li key={index}>
+      <Link to={`/videos/${video.id}`}>
+        {video.video_name}
+      </Link>
+    </li>)
 
 
     return (

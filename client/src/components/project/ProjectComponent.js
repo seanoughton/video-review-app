@@ -21,7 +21,6 @@ class Project extends Component {
     let allProjects = this.props.projects.projects
     let projectId = parseInt(this.props.match.params.id,10)
     let project = allProjects.find(project =>  project.id === projectId)
-    console.log(projectId)
     return (
 
       <div>

@@ -18,6 +18,10 @@ import CommentsContainer from './containers/CommentsContainer';
 import NavBar from './components/navbar/NavBar';
 import TestComponent from './components/test/TestComponent'
 import Project from './components/project/ProjectComponent'
+import Comment from './components/comment/CommentComponent'
+import Video from './components/video/VideoComponent'
+import User from './components/user/UserComponent'
+import Team from './components/team/TeamComponent'
 
 
 import { fetchVideos } from  './actions/videoActions';
@@ -45,16 +49,23 @@ class App extends Component {
          <div className="app">
            <NavBar />
            <Route exact path="/" component={ProjectsContainer} />
+
            <Route exact path="/comments" component={CommentsContainer} />
+           <Route exact path='/comments/:id' render={routerProps => <Comment {...routerProps} />} />
+
+
            <Route exact path="/videos" component={VideosContainer} />
+           <Route exact path='/videos/:id' render={routerProps => <Video {...routerProps} />} />
 
            <Route exact path="/projects" component={ProjectsContainer}/>
-
            <Route exact path='/projects/:id' render={routerProps => <Project {...routerProps} />} />
 
            <Route exact path="/users" component={UsersContainer} />
+           <Route exact path='/users/:id' render={routerProps => <User {...routerProps} />} />
+
            <Route exact path="/teams" component={TeamsContainer} />
-           <Route exact path="/test" component={TestComponent} />
+            <Route exact path='/teams/:id' render={routerProps => <Team {...routerProps} />} />
+
          </div>
        </Router>
      );
