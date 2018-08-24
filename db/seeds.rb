@@ -27,7 +27,7 @@ userproject04 = Userproject.create(user_id: user03.id, project_id: project01.id)
 userproject05 = Userproject.create(user_id: user02.id, project_id: project01.id)
 
 #VIDEOS
-video01 = Video.create(url:'https://player.vimeo.com/video/225178837',version: 1, video_name: 'AWS | Pitney Bowes', project_id: project01.id)
+video01 = Video.create(url:'https://player.vimeo.com/video/225178837',version: 1, video_name: 'AWS | Pitney Bowes', project_id: project01.id, approval: true)
 
 video02 = Video.create(url:'https://player.vimeo.com/video/226518977',version: 1, video_name: 'AutoCAD | Behind the Scenes', project_id: project02.id)
 

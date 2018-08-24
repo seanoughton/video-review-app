@@ -26,7 +26,7 @@ export function addVideo(video_state) {
        //.catch(error => console.error('Error:', error));
  };// end return
 
-}//end addUser **/
+}//end addVideo **/
 
 export function deleteVideo(video_id) {
  return (dispatch) => {
@@ -41,4 +41,22 @@ export function deleteVideo(video_id) {
        .then(response => dispatch({ type: 'DELETE_VIDEO', payload: response }));
  };// end return
 
-}//end deleteUser **/
+}//end deleteVideo **/
+
+export function updateVideo(video_state) {
+ return (dispatch) => {
+   var url = `/videos/${video_state.id}`;
+   var data = {video:video_state };
+   return fetch(url, {
+     method: 'PATCH',//change for update
+     body: JSON.stringify(data),
+     headers:{
+       'Content-Type': 'application/json'
+       },
+     }).then(res => res.json())
+       .then(response => dispatch({ type: 'UPDATE_VIDEO', payload: response }));
+
+ };// end return
+
+
+}//end updateVideo **/

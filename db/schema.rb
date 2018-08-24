@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2018_08_23_195510) do
     t.string "url"
     t.integer "version"
     t.string "video_name"
+    t.boolean "approval", default: false
     t.integer "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

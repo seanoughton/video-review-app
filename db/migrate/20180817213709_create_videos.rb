@@ -4,6 +4,7 @@ class CreateVideos < ActiveRecord::Migration[5.2]
       t.string :url
       t.integer :version
       t.string :video_name
+      t.boolean :approval, default: false
       t.integer :project_id
       t.timestamps
     end

@@ -1,0 +1,14 @@
+<%= form_for @video, controller: 'videos', action: 'update' do |f| %>
+
+  <%= f.label :name%>
+  <%= f.text_field :video_name %><br>
+
+  <%= f.label :url %>
+  <%= f.text_field :url %><br>
+
+  <%= f.label :approval %>
+  <%= f.text_field :approval %><br>
+
+
+  <%= f.submit  %>
+<% end %>

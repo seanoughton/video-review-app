@@ -56,7 +56,8 @@ class App extends Component {
 
 
            <Route exact path="/videos" render={routerProps => <VideosContainer {...routerProps} videos={this.props.videos}  />} />
-           <Route exact path='/videos/:id' render={routerProps => <Video {...routerProps} videos={this.props.videos} comments={this.props.comments} />} />
+
+           <Route exact path='/videos/:id' component={Video} />
 
            <Route exact path="/projects" render={routerProps => <ProjectsContainer {...routerProps} projects={this.props.projects}/>}/>
            <Route exact path='/projects/:id' render={routerProps => <Project {...routerProps} projects={this.props.projects} />} />
@@ -88,6 +89,7 @@ const mapDispatchToProps = dispatch => ({
 export default connect(mapStateToProps,mapDispatchToProps)(App)
 //export default App;
 /**
+<Route exact path='/videos/:id' render={routerProps => <Video {...routerProps}  comments={this.props.comments} />} />
 <Route exact path="/projects" component={ProjectsContainer}/>
 <Route exact path="/comments" component={CommentsContainer} />
 <Route exact path="/videos" component={VideosContainer} />

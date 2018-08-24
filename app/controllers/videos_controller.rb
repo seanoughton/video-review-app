@@ -42,7 +42,8 @@ class VideosController < ApplicationController
   def update
     @video = Video.find(params[:id])
     @video.update(video_params)
-    redirect_to videos_url
+    render json: @video
+    #redirect_to videos_url
   end
 
   def destroy
@@ -55,7 +56,7 @@ class VideosController < ApplicationController
   private
 
   def video_params
-    params.require(:video).permit(:url, :version, :video_name, :project_id)
+    params.require(:video).permit(:url, :version, :video_name, :project_id, :approval)
   end
 
 end
