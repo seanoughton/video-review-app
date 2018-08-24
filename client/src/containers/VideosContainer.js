@@ -24,6 +24,7 @@ class VideosContainer extends Component {
         <ul>
           {videos}
         </ul>
+        <h2>Add a Video</h2>
         < VideoInput />
       </div>
     )

@@ -8,7 +8,7 @@ class VideoInput extends Component {
     url: '',
     version: '',
     video_name: '',
-    project_id: 1
+    project_id: this.props.id //this.props.projectId
   }
 
   handleOnChange(event) {
@@ -50,6 +50,7 @@ class VideoInput extends Component {
 
 
   render() {
+    console.log(this.props.projectId)
     return (
       <div>
         <div>

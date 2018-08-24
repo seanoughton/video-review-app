@@ -60,7 +60,7 @@ class App extends Component {
            <Route exact path='/videos/:id' component={Video} />
 
            <Route exact path="/projects" render={routerProps => <ProjectsContainer {...routerProps} projects={this.props.projects}/>}/>
-           <Route exact path='/projects/:id' render={routerProps => <Project {...routerProps} projects={this.props.projects} />} />
+           <Route exact path='/projects/:id' component={Project} />
 
 
            <Route exact path='/users' render={routerProps => <UsersContainer {...routerProps} users={this.props.users} />} />

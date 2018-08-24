@@ -17,9 +17,12 @@ class Video extends Component {
     let videoId = parseInt(this.props.match.params.id,10)
     let comments = []
     let videoComments = ''
+    let currentUserId = 2
+    let project = ''
 
     if (allVideos.length > 0) {
       video = allVideos.find(video =>  video.id === videoId)
+      project = video.project.project_name
       if (video.approval === true) {
         approval = "Approved"
       }
@@ -46,10 +49,11 @@ class Video extends Component {
         <h4>Video Name {video.video_name} </h4>
         <h4>Video Id: {video.id}</h4>
         <h4>Video Version {video.version}</h4>
+        <h4>Project {project}</h4>
         <h4>Video Approval {approval}</h4>
         <iframe src={video.url} width="640" height="360" frameBorder="0" webkitallowfullscreen mozallowfullscreen allowFullScreen></iframe>
 
-        < CommentInput videoId={videoId}/><br></br>
+        < CommentInput videoId={videoId} currentUserId={currentUserId}/><br></br>
 
         < VideoApproval video={video}/>
 

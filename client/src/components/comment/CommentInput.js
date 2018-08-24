@@ -7,7 +7,7 @@ class CommentInput extends Component {
   state = {
     content: '',
     timecode: '',
-    user_id: 1,
+    user_id: this.props.currentUserId,
     video_id: this.props.videoId
   }
 
