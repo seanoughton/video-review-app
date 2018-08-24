@@ -10,6 +10,8 @@ import { connect } from 'react-redux'
 import logo from './logo.svg';
 import './App.css';
 
+import sampleBootstrap from './containers/sampleBootstrap';
+
 import VideosContainer from './containers/VideosContainer';
 import UsersContainer from './containers/UsersContainer';
 import ProjectsContainer from './containers/ProjectsContainer';
@@ -45,10 +47,10 @@ class App extends Component {
      console.log('app fired')
      return (
        <Router>
-         <div className="app">
+         <div className="app bg-dark">
            <NavBar />
 
-           <Route exact path="/" render={routerProps => <ProjectsContainer {...routerProps} projects={this.props.projects}/>} />
+           <Route exact path="/" component={sampleBootstrap}/>
 
            <Route exact path="/comments" render={routerProps => <CommentsContainer {...routerProps} comments={this.props.comments}/>} />
            <Route exact path='/comments/:id' render={routerProps => <Comment {...routerProps} comments={this.props.comments}/>} />
@@ -89,6 +91,9 @@ const mapDispatchToProps = dispatch => ({
 export default connect(mapStateToProps,mapDispatchToProps)(App)
 //export default App;
 /**
+
+<Route exact path="/" render={routerProps => <ProjectsContainer {...routerProps} projects={this.props.projects}/>}/>
+<Route exact path="/" render={routerProps => <ProjectsContainer {...routerProps} projects={this.props.projects}/>} />
 <Route exact path='/videos/:id' render={routerProps => <Video {...routerProps}  comments={this.props.comments} />} />
 <Route exact path="/projects" component={ProjectsContainer}/>
 <Route exact path="/comments" component={CommentsContainer} />
