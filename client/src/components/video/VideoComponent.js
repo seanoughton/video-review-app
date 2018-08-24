@@ -15,6 +15,8 @@ class Video extends Component {
     let approval = 'Not Approved'
     let allVideos = this.props.videos.videos
     let videoId = parseInt(this.props.match.params.id,10)
+    let comments = []
+    let videoComments = ''
 
     if (allVideos.length > 0) {
       video = allVideos.find(video =>  video.id === videoId)
@@ -24,15 +26,18 @@ class Video extends Component {
     }
 
     let allComments = this.props.comments.comments
-    let comments = allComments.filter(comment => comment.video.id === videoId)
-    let videoComments = comments.map((comment,index) => <li key={index}>
-    <Link to={`/comments/${comment.id}`}>
-      {comment.content}
-    </Link>
-    </li>)
+    if (allComments.length > 0){
+      comments = allComments.filter(comment => comment.video.id === videoId)
+      videoComments = comments.map((comment,index) => <li key={index}>
+        Timecode: {comment.timecode}   :
+        User: {comment.user.user_name} :
+        Comment: {comment.content} :
+      </li>)
+    }
 
 
-      
+
+
 
     return (
 
