@@ -22,7 +22,7 @@ class Video extends Component {
     let comments = allComments.filter(comment => comment.video.id === videoId)
     let videoComments = comments.map((comment,index) => <li key={index}>
     <Link to={`/comments/${comment.id}`}>
-      {comment.content}
+      {comment.content} 
     </Link>
     </li>)
 

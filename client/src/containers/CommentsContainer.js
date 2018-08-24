@@ -9,6 +9,7 @@ class CommentsContainer extends Component {
 
 
   render() {
+    console.log(this.props.comments.comments)
     let allComments = this.props.comments.comments
 
     let comments = allComments.map( (comment,index) => <li key={index} >

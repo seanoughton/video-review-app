@@ -39,12 +39,15 @@ class App extends Component {
 
 
 
+
+
    render() {
      console.log('app fired')
      return (
        <Router>
          <div className="app">
            <NavBar />
+           
            <Route exact path="/" render={routerProps => <ProjectsContainer {...routerProps} projects={this.props.projects}/>} />
 
            <Route exact path="/comments" render={routerProps => <CommentsContainer {...routerProps} comments={this.props.comments}/>} />

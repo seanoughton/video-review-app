@@ -1,20 +1,17 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { deleteComment } from  '../../actions/commentActions';
+
 
 class Comment extends Component {
 
-  handleOnClick = () => {
-    //this.props.deleteComment(this.props.comment.id)
-    this.props.deleteComment(this.props.match.params.id,10)
-  }
 
+//set up some logic that if the comments hasn't fired then fire the action from here when the component loads
 
   render() {
+    console.log(this.props)
     let allComments = this.props.comments.comments
     let commentId = parseInt(this.props.match.params.id,10)
     let comment = allComments.find(comment =>  comment.id === commentId)
-    console.log(comment)
+
     return (
       <div>
 
@@ -22,22 +19,26 @@ class Comment extends Component {
         <h4>Comment Id: {comment.id}</h4>
         <h4>Timecode: {comment.timecode}</h4>
 
-          <button onClick={this.handleOnClick}> x </button>
-
-
 
       </div>
     );
   }
 };
 
-const mapStateToProps = (state) => {
-  return { comments: state.comments}
+
+
+export default Comment
+//export default Comment;
+/**
+
+import { deleteComment } from  '../../actions/commentActions';
+
+handleOnClick = () => {
+  //this.props.deleteComment(this.props.comment.id)
+  this.props.deleteComment(this.props.match.params.id,10)
 }
 
-const mapDispatchToProps = dispatch => ({
-  deleteComment: comment_id => dispatch(deleteComment(comment_id))
-})
+<button onClick={this.handleOnClick}> x </button>
 
-export default connect(mapStateToProps, mapDispatchToProps)(Comment)
-//export default Comment;
+
+**/
