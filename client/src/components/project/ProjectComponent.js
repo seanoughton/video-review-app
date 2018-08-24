@@ -19,16 +19,20 @@ class Project extends Component {
 
 
   render() {
-
+    let project = {project_name:'', id:''}
     let allProjects = this.props.projects.projects
     let projectId = parseInt(this.props.match.params.id,10)
-    let project = allProjects.find(project =>  project.id === projectId)
+    let projectVideos = ''
 
-    let projectVideos = project.videos.map((video,index) => <li key={index}>
-    <Link to={`/videos/${video.id}`}>
-      {video.video_name}
-    </Link>
-    </li>)
+    if (allProjects.length > 0) {
+      project = allProjects.find(project =>  project.id === projectId)
+
+      projectVideos = project.videos.map((video,index) => <li key={index}>
+      <Link to={`/videos/${video.id}`}>
+        {video.video_name}
+      </Link>
+      </li>)
+    }
 
 
     return (
@@ -36,7 +40,7 @@ class Project extends Component {
       <div>
         {project.project_name}
 
-        <button onClick={this.handleOnClick}> x </button>
+
 
           <h3>Here all of this project's videos</h3>
           {projectVideos}
@@ -56,3 +60,7 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Project)
+
+/**
+<button onClick={this.handleOnClick}> x </button>
+**/

@@ -13,20 +13,23 @@ class Video extends Component {
   }
 
   render() {
+    let video = {url: '', version: '', video_name:'', project_id: '', id:''}
     let allVideos = this.props.videos.videos
     let videoId = parseInt(this.props.match.params.id,10)
-    let video = allVideos.find(video =>  video.id === videoId)
+
+    if (allVideos.length > 0) {
+      video = allVideos.find(video =>  video.id === videoId)
+    }
 
     let allComments = this.props.comments.comments
-    //filter all of the comments based on the video
     let comments = allComments.filter(comment => comment.video.id === videoId)
     let videoComments = comments.map((comment,index) => <li key={index}>
     <Link to={`/comments/${comment.id}`}>
-      {comment.content} 
+      {comment.content}
     </Link>
     </li>)
 
-    console.log(comments)
+
 
 
     return (

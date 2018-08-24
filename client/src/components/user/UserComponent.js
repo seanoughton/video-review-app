@@ -15,15 +15,21 @@ class User extends Component {
 
   render() {
 
+    let user = {user_name:'', email:'', password:'', id:''}
+    let userProjects = ''
     let allUsers = this.props.users.users
     let userId = parseInt(this.props.match.params.id,10)
-    let user = allUsers.find(user =>  user.id === userId)
 
-    let userProjects = user.projects.map((project,index) => <li key={index}>
-    <Link to={`/projects/${project.id}`}>
-      {project.project_name}
-    </Link>
-    </li>)
+    if (allUsers.length > 0) {
+      user = allUsers.find(user =>  user.id === userId)
+      userProjects = user.projects.map((project,index) => <li key={index}>
+      <Link to={`/projects/${project.id}`}>
+        {project.project_name}
+      </Link>
+      </li>)
+    }
+
+    
 
     return (
       <div>
