@@ -24,6 +24,14 @@ class UsersController < ApplicationController
     render json: @user
   end
 
+
+  def login
+    @user = User.find_by(user_name: params[:user][:user_name])
+    @user = @user.try(:authenticate, params[:user][:password])
+    render json: @user
+  end
+
+
   def show
     @user = User.find(params[:id])
     respond_to do |format|

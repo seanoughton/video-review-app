@@ -16,11 +16,13 @@ import VideosContainer from './containers/VideosContainer';
 import UsersContainer from './containers/UsersContainer';
 import ProjectsContainer from './containers/ProjectsContainer';
 import CommentsContainer from './containers/CommentsContainer';
+
 import NavBar from './components/navbar/NavBar';
 import Project from './components/project/ProjectComponent'
 import Comment from './components/comment/CommentComponent'
 import Video from './components/video/VideoComponent'
 import User from './components/user/UserComponent'
+import Login from './components/login/LoginComponent'
 
 
 
@@ -44,30 +46,42 @@ class App extends Component {
 
 
    render() {
-     console.log('app fired')
+     //console.log('app fired')
+     let current_user = this.props.current_user
+     //console.log(current_user)
+     //console.log(Object.values(current_user));
+     console.log(Object.keys(current_user.current_user).length);
+
+     let loggedIn = [
+        <Route exact path="/" component={sampleBootstrap} />, <Route exact path="/projects" render={routerProps => <ProjectsContainer {...routerProps} projects={this.props.projects}/>}/>, <Route exact path='/projects/:id' component={Project} />, <Route exact path='/users' render={routerProps => <UsersContainer {...routerProps} users={this.props.users} />} />,
+        <Route exact path='/users/:id' render={routerProps => <User {...routerProps} users={this.props.users} projects={this.props.projects}/>} />, <Route exact path="/videos" render={routerProps => <VideosContainer {...routerProps} videos={this.props.videos}  />} />, <Route exact path='/videos/:id' component={Video} />, <Route exact path="/comments" render={routerProps => <CommentsContainer {...routerProps} comments={this.props.comments}/>} />,
+        <Route exact path='/comments/:id' render={routerProps => <Comment {...routerProps} comments={this.props.comments}/>} />
+
+      ]
+
+      let notLoggedIn = [
+        <Route exact path="*" component={Login} />
+      ]
+
+      let whatToRender
+
+     //current_user = {user_name: "user_name", password: "password", email:"something@something.com"}
+
+     if (Object.keys(current_user.current_user).length > 0) {
+       whatToRender = loggedIn
+     } else {
+      whatToRender = notLoggedIn
+     }
+
+
+
+
      return (
        <Router>
          <div className="app bg-dark">
            <NavBar />
 
-           <Route exact path="/" component={sampleBootstrap}/>
-
-           <Route exact path="/comments" render={routerProps => <CommentsContainer {...routerProps} comments={this.props.comments}/>} />
-           <Route exact path='/comments/:id' render={routerProps => <Comment {...routerProps} comments={this.props.comments}/>} />
-
-
-
-           <Route exact path="/videos" render={routerProps => <VideosContainer {...routerProps} videos={this.props.videos}  />} />
-
-           <Route exact path='/videos/:id' component={Video} />
-
-           <Route exact path="/projects" render={routerProps => <ProjectsContainer {...routerProps} projects={this.props.projects}/>}/>
-           <Route exact path='/projects/:id' component={Project} />
-
-
-           <Route exact path='/users' render={routerProps => <UsersContainer {...routerProps} users={this.props.users} />} />
-           <Route exact path='/users/:id' render={routerProps => <User {...routerProps} users={this.props.users} projects={this.props.projects}/>} />
-
+           {whatToRender}
 
 
          </div>
@@ -77,7 +91,7 @@ class App extends Component {
 }//end class
 
 const mapStateToProps = (state) => {
-  return { videos: state.videos, users: state.users, projects: state.projects, comments: state.comments
+  return { videos: state.videos, users: state.users, projects: state.projects, comments: state.comments, current_user: state.current_user
    }
 }
 
@@ -91,6 +105,10 @@ const mapDispatchToProps = dispatch => ({
 export default connect(mapStateToProps,mapDispatchToProps)(App)
 //export default App;
 /**
+
+
+
+
 
 <Route exact path="/" render={routerProps => <ProjectsContainer {...routerProps} projects={this.props.projects}/>}/>
 <Route exact path="/" render={routerProps => <ProjectsContainer {...routerProps} projects={this.props.projects}/>} />

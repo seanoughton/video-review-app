@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 const NavBar = () => {
   return (
 
-    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark border">
       <a class="navbar-brand" href="/">Video Review</a>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
