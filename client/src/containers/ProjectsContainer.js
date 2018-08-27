@@ -17,7 +17,7 @@ class ProjectsContainer extends Component {
 
 
   render() {
-
+    
     let allProjects = this.props.projects.projects
 
 
@@ -30,7 +30,7 @@ class ProjectsContainer extends Component {
 
     return (
       <div>
-        
+
         <h1> All Projects </h1>
         <ul>
           {projects}

@@ -36,6 +36,13 @@ class UsersController < ApplicationController
 
   end
 
+  def logout
+
+      session.delete :user_id
+      #redirect_to '/'
+
+  end
+
 
   def show
     @user = User.find(params[:id])

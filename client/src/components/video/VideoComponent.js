@@ -8,9 +8,8 @@ import VideoApproval from './VideoApproval'
 
 class Video extends Component {
 
-
-
   render() {
+
     let video = {url: '', version: '', video_name:'', project_id: '', id:''}
     let approval = 'Not Approved'
     let allVideos = this.props.videos.videos
@@ -37,6 +36,7 @@ class Video extends Component {
         Comment: {comment.content} :
       </li>)
     }
+
 
 
 
@@ -70,7 +70,7 @@ class Video extends Component {
 };
 
 const mapStateToProps = (state) => {
-  return { videos: state.videos, comments: state.comments}
+  return { videos: state.videos, comments: state.comments, current_user: state.current_user.current_user}
 }
 
 export default connect(mapStateToProps)(Video)

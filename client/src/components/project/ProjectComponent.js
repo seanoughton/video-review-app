@@ -10,6 +10,12 @@ class Project extends Component {
 
 
   render() {
+    let user
+    if (this.props.current_user){
+      user = this.props.current_user.current_user
+    } else {
+      user = "no user"
+    }
     let project = {project_name:'', id:''}
     let allProjects = this.props.projects.projects
     let projectId = parseInt(this.props.match.params.id,10)
@@ -36,7 +42,7 @@ class Project extends Component {
       <div>
         {project.project_name}
 
-
+        <h2>This is the user {user.user_name}</h2>
 
           <h3>Here all of this project's videos</h3>
           {projectVideos}
@@ -51,7 +57,7 @@ class Project extends Component {
 };
 
 const mapStateToProps = (state) => {
-  return { projects: state.projects, videos: state.videos}
+  return { projects: state.projects, videos: state.videos, current_user: state.current_user}
 }
 
 const mapDispatchToProps = dispatch => ({

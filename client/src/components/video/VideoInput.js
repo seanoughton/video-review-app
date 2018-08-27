@@ -50,7 +50,7 @@ class VideoInput extends Component {
 
 
   render() {
-    console.log(this.props.projectId)
+  
     return (
       <div>
         <div>
