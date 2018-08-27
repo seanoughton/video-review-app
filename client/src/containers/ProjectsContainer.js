@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 
@@ -13,37 +13,44 @@ import ProjectInput from '../components/project/ProjectInput'
 class ProjectsContainer extends Component {
 
 
-
-
-
   render() {
-    
+
     let allProjects = this.props.projects.projects
+    let userProjects = this.props.current_user.projects
+    //let projectIds = userProjects.map( project => project.id)
+    //let projects = []
+    //projectIds.forEach( element => projects.push( allProjects.find( project => project.id === element)))
 
-
-    let projects = allProjects.map( (project,index) => <li key={index}>
-    <Link to={`/projects/${project.id}`}>
-      {project.project_name}
-    </Link>
-    </li>)
+    let displayProjects = userProjects.map( (project,index) =>
+        <div class="card" key={index}>
+          <div class="card-body">
+            <h5 class="card-title">{project.project_name}</h5>
+            <p class="card-text">This is a promo video for AWS promoting their cloud service.</p>
+            <Link to={`/projects/${project.id}`} class="btn btn-primary"> Work on this Project </Link>
+          </div>
+        </div>)
 
 
     return (
-      <div>
+      <div class="container-fluid">
 
-        <h1> All Projects </h1>
-        <ul>
-          {projects}
-        </ul>
+        <h1 class="text-white"> All Projects for {this.props.current_user.user_name}</h1>
+
+      <div class="card-group">
+        {displayProjects}
+      </div>{/** end card-group **/}
+
         < ProjectInput/>
-
       </div>
+
     )
   }
 }
 
+const mapStateToProps = (state) => {
+  return { current_user: state.current_user.current_user}
+}
 
 
-
-
-export default ProjectsContainer
+export default connect(mapStateToProps)(ProjectsContainer)
+//export default ProjectsContainer

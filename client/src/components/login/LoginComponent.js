@@ -48,36 +48,57 @@ class Login extends Component {
 
   render() {
     return (
-      <div>
-        <div>
-        <h2>Log In </h2>
-          <form onSubmit={(event) => this.handleOnSubmit(event)}>
-            <label>User Name</label>
-
-            <input
-              id="user_name"
-              type="text"
-              value={this.state.user_name}
-              onChange={(event) => this.handleOnChange(event)} /><br></br>
 
 
-
-            <label>Password</label>
-            <input
-              id="password"
-              type="text"
-              value={this.state.password}
-              onChange={(event) => this.handleOnChange(event)} /> <br></br>
+      <div class="container">
+        <div class="row">
+          <div class="col bg-info text-white border-right">
+            <h2>Log In </h2>
+              <form onSubmit={(event) => this.handleOnSubmit(event)}>
 
 
-            <br></br>
-            <br></br>
-            <input type="submit" />
-          </form>
-        </div><br></br><br></br>
-        <h2>Sign Up</h2>
-        < UserInput/>
-      </div>
+                <div class="form-group">
+                  <label for="user_name">User Name</label>
+                  <input type="text"
+                    class="form-control"
+                    id="user_name"
+                    aria-describedby="userHelp"
+                    placeholder="Enter User Name"
+                    value={this.state.user_name}
+                    onChange={(event) => this.handleOnChange(event)}
+                    />
+
+                </div>
+
+
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="password"
+                    placeholder="Enter Password"
+                    value={this.state.password}
+                    onChange={(event) => this.handleOnChange(event)}
+                    />
+                </div>
+
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+          </div>{/* end col */}
+
+          <div class="col bg-info text-white">
+            <h2>Sign Up</h2>
+            < UserInput/>
+          </div>{/* end col */}
+
+        </div>{/* end row */}
+      </div>// end container
+
+
+
+
     );
   }
 };

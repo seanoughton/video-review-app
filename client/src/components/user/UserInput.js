@@ -62,38 +62,60 @@ class UserInput extends Component {
       <div>
         <div>
           <form onSubmit={(event) => this.handleOnSubmit(event)}>
-            <label>User Name</label>
 
-            <input
-              id="user_name"
-              type="text"
-              value={this.state.user_name}
-              onChange={(event) => this.handleOnChange(event)} /><br></br>
-
-              <label>Email</label>
+            <div class="form-group">
+              <label for="user_name">User Name</label>
               <input
-                id="email"
+                class="form-control"
                 type="text"
-                value={this.state.email}
-                onChange={(event) => this.handleOnChange(event)} /><br></br>
+                id="user_name"
+                aria-describedby="userHelp"
+                placeholder="Enter User Name"
+                value={this.state.user_name}
+                onChange={(event) => this.handleOnChange(event)}
+                />
 
-                <label>Password</label>
+            </div>
+
+
+              <div class="form-group">
+                <label for="email">Email</label>
                 <input
+                  class="form-control"
+                  type="email"
+                  id="email"
+                  aria-describedby="userHelp"
+                  placeholder="Enter Email"
+                  value={this.state.email}
+                  onChange={(event) => this.handleOnChange(event)}
+                  />
+              </div>
+
+
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
                   id="password"
-                  type="text"
+                  placeholder="Enter Password"
                   value={this.state.password}
-                  onChange={(event) => this.handleOnChange(event)} /> <br></br>
+                  onChange={(event) => this.handleOnChange(event)}
+                  />
+              </div>
 
-                <label>Password Confirmation</label>
+              <div class="form-group">
+                <label for="password_confirmation">Password Confirmation</label>
                 <input
+                  type="password"
+                  class="form-control"
                   id="password_confirmation"
-                  type="text"
+                  placeholder="Confirm Password"
                   value={this.state.password_confirmation}
-                  onChange={(event) => this.handleOnChange(event)} />
-
-            <br></br>
-            <br></br>
-            <input type="submit" />
+                  onChange={(event) => this.handleOnChange(event)}
+                  />
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
           </form>
         </div>
       </div>

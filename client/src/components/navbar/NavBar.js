@@ -17,12 +17,10 @@ handleOnClick(event) {
 
 render (){
 
-
-
   return (
 
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark border">
-      <a class="navbar-brand" href="/">Video </a>
+      <a class="navbar-brand" href="/">{this.props.current_user.user_name} </a>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -57,7 +55,7 @@ render (){
 }
 
 const mapStateToProps = (state) => {
-  return { current_user: state.users.current_user}
+  return { current_user: state.current_user.current_user}
 }
 
 const mapDispatchToProps = dispatch => ({

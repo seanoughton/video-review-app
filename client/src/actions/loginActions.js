@@ -2,7 +2,6 @@
 export function login(user_state) {
  return (dispatch) => {
    var url = '/login';
-   console.log=(user_state)
    var data = {user:user_state };
    return fetch(url, {
      method: 'POST',

@@ -18,6 +18,7 @@ import ProjectsContainer from './containers/ProjectsContainer';
 import CommentsContainer from './containers/CommentsContainer';
 
 import NavBar from './components/navbar/NavBar';
+import NavBarLogin from './components/navbar/NavBarLogin';
 import Project from './components/project/ProjectComponent'
 import Comment from './components/comment/CommentComponent'
 import Video from './components/video/VideoComponent'
@@ -51,13 +52,15 @@ class App extends Component {
 
 
      let loggedIn = [
-        <Route exact path="/" component={sampleBootstrap} />, <Route exact path="/projects" render={routerProps => <ProjectsContainer {...routerProps} projects={this.props.projects}/>}/>, <Route exact path='/projects/:id' component={Project} />, <Route exact path='/users' render={routerProps => <UsersContainer {...routerProps} users={this.props.users} />} />,
+       <NavBar user = {this.props.current_user.current_user.user_name}/>,
+        <Route exact path="/" component={sampleBootstrap} />, <Route exact path="/projects" render={routerProps => <ProjectsContainer {...routerProps} projects={this.props.projects}/>} />, <Route exact path='/projects/:id' component={Project} />, <Route exact path='/users' render={routerProps => <UsersContainer {...routerProps} users={this.props.users} />} />,
         <Route exact path='/users/:id' render={routerProps => <User {...routerProps} users={this.props.users} projects={this.props.projects}/>} />, <Route exact path="/videos" render={routerProps => <VideosContainer {...routerProps} videos={this.props.videos}  />} />, <Route exact path='/videos/:id' component={Video} />, <Route exact path="/comments" render={routerProps => <CommentsContainer {...routerProps} comments={this.props.comments}/>} />,
         <Route exact path='/comments/:id' render={routerProps => <Comment {...routerProps} comments={this.props.comments}/>} />, <Route exact path="/logout"  component={Login} />
 
       ]
 
       let notLoggedIn = [
+        < NavBarLogin />,
         <Route exact path="*" component={Login} />
       ]
 
@@ -75,7 +78,6 @@ class App extends Component {
      return (
        <Router>
          <div className="app bg-dark">
-           <NavBar />
 
            {whatToRender}
 
