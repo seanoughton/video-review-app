@@ -3,12 +3,18 @@ export default function loginReducer(state = {current_user:false}, action) {
 
 
     case "SET_CURRENT_USER":
-      console.log(action.payload)
+      //console.log(action.payload)
     let user = action.payload
     return {
       ...state,
       current_user:  user
     }
+
+    case 'DELETE_CURRENT_USER':
+      return {
+        ...state,
+        current_user:  false
+      }
 
 
     default:

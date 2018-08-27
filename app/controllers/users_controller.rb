@@ -28,7 +28,12 @@ class UsersController < ApplicationController
   def login
     @user = User.find_by(user_name: params[:user][:user_name])
     @user = @user.try(:authenticate, params[:user][:password])
-    render json: @user
+    if @user
+      render json: @user
+    else
+      render json: false
+    end
+
   end
 
 

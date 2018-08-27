@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux'
 
+import { deleteCurrentUser } from  '../../actions/loginActions';
 
-const NavBar = () => {
+
+class NavBar extends Component {
+//const NavBar = () => {
+
+handleOnClick(event) {
+  //event.preventDefault();
+  this.props.deleteCurrentUser()
+}
+
+render (){
   return (
 
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark border">
@@ -25,6 +35,8 @@ const NavBar = () => {
 
           <NavLink to="/comments" class="nav-item nav-link"> Comments </NavLink>
 
+          <NavLink to="/" class="nav-item nav-link" onClick={(event) => this.handleOnClick(event)}> Logout </NavLink>
+
 
         </div>
       </div>
@@ -37,26 +49,14 @@ const NavBar = () => {
 
   );
 };
+}
 
 const mapStateToProps = (state) => {
   return { current_user: state.users.current_user}
 }
 
-export default connect(mapStateToProps)(NavBar)
-/**
-<div className="navbar">
+const mapDispatchToProps = dispatch => ({
+  deleteCurrentUser: () => dispatch(deleteCurrentUser())
+})
 
-
-  <NavLink to="/">Home </NavLink><br></br>
-
-  <NavLink to="/projects"> Projects </NavLink><br></br>
-
-  <NavLink to="/users"> Users </NavLink><br></br>
-
-  <NavLink to="/videos"> Videos </NavLink><br></br>
-
-  <NavLink to="/comments"> Comments </NavLink><br></br>
-
-
-
-</div> **/
+export default connect(mapStateToProps,mapDispatchToProps)(NavBar)

@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import { addUser } from  '../../actions/userActions';
 import { login } from  '../../actions/loginActions';
 
+import UserInput from '../user/UserInput'
+
 class Login extends Component {
 
   state = {
@@ -72,14 +74,16 @@ class Login extends Component {
             <br></br>
             <input type="submit" />
           </form>
-        </div>
+        </div><br></br><br></br>
+        <h2>Sign Up</h2>
+        < UserInput/>
       </div>
     );
   }
 };
 
 const mapStateToProps = (state) => {
-  return { users: state.users}
+  return { users: state.users, current_user: state.current_user}
 }
 
 
