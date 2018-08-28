@@ -58,9 +58,18 @@ class UserInput extends Component {
 
 
   render() {
+
+    let alert
+    if (this.props.current_user.login === false){
+      alert = <div class="alert alert-danger" role="alert">
+        Password and Password Confirmation do not match
+      </div>
+    }
+
     return (
       <div>
         <div>
+          {alert}
           <form onSubmit={(event) => this.handleOnSubmit(event)}>
 
             <div class="form-group">
@@ -73,7 +82,8 @@ class UserInput extends Component {
                 placeholder="Enter User Name"
                 value={this.state.user_name}
                 onChange={(event) => this.handleOnChange(event)}
-                />
+                required/>
+
 
             </div>
 
@@ -88,7 +98,7 @@ class UserInput extends Component {
                   placeholder="Enter Email"
                   value={this.state.email}
                   onChange={(event) => this.handleOnChange(event)}
-                  />
+                  required/>
               </div>
 
 
@@ -101,7 +111,7 @@ class UserInput extends Component {
                   placeholder="Enter Password"
                   value={this.state.password}
                   onChange={(event) => this.handleOnChange(event)}
-                  />
+                  required/>
               </div>
 
               <div class="form-group">
@@ -113,7 +123,7 @@ class UserInput extends Component {
                   placeholder="Confirm Password"
                   value={this.state.password_confirmation}
                   onChange={(event) => this.handleOnChange(event)}
-                  />
+                  required/>
               </div>
               <button type="submit" class="btn btn-secondary">Submit</button>
           </form>
@@ -124,7 +134,7 @@ class UserInput extends Component {
 };
 
 const mapStateToProps = (state) => {
-  return { users: state.users}
+  return { users: state.users, current_user: state.current_user}
 }
 
 

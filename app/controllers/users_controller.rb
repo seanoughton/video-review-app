@@ -21,7 +21,12 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     @user.save
     #redirect_to users_url
-    render json: @user
+    if @user.id
+      render json: @user
+    else
+      render json: false
+    end
+
   end
 
 
