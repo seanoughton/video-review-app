@@ -19,6 +19,7 @@ class User extends Component {
     let userProjects = ''
     let allUsers = this.props.users.users
     let userId = parseInt(this.props.match.params.id,10)
+    let editProfileButton
 
     if (allUsers.length > 0) {
       user = allUsers.find(user =>  user.id === userId)
@@ -27,6 +28,12 @@ class User extends Component {
         {project.project_name}
       </Link>
       </li>)
+    }
+
+    if (user.id === this.props.current_user.id){
+      editProfileButton = <Link class="btn btn-primary" to={`/users/${this.props.current_user.id}/edit`}>
+        Edit Profile
+      </Link>
     }
 
 
@@ -40,11 +47,9 @@ class User extends Component {
 
           <div class="card w-50">
             <div class="card-body">
-              <h5 class="card-title">{this.props.current_user.user_name}</h5>
-              <p class="card-text">{this.props.current_user.email}</p>
-                <Link class="btn btn-primary" to={`/users/${this.props.current_user.id}/edit`}>
-                  Edit Profile
-                </Link>
+              <h5 class="card-title">{user.user_name}</h5>
+              <p class="card-text">{user.email}</p>
+                {editProfileButton}
             </div>
           </div>
 
