@@ -26,6 +26,24 @@ export function addUser(user_state) {
 
 }//end addUser **/
 
+export function editUser(user_state) {
+ return (dispatch) => {
+   var url = `/users/2`;
+   //var url = `/users/${user_state.id}`;
+   var data = {user:user_state };
+   return fetch(url, {
+     method: 'PATCH',
+     body: JSON.stringify(data),
+     headers:{
+       'Content-Type': 'application/json'
+       },
+     }).then(res => res.json())
+       .then(response => dispatch({ type: 'UPDATE_USER_INFO', payload: response }))
+       //.catch(error => console.error('Error:', error));
+ };// end return
+
+}//end editUser **/
+
 export function deleteUser(user_id) {
  return (dispatch) => {
    var url = `/users/${user_id}`;

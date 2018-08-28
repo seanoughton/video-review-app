@@ -29,29 +29,52 @@ class User extends Component {
       </li>)
     }
 
-    
+
 
     return (
-      <div>
+      <div class="container-fluid">
 
-          {user.user_name}<br></br>
-          {user.id}<br></br>
-          {user.email}
-          <button onClick={this.handleOnClick}> x </button>
+        <div class="row">
+          <Link to={`/users/${this.props.current_user.id}`}>
+            Edit your User Profile
+          </Link>
+        </div>
 
-          <h3>Here all of this users projects</h3>
-          {userProjects}
+        <div class="row">
+          <Link to={`/projects`}>
+            Go to your projects
+          </Link>
+        </div>
 
-          <h3>Add a Project</h3>
+
+
+
+
       </div>
     );
   }
 };
 
 
+
+const mapStateToProps = (state) => {
+  return { current_user: state.current_user.current_user}
+}
+
 const mapDispatchToProps = dispatch => ({
   deleteUser: user_id => dispatch(deleteUser(user_id))
 })
 
-export default connect(mapDispatchToProps)(User)
-//export default connect(mapStateToProps, mapDispatchToProps)(User)
+export default connect(mapStateToProps,mapDispatchToProps)(User)
+/**
+{user.user_name}<br></br>
+{user.id}<br></br>
+{user.email}
+<button onClick={this.handleOnClick}> x </button>
+
+<h3>Here all of this users projects</h3>
+{userProjects}
+
+<h3>Add a Project</h3>
+
+**/

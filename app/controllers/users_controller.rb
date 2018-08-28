@@ -59,7 +59,8 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.update(user_params)
-    redirect_to users_url
+    render json: @user
+    #redirect_to users_url
   end
 
   def destroy

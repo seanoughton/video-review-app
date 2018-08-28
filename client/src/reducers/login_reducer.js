@@ -26,6 +26,13 @@ export default function loginReducer(state = {current_user:false}, action) {
           current_user:  user
         }
 
+        case "UPDATE_USER_INFO":
+          user = action.payload
+          return {
+            ...state,
+            current_user:  user
+          }
+
 
 
 

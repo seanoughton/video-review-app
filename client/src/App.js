@@ -23,6 +23,7 @@ import Project from './components/project/ProjectComponent'
 import Comment from './components/comment/CommentComponent'
 import Video from './components/video/VideoComponent'
 import User from './components/user/UserComponent'
+import UserEdit from './components/user/UserEdit'
 import Login from './components/login/LoginComponent'
 
 
@@ -58,6 +59,7 @@ class App extends Component {
         <Route exact path='/projects/:id' component={Project} />,
         <Route exact path='/users' render={routerProps => <UsersContainer {...routerProps} users={this.props.users} />} />,
         <Route exact path='/users/:id' render={routerProps => <User {...routerProps} users={this.props.users} projects={this.props.projects}/>} />,
+        <Route exact path='/users/:id/edit' render={routerProps => <UserEdit {...routerProps} users={this.props.users} projects={this.props.projects}/>} />,
         <Route exact path="/videos" render={routerProps => <VideosContainer {...routerProps} videos={this.props.videos}  />} />,
         <Route exact path='/videos/:id' component={Video} />,
         <Route exact path="/comments" render={routerProps => <CommentsContainer {...routerProps} comments={this.props.comments}/>} />,
