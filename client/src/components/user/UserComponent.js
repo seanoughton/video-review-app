@@ -35,16 +35,23 @@ class User extends Component {
       <div class="container-fluid">
 
         <div class="row">
-          <Link to={`/users/${this.props.current_user.id}`}>
-            Edit your User Profile
-          </Link>
+
+
+
+          <div class="card w-50">
+            <div class="card-body">
+              <h5 class="card-title">{this.props.current_user.user_name}</h5>
+              <p class="card-text">{this.props.current_user.email}</p>
+                <Link class="btn btn-primary" to={`/users/${this.props.current_user.id}/edit`}>
+                  Edit Profile
+                </Link>
+            </div>
+          </div>
+
         </div>
 
-        <div class="row">
-          <Link to={`/projects`}>
-            Go to your projects
-          </Link>
-        </div>
+
+
 
 
 

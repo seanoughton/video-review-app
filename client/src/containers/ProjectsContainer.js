@@ -42,14 +42,16 @@ class ProjectsContainer extends Component {
 
         <h1 class="text-white"> Here are all of your projects: </h1><br></br>
 
+          <div class="row ml-4">
+            < ProjectInput/>
+          </div>
+          
           <div class="row">
               {displayProjects}
           </div>
 
 
-          <div class="row ml-4">
-            < ProjectInput/>
-          </div>
+
       </div>
 
     )

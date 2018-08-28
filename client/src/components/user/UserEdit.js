@@ -9,7 +9,7 @@ class UserInput extends Component {
   state = {
     id: this.props.current_user,
     user_name: this.props.current_user.user_name,
-    email: '',
+    email: this.props.current_user.email,
     password: '',
     password_confirmation:''
   }
@@ -66,7 +66,7 @@ class UserInput extends Component {
           <form onSubmit={(event) => this.handleOnSubmit(event)}>
 
             <div class="form-group">
-              <label for="user_name">User Name</label>
+              <label  class="text-white" for="user_name">User Name</label>
               <input
                 class="form-control"
                 type="text"
@@ -81,7 +81,7 @@ class UserInput extends Component {
 
 
               <div class="form-group">
-                <label for="email">Email</label>
+                <label class="text-white" for="email">Email</label>
                 <input
                   class="form-control"
                   type="email"
@@ -95,7 +95,7 @@ class UserInput extends Component {
 
 
               <div class="form-group">
-                <label for="password">Password</label>
+                <label class="text-white" for="password">Password</label>
                 <input
                   type="password"
                   class="form-control"
@@ -107,7 +107,7 @@ class UserInput extends Component {
               </div>
 
               <div class="form-group">
-                <label for="password_confirmation">Password Confirmation</label>
+                <label class="text-white" for="password_confirmation">Password Confirmation</label>
                 <input
                   type="password"
                   class="form-control"
