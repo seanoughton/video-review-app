@@ -33,7 +33,7 @@ class ProjectsContainer extends Component {
             </div> {/**end card **/} <br></br>
           </div>)//end col
 
-          
+
 
     return (
       <div class="container-fluid">

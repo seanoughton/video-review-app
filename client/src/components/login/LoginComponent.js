@@ -13,6 +13,8 @@ class Login extends Component {
     password: ''
   }
 
+
+
   handleOnChange(event) {
     if (event.target.id === 'user_name') {
       this.setState({
@@ -42,11 +44,20 @@ class Login extends Component {
       user_name: '',
       password: ''
     });
+
   }
 
 
 
   render() {
+
+    let alert
+    if (this.props.current_user.login === false){
+      alert = <div class="alert alert-danger" role="alert">
+        Incorrect User Name and Password
+      </div>
+    }
+
     return (
 
 
@@ -54,11 +65,15 @@ class Login extends Component {
         <div class="row">
           <div class="col bg-info text-white border-right">
             <h2>Log In </h2>
+            {alert}
               <form onSubmit={(event) => this.handleOnSubmit(event)}>
 
 
                 <div class="form-group">
                   <label for="user_name">User Name</label>
+
+
+
                   <input type="text"
                     class="form-control"
                     id="user_name"
@@ -66,10 +81,12 @@ class Login extends Component {
                     placeholder="Enter User Name"
                     value={this.state.user_name}
                     onChange={(event) => this.handleOnChange(event)}
-                    />
+                    required/>
+                    <div class="invalid-feedback">
+                      Please choose a username.
+                    </div>
 
                 </div>
-
 
                 <div class="form-group">
                   <label for="password">Password</label>
@@ -80,7 +97,10 @@ class Login extends Component {
                     placeholder="Enter Password"
                     value={this.state.password}
                     onChange={(event) => this.handleOnChange(event)}
-                    />
+                    required/>
+                    <div class="invalid-feedback">
+                      Please choose a username.
+                    </div>
                 </div>
 
 
@@ -91,6 +111,7 @@ class Login extends Component {
           <div class="col bg-info text-white">
             <h2>Sign Up</h2>
             < UserInput/>
+
           </div>{/* end col */}
 
         </div>{/* end row */}
