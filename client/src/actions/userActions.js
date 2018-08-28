@@ -19,8 +19,12 @@ export function addUser(user_state) {
        'Content-Type': 'application/json'
        },
      }).then(res => res.json())
-       .then(response => dispatch({ type: 'ADD_USER', payload: response }))
-       .then(response => dispatch({ type: 'SET_CURRENT_USER', payload: response }))
+       //.then(response => dispatch({ type: 'ADD_USER', payload: response }))
+       .then(response => dispatch(
+         { type: 'ADD_USER', type: 'SET_CURRENT_USER', payload: response }
+       )
+     )
+       //.then(response => dispatch({ type: 'SET_CURRENT_USER', payload: response }))
        //.catch(error => console.error('Error:', error));
  };// end return
 

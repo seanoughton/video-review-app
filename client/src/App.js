@@ -48,7 +48,7 @@ class App extends Component {
 
 
    render() {
-     //console.log('app fired')
+     //console.log(this.props)
      let current_user = this.props.current_user
 
 

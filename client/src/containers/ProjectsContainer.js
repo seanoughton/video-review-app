@@ -16,15 +16,13 @@ class ProjectsContainer extends Component {
   render() {
 
     let allProjects = this.props.projects.projects
-    let userProjects = this.props.current_user.projects
-    //let projectIds = userProjects.map( project => project.id)
-    //let projects = []
-    //projectIds.forEach( element => projects.push( allProjects.find( project => project.id === element)))
+    let userProjects = []
+    if (this.props.current_user.projects){
+      userProjects = this.props.current_user.projects
+    }
 
 
     let displayProjects = userProjects.map( (project,index) =>
-
-
           <div class="col-sm-4" key={index}>
             <div class="card">
               <div class="card-body">
@@ -35,7 +33,7 @@ class ProjectsContainer extends Component {
             </div> {/**end card **/} <br></br>
           </div>)//end col
 
-
+          
 
     return (
       <div class="container-fluid">
@@ -45,7 +43,7 @@ class ProjectsContainer extends Component {
           <div class="row ml-4">
             < ProjectInput/>
           </div>
-          
+
           <div class="row">
               {displayProjects}
           </div>
