@@ -27,28 +27,32 @@ class Project extends Component {
     let videos = allVideos.filter(video=> video.project.id === projectId)
 
     let displayVideos = videos.map( (video,index) =>
-        <div class="card" key={index}>
-          <div class="card-body">
+      <div class="col-sm-4" key={index}>
+        <div class="card">
+          <div class="card-body text-dark">
             <h5 class="card-title">{video.video_name}</h5>
             <p class="card-text">Version {video.version}.</p>
             <Link to={`/videos/${video.id}`} class="btn btn-primary"> Work on this Video </Link>
-          </div>
-        </div>)
+          </div> {/**end card-body **/}
+        </div> {/**end card **/} <br></br>
+      </div>)//end col
+
+
 
 
     return (
 
-      <div class="container-fluid bg-secondary text-white-50">
-        <h3 >{project.project_name}</h3>
+      <div class="container-fluid">
+        <h3 class="text-white">{project.project_name}</h3><br></br>
 
-        <div class="card-group text-dark">
+        <div class="row">
           {displayVideos}
-        </div>{/** end card-group **/}
+        </div>
 
 
-          <h2>Add a Video</h2>
+        <div class="row ml-4">
           < VideoInput id={projectId}/>
-
+        </div>
 
       </div>
     );

@@ -20,27 +20,36 @@ class ProjectsContainer extends Component {
     //let projectIds = userProjects.map( project => project.id)
     //let projects = []
     //projectIds.forEach( element => projects.push( allProjects.find( project => project.id === element)))
-    
+
 
     let displayProjects = userProjects.map( (project,index) =>
-        <div class="card" key={index}>
-          <div class="card-body">
-            <h5 class="card-title">{project.project_name}</h5>
-            <p class="card-text">{project.description}</p>
-            <Link to={`/projects/${project.id}`} class="btn btn-primary"> Work on this Project </Link>
-          </div>
-        </div>)
+
+
+          <div class="col-sm-4" key={index}>
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">{project.project_name}</h5>
+                <p class="card-text">{project.description}</p>
+                <Link to={`/projects/${project.id}`} class="btn btn-primary"> Work on this Project </Link>
+              </div> {/**end card-body **/}
+            </div> {/**end card **/} <br></br>
+          </div>)//end col
+
 
 
     return (
       <div class="container-fluid">
 
-        <h1 class="text-white"> All Projects for {this.props.current_user.user_name}</h1>
+        <h1 class="text-white"> Here are all of your projects: </h1><br></br>
 
-      <div class="card-group">
-        {displayProjects}
-      </div>{/** end card-group **/}
-        < ProjectInput/>
+          <div class="row">
+              {displayProjects}
+          </div>
+
+
+          <div class="row ml-4">
+            < ProjectInput/>
+          </div>
       </div>
 
     )

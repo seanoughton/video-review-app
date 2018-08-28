@@ -54,10 +54,14 @@ class VideoInput extends Component {
     return (
       <div>
         <div>
+          <h2 class="text-white">Add a Video</h2>
           <form onSubmit={(event) => this.handleOnSubmit(event)}>
 
-            <div class="form-group">
-              <label for="video_name">Video Name</label>
+            <div class="form-group mt-4" >
+
+              <form onSubmit={(event) => this.handleOnSubmit(event)}>
+
+              <label for="video_name" class="text-white">Video Name</label>
               <input
                 class="form-control"
                 type="text"
@@ -68,7 +72,7 @@ class VideoInput extends Component {
                 onChange={(event) => this.handleOnChange(event)}
                 />
 
-              <label for="url">URL</label>
+              <label for="url" class="text-white">URL</label>
                 <input
                   class="form-control"
                   type="url"
@@ -79,7 +83,7 @@ class VideoInput extends Component {
                   onChange={(event) => this.handleOnChange(event)}
                   />
 
-                <label for="url">Version Number</label>
+                <label for="url" class="text-white">Version Number</label>
                 <input
                   class="form-control"
                   type="text"
@@ -89,6 +93,8 @@ class VideoInput extends Component {
                   value={this.state.version}
                   onChange={(event) => this.handleOnChange(event)}
                   />
+
+              </form>
 
             </div>
 
