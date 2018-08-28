@@ -16,6 +16,18 @@ export default function loginReducer(state = {current_user:false}, action) {
         current_user:  false
       }
 
+      case 'UPDATE_CURRENT_USER':
+        let project = action.payload.payload
+        user = state.current_user
+        user.projects.push(project)
+
+        return {
+          ...state,
+          current_user:  user
+        }
+
+
+
 
     default:
       return state;

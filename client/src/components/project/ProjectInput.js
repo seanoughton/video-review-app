@@ -7,13 +7,24 @@ import { addProject } from  '../../actions/projectActions';
 class ProjectInput extends Component {
 
   state = {
-    project_name: ''
+    project_name: '',
+    description: '',
+    user_ids: [parseInt(this.props.current_user.id,10)]
   }
 
   handleOnChange(event) {
-    this.setState({
-      project_name: event.target.value,
-    });
+    if (event.target.id === 'project_name'){
+      this.setState({
+        project_name: event.target.value,
+      });
+    }
+
+    if (event.target.id === 'description'){
+      this.setState({
+        description: event.target.value,
+      });
+    }
+
   }
 
 
@@ -24,6 +35,7 @@ class ProjectInput extends Component {
     this.props.addProject(this.state);
     this.setState({
       project_name: '',
+      description: ''
     });
   }
 
@@ -34,9 +46,9 @@ class ProjectInput extends Component {
       <div>
         <div>
 
-          <div class="form-group" >
+          <div class="form-group mt-4" >
             <form onSubmit={(event) => this.handleOnSubmit(event)}>
-              <label for="user_name">Enter Project Name</label>
+              <h3 class="text-white">Create a New Project</h3>
               <input
                 type="text"
                 class="form-control"
@@ -46,7 +58,17 @@ class ProjectInput extends Component {
                 value={this.state.project_name}
                 onChange={(event) => this.handleOnChange(event)}
                 />
-              <button type="submit" class="btn btn-primary">Submit</button>
+
+                <input
+                  type="text"
+                  class="form-control mt-3"
+                  id="description"
+                  aria-describedby="descriptionHelp"
+                  placeholder="Describe the Project"
+                  value={this.state.description}
+                  onChange={(event) => this.handleOnChange(event)}
+                  />
+              <button type="submit" class="btn btn-primary mt-4">Submit</button>
             </form>
           </div>
         </div>
@@ -56,7 +78,7 @@ class ProjectInput extends Component {
 };
 
 const mapStateToProps = (state) => {
-  return { projects: state.projects}
+  return { projects: state.projects, current_user: state.current_user.current_user}
 }
 
 

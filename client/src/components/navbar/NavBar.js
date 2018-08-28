@@ -36,7 +36,6 @@ render (){
 
           <NavLink to="/videos" class="nav-item nav-link"> Videos </NavLink>
 
-          <NavLink to="/comments" class="nav-item nav-link"> Comments </NavLink>
 
           <NavLink to="/" class="nav-item nav-link" onClick={(event) => this.handleOnClick(event)}> Logout </NavLink>
 

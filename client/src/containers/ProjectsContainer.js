@@ -20,12 +20,13 @@ class ProjectsContainer extends Component {
     //let projectIds = userProjects.map( project => project.id)
     //let projects = []
     //projectIds.forEach( element => projects.push( allProjects.find( project => project.id === element)))
+    
 
     let displayProjects = userProjects.map( (project,index) =>
         <div class="card" key={index}>
           <div class="card-body">
             <h5 class="card-title">{project.project_name}</h5>
-            <p class="card-text">This is a promo video for AWS promoting their cloud service.</p>
+            <p class="card-text">{project.description}</p>
             <Link to={`/projects/${project.id}`} class="btn btn-primary"> Work on this Project </Link>
           </div>
         </div>)
@@ -39,7 +40,6 @@ class ProjectsContainer extends Component {
       <div class="card-group">
         {displayProjects}
       </div>{/** end card-group **/}
-
         < ProjectInput/>
       </div>
 

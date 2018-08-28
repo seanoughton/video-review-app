@@ -28,7 +28,6 @@ class UsersContainer extends Component {
         <ul>
           {users}
         </ul>
-        < UserInput/>
       </div>
     )
   }

@@ -57,7 +57,7 @@ class VideoApproval extends Component {
 
         <div class="dropdown">
           <button
-            class="btn btn-primary dropdown-toggle"
+            class="btn btn-info dropdown-toggle"
             type="button"
             id="dropdownMenuButton"
             data-toggle="dropdown"
@@ -67,7 +67,7 @@ class VideoApproval extends Component {
             Approve
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#" id="approved" onClick={(event) => this.handleOnClick(event)} >Approved</a>
+            <a class="dropdown-item " href="#" id="approved" onClick={(event) => this.handleOnClick(event)} >Approved</a>
             <a class="dropdown-item" href="#" id="not_approved" onClick={(event) => this.handleOnClick(event)} >Needs more work</a>
           </div>
         </div>

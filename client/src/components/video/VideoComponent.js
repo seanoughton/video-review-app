@@ -60,11 +60,17 @@ class Video extends Component {
           </div>{/* end col */}
 
           <div class="col bg-dark text-white m-3">
-              <h4>Add a Comment</h4>
-              < CommentInput videoId={videoId} currentUserId={currentUserId}/>
+              <div class="row"  >
+                <h4>Add a Comment</h4>
+                < CommentInput videoId={videoId} currentUserId={currentUserId}/>
+            </div>{/**end row **/}
+             <br></br>
+              <div class="row"  >
+                < VideoApproval video={video}/>
+              </div>{/**end row **/}
 
 
-              < VideoApproval video={video}/>
+
 
 
           </div>{/* end col */}

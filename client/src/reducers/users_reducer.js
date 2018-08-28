@@ -19,6 +19,9 @@ export default function usersReducer(state = {loading: false, users: []}, action
       const users = state.users.filter(user => user.id !== id);
       return { ...state, users}
 
+    
+
+
 
 
     default:

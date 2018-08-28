@@ -22,9 +22,8 @@ export function addProject(project_state) {
        'Content-Type': 'application/json'
        },
      }).then(res => res.json())
-       .then(response => dispatch({ type: 'ADD_PROJECT', payload: response }));
-       //.then(response => console.log('Success:', response))
-       //.catch(error => console.error('Error:', error));
+       .then(response => dispatch({ type: 'ADD_PROJECT', payload: response }))
+       .then(response => dispatch({ type: 'UPDATE_CURRENT_USER', payload: response }))
  };// end return
 
 }//end addProject **/

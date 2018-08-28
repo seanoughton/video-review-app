@@ -53,9 +53,16 @@ class App extends Component {
 
      let loggedIn = [
        <NavBar user = {this.props.current_user.current_user.user_name}/>,
-        <Route exact path="/" component={sampleBootstrap} />, <Route exact path="/projects" render={routerProps => <ProjectsContainer {...routerProps} projects={this.props.projects}/>} />, <Route exact path='/projects/:id' component={Project} />, <Route exact path='/users' render={routerProps => <UsersContainer {...routerProps} users={this.props.users} />} />,
-        <Route exact path='/users/:id' render={routerProps => <User {...routerProps} users={this.props.users} projects={this.props.projects}/>} />, <Route exact path="/videos" render={routerProps => <VideosContainer {...routerProps} videos={this.props.videos}  />} />, <Route exact path='/videos/:id' component={Video} />, <Route exact path="/comments" render={routerProps => <CommentsContainer {...routerProps} comments={this.props.comments}/>} />,
-        <Route exact path='/comments/:id' render={routerProps => <Comment {...routerProps} comments={this.props.comments}/>} />, <Route exact path="/logout"  component={Login} />
+        <Route exact path="/" render={routerProps => <ProjectsContainer {...routerProps} projects={this.props.projects}/>} />,
+        <Route exact path="/projects" render={routerProps => <ProjectsContainer {...routerProps} projects={this.props.projects}/>} />,
+        <Route exact path='/projects/:id' component={Project} />,
+        <Route exact path='/users' render={routerProps => <UsersContainer {...routerProps} users={this.props.users} />} />,
+        <Route exact path='/users/:id' render={routerProps => <User {...routerProps} users={this.props.users} projects={this.props.projects}/>} />,
+        <Route exact path="/videos" render={routerProps => <VideosContainer {...routerProps} videos={this.props.videos}  />} />,
+        <Route exact path='/videos/:id' component={Video} />,
+        <Route exact path="/comments" render={routerProps => <CommentsContainer {...routerProps} comments={this.props.comments}/>} />,
+        <Route exact path='/comments/:id' render={routerProps => <Comment {...routerProps} comments={this.props.comments}/>} />,
+        <Route exact path="/logout"  component={Login} />
 
       ]
 

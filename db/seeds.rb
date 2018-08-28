@@ -14,9 +14,9 @@ user03 = User.create(user_name: "user03", email: "user03@user.com", password: "p
 
 
 #PROJECTS
-project01 = Project.create(project_name: 'Project 01')
-project02 = Project.create(project_name: 'Project 02')
-project03 = Project.create(project_name: 'Project 03')
+project01 = Project.create(project_name: 'Project 01', description: 'Promo video for AWS and Pitney Bowes')
+project02 = Project.create(project_name: 'Project 02', description: 'Promo video for Autodesk featuring AutoCAD')
+project03 = Project.create(project_name: 'Project 03', description: 'Promo video for Splunk')
 
 
 #UsersProject
