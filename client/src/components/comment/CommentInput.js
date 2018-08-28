@@ -44,29 +44,38 @@ class CommentInput extends Component {
 
   render() {
     return (
-      <div>
-        <div>
+      <div class="container">
+        <div class="row"  >
           <form onSubmit={(event) => this.handleOnSubmit(event)}>
+            <div class="form-group">
 
-            <label>Enter TimeCode</label><br></br>
-            <input
-              id="timecode"
-              type="text"
-              value={this.state.timecode}
-              onChange={(event) => this.handleOnChange(event)} /><br></br>
+              <input
+                class="form-control"
+                id="timecode"
+                type="text"
+                aria-describedby="timecode"
+                placeholder="Timecode"
+                value={this.state.timecode}
+                onChange={(event) => this.handleOnChange(event)} />
+            </div> {/** end form group**/}
 
-            <label>Enter Comment</label><br></br>
-            <input
-              id="content"
-              type="text"
-              value={this.state.content}
-              onChange={(event) => this.handleOnChange(event)} />
+            <div class="form-group">
 
+              <input
+                class="form-control"
+                id="content"
+                aria-describedby="content"
+                placeholder="Comment"
+                type="text"
+                value={this.state.content}
+                onChange={(event) => this.handleOnChange(event)} />
+            </div> {/** end form group**/}
 
-            <input type="submit" />
+            <button type="submit" class="btn btn-primary">Submit</button>
           </form>
-        </div>
-      </div>
+        </div> {/**end row **/}
+      </div> // end container
+
     );
   }
 };

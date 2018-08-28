@@ -115,7 +115,7 @@ class UserInput extends Component {
                   onChange={(event) => this.handleOnChange(event)}
                   />
               </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-secondary">Submit</button>
           </form>
         </div>
       </div>

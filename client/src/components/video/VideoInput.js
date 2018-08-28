@@ -50,41 +50,51 @@ class VideoInput extends Component {
 
 
   render() {
-  
+
     return (
       <div>
         <div>
           <form onSubmit={(event) => this.handleOnSubmit(event)}>
-            <label>Video Name</label>
 
-            <input
-              id="video_name"
-              type="text"
-              value={this.state.video_name}
-              onChange={(event) => this.handleOnChange(event)} />
-            <br></br>
-
-              <label>URL</label>
+            <div class="form-group">
+              <label for="video_name">Video Name</label>
               <input
-                id="url"
+                class="form-control"
                 type="text"
-                value={this.state.url}
-                onChange={(event) => this.handleOnChange(event)} />
-              <br></br>
+                id="video_name"
+                aria-describedby="videoHelp"
+                placeholder="Enter Video Name"
+                value={this.state.video_name}
+                onChange={(event) => this.handleOnChange(event)}
+                />
 
-                <label>Version</label>
+              <label for="url">URL</label>
                 <input
-                  id="version"
+                  class="form-control"
+                  type="url"
+                  id="url"
+                  aria-describedby="urlHelp"
+                  placeholder="Enter URL"
+                  value={this.state.url}
+                  onChange={(event) => this.handleOnChange(event)}
+                  />
+
+                <label for="url">Version Number</label>
+                <input
+                  class="form-control"
                   type="text"
+                  id="version"
+                  aria-describedby="versionHelp"
+                  placeholder="Enter Version Number"
                   value={this.state.version}
-                  onChange={(event) => this.handleOnChange(event)} />
-                <br></br>
+                  onChange={(event) => this.handleOnChange(event)}
+                  />
+
+            </div>
 
 
+            <button type="submit" class="btn btn-primary">Submit</button>
 
-            <br></br>
-            <br></br>
-            <input type="submit" />
           </form>
         </div>
       </div>

@@ -37,23 +37,41 @@ class VideoApproval extends Component {
     });
   }
 
+  handleOnClick(event) {
+    event.preventDefault();
+    if (event.target.id === "approved") {
+      this.state.approval = true
+      this.props.updateVideo(this.state)
+    } else {
+      this.state.approval = false
+      this.props.updateVideo(this.state)
+    }
+  }
+
 
 
   render() {
     return (
       <div>
-        <div>
-          <form onSubmit={(event) => this.handleOnSubmit(event)}>
-            <label>Approval</label>
 
-            <input
-              id="approval"
-              type="text"
-              value={this.state.approval}
-              onChange={(event) => this.handleOnChange(event)} />
-            <input type="submit" />
-          </form>
+
+        <div class="dropdown">
+          <button
+            class="btn btn-primary dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+            >
+            Approve
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#" id="approved" onClick={(event) => this.handleOnClick(event)} >Approved</a>
+            <a class="dropdown-item" href="#" id="not_approved" onClick={(event) => this.handleOnClick(event)} >Needs more work</a>
+          </div>
         </div>
+
       </div>
     );
   }

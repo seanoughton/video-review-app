@@ -10,12 +10,7 @@ class Project extends Component {
 
 
   render() {
-    let user
-    if (this.props.current_user){
-      user = this.props.current_user.current_user
-    } else {
-      user = "no user"
-    }
+
     let project = {project_name:'', id:''}
     let allProjects = this.props.projects.projects
     let projectId = parseInt(this.props.match.params.id,10)
@@ -27,25 +22,29 @@ class Project extends Component {
     }
 
     let allVideos = this.props.videos.videos
-    if (allVideos.length > 0){
-      let videos = allVideos.filter(video=> video.project.id === projectId)
-      projectVideos = videos.map((video,index) => <li key={index}>
-      <Link to={`/videos/${video.id}`}>
-        {video.video_name}
-      </Link>
-      </li>)
-    }
+
+
+    let videos = allVideos.filter(video=> video.project.id === projectId)
+
+    let displayVideos = videos.map( (video,index) =>
+        <div class="card" key={index}>
+          <div class="card-body">
+            <h5 class="card-title">{video.video_name}</h5>
+            <p class="card-text">Version {video.version}.</p>
+            <Link to={`/videos/${video.id}`} class="btn btn-primary"> Work on this Video </Link>
+          </div>
+        </div>)
 
 
     return (
 
-      <div>
-        {project.project_name}
+      <div class="container-fluid bg-secondary text-white-50">
+        <h3 >{project.project_name}</h3>
 
-        <h2>This is the user {user.user_name}</h2>
+        <div class="card-group text-dark">
+          {displayVideos}
+        </div>{/** end card-group **/}
 
-          <h3>Here all of this project's videos</h3>
-          {projectVideos}
 
           <h2>Add a Video</h2>
           < VideoInput id={projectId}/>
