@@ -1,17 +1,18 @@
+// import React stuff
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
-
-import { addUser } from  '../../actions/userActions';
-
 
 class UserInput extends Component {
 
-  state = {
-    user_name: '',
-    email: '',
-    password: '',
-    password_confirmation:''
-  }
+  constructor(props) {
+       super(props)
+       this.state = {
+         user_name: '',
+         email: '',
+         password: '',
+         password_confirmation:''
+       }
+     }// end constructor
+
 
   handleOnChange(event) {
     if (event.target.id === 'user_name') {
@@ -38,9 +39,7 @@ class UserInput extends Component {
       });// end setState
     }// end if
 
-  }
-
-
+  }// end handleOnChange
 
 
   handleOnSubmit(event) {
@@ -53,13 +52,14 @@ class UserInput extends Component {
       password: '',
       password_confirmation: ''
     });
-  }
+  }// end handleOnSubmit
 
 
 
   render() {
 
     let alert
+    //set an alert if the password and password_confirmation do not match
     if (this.props.current_user.login === false){
       alert = <div class="alert alert-danger" role="alert">
         Password and Password Confirmation do not match
@@ -83,10 +83,7 @@ class UserInput extends Component {
                 value={this.state.user_name}
                 onChange={(event) => this.handleOnChange(event)}
                 required/>
-
-
             </div>
-
 
               <div class="form-group">
                 <label for="email">Email</label>
@@ -129,17 +126,10 @@ class UserInput extends Component {
           </form>
         </div>
       </div>
-    );
-  }
-};
-
-const mapStateToProps = (state) => {
-  return { users: state.users, current_user: state.current_user}
-}
+    )// end return
+  }// end render
+}// end class definition
 
 
-const mapDispatchToProps = dispatch => ({
-  addUser: user_state => dispatch(addUser(user_state))
-})
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserInput)
+export default UserInput

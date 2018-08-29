@@ -1,41 +1,39 @@
+/// import React stuff
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 
+// import actions
 import { addUser } from  '../../actions/userActions';
 import { login } from  '../../actions/loginActions';
 
+// import components
 import UserInput from '../user/UserInput'
+import LoginInput from './LoginInput'
 
 class Login extends Component {
 
-  state = {
-    user_name: '',
-    password: ''
-  }
-
-
+  constructor(props) {
+       super(props)
+       this.state = {
+         user_name: '',
+         password: ''
+       }
+     }// end constructor
 
   handleOnChange(event) {
     if (event.target.id === 'user_name') {
       this.setState({
         user_name: event.target.value,
-      });// end setState
+      })// end setState
     }// end if
-
 
 
     if (event.target.id === 'password') {
       this.setState({
         password: event.target.value,
-      });// end setState
+      })// end setState
     }// end if
-
-
-
-  }
-
-
-
+  }// end handleOnChange
 
   handleOnSubmit(event) {
     event.preventDefault();
@@ -43,14 +41,14 @@ class Login extends Component {
     this.setState({
       user_name: '',
       password: ''
-    });
-
-  }
+    })// end setState
+  }// end handleOnSubmit
 
 
 
   render() {
 
+    //set an alert if the password and username are not correct
     let alert
     if (this.props.current_user.login === false){
       alert = <div class="alert alert-danger" role="alert">
@@ -60,69 +58,24 @@ class Login extends Component {
 
     return (
 
-
       <div class="container">
         <div class="row">
           <div class="col bg-info text-white border-right">
-            <h2>Log In </h2>
-            {alert}
-              <form onSubmit={(event) => this.handleOnSubmit(event)}>
-
-
-                <div class="form-group">
-                  <label for="user_name">User Name</label>
-
-
-
-                  <input type="text"
-                    class="form-control"
-                    id="user_name"
-                    aria-describedby="userHelp"
-                    placeholder="Enter User Name"
-                    value={this.state.user_name}
-                    onChange={(event) => this.handleOnChange(event)}
-                    required/>
-                    <div class="invalid-feedback">
-                      Please choose a username.
-                    </div>
-
-                </div>
-
-                <div class="form-group">
-                  <label for="password">Password</label>
-                  <input
-                    type="password"
-                    class="form-control"
-                    id="password"
-                    placeholder="Enter Password"
-                    value={this.state.password}
-                    onChange={(event) => this.handleOnChange(event)}
-                    required/>
-                    <div class="invalid-feedback">
-                      Please choose a username.
-                    </div>
-                </div>
-
-
-                <button type="submit" class="btn btn-secondary">Submit</button>
-              </form>
+            < LoginInput current_user={this.props.current_user} login={this.props.login}/>
           </div>{/* end col */}
 
           <div class="col bg-info text-white">
             <h2>Sign Up</h2>
-            < UserInput/>
+            < UserInput current_user={this.props.current_user} addUser={this.props.addUser}/>
 
           </div>{/* end col */}
 
         </div>{/* end row */}
       </div>// end container
 
-
-
-
-    );
-  }
-};
+    )// end return
+  }// end render
+}// end class definition
 
 const mapStateToProps = (state) => {
   return { users: state.users, current_user: state.current_user}
