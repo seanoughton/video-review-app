@@ -6,13 +6,16 @@ import { editUser } from  '../../actions/userActions';
 
 class UserInput extends Component {
 
-  state = {
-    id: this.props.current_user,
-    user_name: this.props.current_user.user_name,
-    email: this.props.current_user.email,
-    password: '',
-    password_confirmation:''
-  }
+  constructor(props) {
+       super(props)
+       this.state = {
+         pid: this.props.current_user,
+         user_name: this.props.current_user.user_name,
+         email: this.props.current_user.email,
+         password: '',
+         password_confirmation:''
+       }
+     }// end constructor
 
   handleOnChange(event) {
     if (event.target.id === 'user_name') {
@@ -38,15 +41,13 @@ class UserInput extends Component {
         password_confirmation: event.target.value,
       });// end setState
     }// end if
-
-  }
+  }// end handleOnChange
 
 
 
 
   handleOnSubmit(event) {
     event.preventDefault();
-    //this.props.addUser(this.state.user_name,this.state.email);
     this.props.editUser(this.state)
     this.setState({
       user_name: '',
@@ -54,7 +55,7 @@ class UserInput extends Component {
       password: '',
       password_confirmation: ''
     });
-  }
+  }// end handleOnSubmit
 
 
 
@@ -121,14 +122,13 @@ class UserInput extends Component {
           </form>
         </div>
       </div>
-    );
-  }
-};
+    )// end return
+  }// end render
+}// end class definition
 
 const mapStateToProps = (state) => {
   return { users: state.users, current_user: state.current_user.current_user}
 }
-
 
 const mapDispatchToProps = dispatch => ({
   addUser: user_state => dispatch(addUser(user_state)),

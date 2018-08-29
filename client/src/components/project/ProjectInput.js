@@ -1,3 +1,4 @@
+//import react stuff
 import React, { Component } from 'react';
 
 class ProjectInput extends Component {
