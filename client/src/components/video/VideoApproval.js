@@ -1,41 +1,19 @@
+// import React Stuff
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+
+// import actions
 import { updateVideo } from  '../../actions/videoActions';
 
-
 class VideoApproval extends Component {
+  constructor(props) {
+       super(props)
+       this.state = {
+         approval: '',
+         id: 1
+       }
+     }// end constructor
 
-  state = {
-    approval: '',
-    id: 1
-  }
-
-  handleOnChange(event) {
-    let video = this.props.video
-    if (event.target.id === 'approval') {
-      this.setState({
-        id: video.id,
-        url: video.url,
-        version: video.version,
-        video_name: video.video_name,
-        approval: event.target.value,
-        project_id: video.project_id
-
-      });// end setState
-    }// end if
-
-
-  }
-
-
-  handleOnSubmit(event) {
-    event.preventDefault();
-    this.props.updateVideo(this.state)
-    //this.props.addVideo(this.state)
-    this.setState({
-      approval: ''
-    });
-  }
 
   handleOnClick(event) {
     event.preventDefault();
@@ -46,15 +24,11 @@ class VideoApproval extends Component {
       this.state.approval = false
       this.props.updateVideo(this.state)
     }
-  }
-
-
+  }// end handleOnClick
 
   render() {
     return (
       <div>
-
-
         <div class="dropdown">
           <button
             class="btn btn-info dropdown-toggle"
@@ -73,9 +47,9 @@ class VideoApproval extends Component {
         </div>
 
       </div>
-    );
-  }
-};
+    )//end return
+  }// end render
+}// end class definition
 
 const mapStateToProps = (state) => {
   return { videos: state.videos}

@@ -2,12 +2,16 @@ import React, { Component } from 'react';
 
 class VideoInput extends Component {
 
-  state = {
-    url: '',
-    version: '',
-    video_name: '',
-    project_id: this.props.id 
-  }
+  constructor(props) {
+       super(props)
+       this.state = {
+         url: '',
+         version: '',
+         video_name: '',
+         project_id: this.props.id
+       }
+     }// end constructor
+
 
   handleOnChange(event) {
     if (event.target.id === 'video_name') {
@@ -27,10 +31,7 @@ class VideoInput extends Component {
         version: event.target.value,
       });// end setState
     }// end if
-
-
-
-  }
+  }// end handleOnChange
 
 
 
@@ -43,7 +44,7 @@ class VideoInput extends Component {
       url:'',
       version: ''
     });
-  }
+  }// end handleOnSubmit
 
 
 
@@ -53,12 +54,9 @@ class VideoInput extends Component {
       <div>
         <div>
           <h2 class="text-white">Add a Video</h2>
-          <form onSubmit={(event) => this.handleOnSubmit(event)}>
 
             <div class="form-group mt-4" >
-
               <form onSubmit={(event) => this.handleOnSubmit(event)}>
-
               <label for="video_name" class="text-white">Video Name</label>
               <input
                 class="form-control"
@@ -93,21 +91,15 @@ class VideoInput extends Component {
                   />
 
               </form>
-
             </div>
-
 
             <button type="submit" class="btn btn-primary">Submit</button>
 
-          </form>
         </div>
       </div>
-    );
-  }
-};
-
-
-
+    )//end return
+  }// end render
+}// end class definition
 
 
 export default VideoInput

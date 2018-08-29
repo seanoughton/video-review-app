@@ -1,13 +1,13 @@
+// import React Stuff
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
 
+//import components
 import CommentInput from '../../components/comment/CommentInput'
 import VideoApproval from './VideoApproval'
 
-
 class Video extends Component {
-
   render() {
 
     let video = {url: '', version: '', video_name:'', project_id: '', id:''}
@@ -19,6 +19,7 @@ class Video extends Component {
     let project = ''
     let approvalDisplay = <span class="badge badge-danger">Not Approved</span>
 
+    // check if there are videos in the store
     if (allVideos.length > 0) {
       video = allVideos.find(video =>  video.id === videoId)
       project = video.project.project_name
@@ -27,6 +28,7 @@ class Video extends Component {
       }
     }
 
+    //check if there are comments in the store
     let allComments = this.props.comments.comments
     if (allComments.length > 0){
       comments = allComments.filter(comment => comment.video.id === videoId)
@@ -39,9 +41,7 @@ class Video extends Component {
       </tr>)
     }
 
-
     return (
-
       <div class="container">
 
         <div class="row"  >
@@ -55,7 +55,6 @@ class Video extends Component {
 
               <iframe src={video.url} width="640" height="360" frameBorder="0" webkitallowfullscreen mozallowfullscreen allowFullScreen></iframe>
 
-
             </div>
           </div>{/* end col */}
 
@@ -68,11 +67,6 @@ class Video extends Component {
               <div class="row"  >
                 < VideoApproval video={video}/>
               </div>{/**end row **/}
-
-
-
-
-
           </div>{/* end col */}
 
         </div>{/* end row */}
@@ -85,7 +79,7 @@ class Video extends Component {
                 <table class="table">
                   <thead>
                     <tr>
-                      <th scope="col"> </th>
+                      <th scope="col">#</th>
                       <th scope="col">TC</th>
                       <th scope="col">Comment</th>
                       <th scope="col">User</th>
@@ -103,9 +97,9 @@ class Video extends Component {
     </div>// end container
 
 
-    );
-  }
-};
+    )//end return
+  }// end render
+}// end class definition
 
 const mapStateToProps = (state) => {
   return { videos: state.videos, comments: state.comments, current_user: state.current_user.current_user}
@@ -114,29 +108,6 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps)(Video)
 
 /**
-
-if (allComments.length > 0){
-  comments = allComments.filter(comment => comment.video.id === videoId)
-  videoComments = comments.map((comment,index) => <li key={index} class="list-group-item d-flex justify-content-between align-items-center">
-    {comment.timecode}   : {comment.content} {comment.user.user_name} :
-  </li>)
-}
-
-<ul class="list-group list-group-flush text-dark">
-  {videoComments}
-</ul>
-<h4>Video Name {video.video_name} </h4>
-<h4>Video Id: {video.id}</h4>
-<h4>Video Version {video.version}</h4>
-<h4>Project {project}</h4>
-<h4>Video Approval {approval}</h4>
-
-< CommentInput videoId={videoId} currentUserId={currentUserId}/><br></br>
-
-< VideoApproval video={video}/>
-
-<h3>Here all of the comments for this video</h3>
-{videoComments}
 
 handleOnClick = () => {
   //this.props.deleteVideo (this.props.video.id)
