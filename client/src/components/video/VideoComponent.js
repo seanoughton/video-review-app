@@ -7,7 +7,21 @@ import { connect } from 'react-redux'
 import CommentInput from '../../components/comment/CommentInput'
 import VideoApproval from './VideoApproval'
 
+// import actions
+import { deleteComment } from  '../../actions/commentActions';
+
 class Video extends Component {
+
+  handleOnClick = (event) => {
+    event.preventDefault();
+    let commentUserId = parseInt(event.target.dataset.user,10)
+    // if the user who created the comment is the current user then delete the comment else don't
+    if (commentUserId === this.props.current_user.id) {
+      this.props.deleteComment(event.target.id)
+    }
+  }
+
+
   render() {
 
     let video = {url: '', version: '', video_name:'', project_id: '', id:''}
@@ -32,12 +46,14 @@ class Video extends Component {
     let allComments = this.props.comments.comments
     if (allComments.length > 0){
       comments = allComments.filter(comment => comment.video.id === videoId)
+      // get the comments for just this video
       videoComments = comments.map((comment,index) =>
       <tr key={index}>
         <th scope="row">{index+1}</th>
         <td>{comment.timecode}</td>
         <td>{comment.content}</td>
         <td>@{comment.user.user_name}</td>
+        <td><button id={comment.id} data-user={comment.user.id} onClick={this.handleOnClick}> x </button></td>
       </tr>)
     }
 
@@ -61,7 +77,7 @@ class Video extends Component {
           <div class="col bg-dark text-white m-3">
               <div class="row"  >
                 <h4>Add a Comment</h4>
-                < CommentInput videoId={videoId} currentUserId={currentUserId}/>
+                < CommentInput videoId={videoId} currentUserId={this.props.current_user.id}/>
             </div>{/**end row **/}
              <br></br>
               <div class="row"  >
@@ -83,6 +99,7 @@ class Video extends Component {
                       <th scope="col">TC</th>
                       <th scope="col">Comment</th>
                       <th scope="col">User</th>
+                      <th scope="col"></th>
                     </tr>
                   </thead>
                   <tbody>
@@ -105,7 +122,11 @@ const mapStateToProps = (state) => {
   return { videos: state.videos, comments: state.comments, current_user: state.current_user.current_user}
 }
 
-export default connect(mapStateToProps)(Video)
+const mapDispatchToProps = dispatch => ({
+  deleteComment: comment_state => dispatch(deleteComment(comment_state))
+})
+
+export default connect(mapStateToProps,mapDispatchToProps)(Video)
 
 /**
 
