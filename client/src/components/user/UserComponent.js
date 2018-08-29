@@ -1,17 +1,9 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-
-
-import { deleteUser } from  '../../actions/userActions';
 
 class User extends Component {
 
-  handleOnClick = () => {
-    //this.props.deleteUser (this.props.user.id)
-    this.props.deleteUser(this.props.match.params.id,10)
-    //find a way to reroute this to the projects index page
-  }
+
 
   render() {
 
@@ -30,7 +22,7 @@ class User extends Component {
       </li>)
     }
 
-    if (user.id === this.props.current_user.id){
+    if (user.id === this.props.current_user.current_user.id){
       editProfileButton = <Link class="btn btn-primary" to={`/users/${this.props.current_user.id}/edit`}>
         Edit Profile
       </Link>
@@ -69,24 +61,13 @@ class User extends Component {
 
 
 
-const mapStateToProps = (state) => {
-  return { current_user: state.current_user.current_user}
-}
 
-const mapDispatchToProps = dispatch => ({
-  deleteUser: user_id => dispatch(deleteUser(user_id))
-})
 
-export default connect(mapStateToProps,mapDispatchToProps)(User)
+export default User
 /**
-{user.user_name}<br></br>
-{user.id}<br></br>
-{user.email}
+
 <button onClick={this.handleOnClick}> x </button>
 
-<h3>Here all of this users projects</h3>
-{userProjects}
 
-<h3>Add a Project</h3>
 
 **/

@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux'
 
-import { deleteCurrentUser } from  '../../actions/loginActions';
-
 
 class NavBar extends Component {
 //const NavBar = () => {
@@ -28,8 +26,6 @@ render (){
         <span class="navbar-toggler-icon"></span>
       </button>
 
-
-
     </nav>
 
 
@@ -44,8 +40,6 @@ const mapStateToProps = (state) => {
   return { current_user: state.users.current_user}
 }
 
-const mapDispatchToProps = dispatch => ({
-  deleteCurrentUser: () => dispatch(deleteCurrentUser())
-})
 
-export default connect(mapStateToProps,mapDispatchToProps)(NavBar)
+
+export default connect(mapStateToProps)(NavBar)

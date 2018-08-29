@@ -31,6 +31,7 @@ import { fetchUsers } from  './actions/userActions';
 import { fetchProjects } from  './actions/projectActions';
 import { fetchComments } from  './actions/commentActions';
 import { addVideo } from  './actions/videoActions';
+import { deleteCurrentUser } from  './actions/loginActions';
 //import * as actions from './actions/videoActions.js'
 
 class App extends Component {
@@ -52,19 +53,22 @@ class App extends Component {
 
      let loggedIn = [
 
-       <NavBar />,
+        <NavBar current_user={this.props.current_user} deleteCurrentUser={this.props.deleteCurrentUser}/>,
         <Route exact path="/" component={ProjectsContainer} />,
         <Route exact path="/projects" component={ProjectsContainer}  />,
         <Route exact path="/users/:id/projects" component={ProjectsContainer} />,
         <Route exact path='/projects/:id' render={routerProps => <Project {...routerProps} projects={this.props.projects} videos={this.props.videos} addVideo={this.props.addVideo}/>} />,
 
-        <Route exact path='/users' render={routerProps => <UsersContainer {...routerProps} users={this.props.users} />} />,
-        <Route exact path='/users/:id' render={routerProps => <User {...routerProps} users={this.props.users} projects={this.props.projects}/>} />,
+        <Route exact path='/users' component={UsersContainer} />,
+        <Route exact path='/users/:id' render={routerProps => <User {...routerProps} users={this.props.users} projects={this.props.projects} current_user={this.props.current_user}/>} />,
         <Route exact path='/users/:id/edit' render={routerProps => <UserEdit {...routerProps} users={this.props.users} projects={this.props.projects}/>} />,
+
         <Route exact path="/videos" render={routerProps => <VideosContainer {...routerProps} videos={this.props.videos}  />} />,
         <Route exact path='/videos/:id' component={Video} />,
+
         <Route exact path="/comments" render={routerProps => <CommentsContainer {...routerProps} comments={this.props.comments}/>} />,
         <Route exact path='/comments/:id' render={routerProps => <Comment {...routerProps} comments={this.props.comments}/>} />,
+
         <Route exact path="/logout"  component={Login} />
 
       ]
@@ -105,7 +109,8 @@ const mapDispatchToProps = dispatch => ({
   fetchUsers: () => dispatch(fetchUsers()),
   fetchProjects: () => dispatch(fetchProjects()),
   fetchComments: () => dispatch(fetchComments()),
-  addVideo: (video_state) => dispatch(addVideo(video_state))
+  addVideo: (video_state) => dispatch(addVideo(video_state)),
+  deleteCurrentUser: () => dispatch(deleteCurrentUser())
 })
 
 export default connect(mapStateToProps,mapDispatchToProps)(App)

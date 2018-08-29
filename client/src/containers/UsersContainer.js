@@ -2,11 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
 
-
-
-import UserInput from '../components/user/UserInput'
-import User from '../components/user/UserComponent'
-
 class UsersContainer extends Component {
 
 
@@ -36,22 +31,21 @@ class UsersContainer extends Component {
 
     return (
       <div class="container-fluid">
-
         <h1 class="text-white"> Here are all of the Users: </h1><br></br>
-
-
-
           <div class="row">
               {displayUsers}
           </div>
-
-
 
       </div>
     )
   }
 }
 
+const mapStateToProps = (state) => {
+  return { users: state.users}
+}
 
 
-export default UsersContainer
+
+
+export default connect(mapStateToProps)(UsersContainer)
