@@ -1,34 +1,37 @@
+/// import React stuff
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
+/// import actions
 import { addComment } from  '../../actions/commentActions';
 
 class CommentInput extends Component {
 
-  state = {
-    content: '',
-    timecode: '',
-    user_id: this.props.currentUserId,
-    video_id: this.props.videoId
-  }
+  constructor(props) {
+       super(props)
+       this.state = {
+         content: '',
+         timecode: '',
+         user_id: this.props.currentUserId,
+         video_id: this.props.videoId
+       }
+     }
+
 
   handleOnChange(event) {
-
     if (event.target.id === 'timecode') {
       this.setState({
         timecode: event.target.value,
-      });// end setState
+      })// end setState
     }// end if
 
     if (event.target.id === 'content') {
       this.setState({
         content: event.target.value,
-      });// end setState
+      })// end setState
     }// end if
 
-
   }
-
-
 
 
   handleOnSubmit(event) {
@@ -37,9 +40,8 @@ class CommentInput extends Component {
     this.setState({
       content: '',
       timecode: ''
-    });
+    })// end setState
   }
-
 
 
   render() {
@@ -76,17 +78,20 @@ class CommentInput extends Component {
         </div> {/**end row **/}
       </div> // end container
 
-    );
-  }
-};
+    )
+  }// end render
+}// end class definition
 
 const mapStateToProps = (state) => {
   return { comments: state.comments}
 }
-
 
 const mapDispatchToProps = dispatch => ({
   addComment: comment_state => dispatch(addComment(comment_state))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(CommentInput)
+
+/**
+
+**/

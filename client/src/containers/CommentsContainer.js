@@ -1,12 +1,12 @@
+/// import React stuff
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 
+/// import Components
 import Comment from '../components/comment/CommentComponent'
 import CommentInput from '../components/comment/CommentInput'
 
 class CommentsContainer extends Component {
-
-
 
   render() {
     let allComments = this.props.comments.comments
@@ -17,7 +17,6 @@ class CommentsContainer extends Component {
     </Link>
     </li>)
 
-
     return (
       <div>
         <h1> All Comments </h1>
@@ -27,8 +26,8 @@ class CommentsContainer extends Component {
         < CommentInput/>
       </div>
     )
-  }
-}
+  }// end render
+}// end class definition
 
 
 export default CommentsContainer

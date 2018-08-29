@@ -1,7 +1,7 @@
+/// import React stuff
 import React, { Component } from 'react';
 
 class Comment extends Component {
-
 
   render() {
 
@@ -21,8 +21,8 @@ class Comment extends Component {
 
       </div>
     );
-  }
-};
+  }// end render
+}// end class definition
 
 
 

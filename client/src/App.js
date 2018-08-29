@@ -1,20 +1,22 @@
+/// import React stuff
 import React, { Component } from 'react';
-
 import {
   BrowserRouter as Router,//this is the router, all things route from App
   Route
 } from 'react-router-dom';
 
-
 import { connect } from 'react-redux'
-import logo from './logo.svg';
-import './App.css';
 
+/// import stylesheets
+import './App.css'; // some extra styling is added in here on top of bootstrap
+
+/// import Containers
 import VideosContainer from './containers/VideosContainer';
 import UsersContainer from './containers/UsersContainer';
 import ProjectsContainer from './containers/ProjectsContainer';
 import CommentsContainer from './containers/CommentsContainer';
 
+/// import Components
 import NavBar from './components/navbar/NavBar';
 import NavBarLogin from './components/navbar/NavBarLogin';
 import Project from './components/project/ProjectComponent'
@@ -25,17 +27,18 @@ import UserEdit from './components/user/UserEdit'
 import Login from './components/login/LoginComponent'
 
 
-
+/// import actions
 import { fetchVideos } from  './actions/videoActions';
 import { fetchUsers } from  './actions/userActions';
 import { fetchProjects } from  './actions/projectActions';
 import { fetchComments } from  './actions/commentActions';
 import { addVideo } from  './actions/videoActions';
 import { deleteCurrentUser } from  './actions/loginActions';
-//import * as actions from './actions/videoActions.js'
+
 
 class App extends Component {
 
+//when this component mounts get all the assets needed from the database
   componentDidMount() {
      this.props.fetchVideos()
      this.props.fetchUsers()
@@ -43,14 +46,10 @@ class App extends Component {
      this.props.fetchComments()
    }
 
-
-
-
-
    render() {
      let current_user = this.props.current_user
 
-
+     // if the user is loggedIn, then these routes will be available
      let loggedIn = [
 
         <NavBar current_user={this.props.current_user} deleteCurrentUser={this.props.deleteCurrentUser}/>,
@@ -73,20 +72,24 @@ class App extends Component {
 
       ]
 
+      // if the user is not logged in then this is the only route available
       let notLoggedIn = [
         < NavBarLogin />,
         <Route exact path="*" component={Login} />
       ]
 
+
       let whatToRender
 
-     if (Object.keys(current_user.current_user).length > 0) {
-       whatToRender = loggedIn
-     } else {
-      whatToRender = notLoggedIn
-     }
+      //if the user is logged in, then there is a current_user in the store
+      // if there is a current user in the store, then render loggedIn routes
+      // else render notLoggedIn routes
 
-
+       if (Object.keys(current_user.current_user).length > 0) {
+         whatToRender = loggedIn
+       } else {
+         whatToRender = notLoggedIn
+       }
 
 
      return (
@@ -99,11 +102,13 @@ class App extends Component {
    }//end render**/
 }//end class
 
+// get all the elements from the store and place them in this component's props so that they can be passed down to other components
 const mapStateToProps = (state) => {
   return { videos: state.videos, users: state.users, projects: state.projects, comments: state.comments, current_user: state.current_user
    }
 }
 
+// get all of the actions that will be fired when this component mounts
 const mapDispatchToProps = dispatch => ({
   fetchVideos: () => dispatch(fetchVideos()),
   fetchUsers: () => dispatch(fetchUsers()),

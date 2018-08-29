@@ -1,23 +1,23 @@
+/// import React stuff
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 
+/// import actions
 import { deleteProject } from  '../actions/projectActions';
 import { addProject } from  '../actions/projectActions';
 
+/// import Components
 import Project from '../components/project/ProjectComponent'
 import ProjectInput from '../components/project/ProjectInput'
 
 
-
 class ProjectsContainer extends Component {
-
-
   render() {
 
-    let allProjects = this.props.projects.projects
     let userProjects = []
+    //test to see if this user has any projects and if assign them
     if (this.props.current_user.projects){
       userProjects = this.props.current_user.projects
     }
@@ -35,30 +35,23 @@ class ProjectsContainer extends Component {
           </div>)//end col
 
 
-
     return (
       <div class="container-fluid">
-
         <h1 class="text-white"> Here are all of your projects: </h1><br></br>
-
           <div class="row ml-4">
             < ProjectInput addProject={this.props.addProject} current_user={this.props.current_user} projects={this.props.projects}/>
           </div>
-
           <div class="row">
               {displayProjects}
           </div>
-
-
-
       </div>
 
     )
-  }
-}
+  }// end render
+}// end class definition
 
 const mapStateToProps = (state) => {
-  return { current_user: state.current_user.current_user, projects: state.projects}
+  return { current_user: state.current_user.current_user}
 }
 
 const mapDispatchToProps = dispatch => ({
