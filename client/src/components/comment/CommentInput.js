@@ -50,19 +50,22 @@ class CommentInput extends Component {
         <div class="row"  >
           <form onSubmit={(event) => this.handleOnSubmit(event)}>
             <div class="form-group">
-
+              <label> Timecode (Hr:Mn:Sec)</label>
               <input
                 class="form-control"
                 id="timecode"
                 type="text"
+                pattern="\d{2}:{1}\d{2}:{1}\d{2}"
                 aria-describedby="timecode"
-                placeholder="Timecode"
+                placeholder="00:00:00"
                 value={this.state.timecode}
-                onChange={(event) => this.handleOnChange(event)} />
+                onChange={(event) => this.handleOnChange(event)}
+                required
+                />
             </div> {/** end form group**/}
 
             <div class="form-group">
-
+              <label> Comment </label>
               <input
                 class="form-control"
                 id="content"
@@ -70,7 +73,9 @@ class CommentInput extends Component {
                 placeholder="Comment"
                 type="text"
                 value={this.state.content}
-                onChange={(event) => this.handleOnChange(event)} />
+                onChange={(event) => this.handleOnChange(event)}
+                required
+                />
             </div> {/** end form group**/}
 
             <button type="submit" class="btn btn-primary">Submit</button>

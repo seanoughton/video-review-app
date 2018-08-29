@@ -34,6 +34,7 @@ import { fetchProjects } from  './actions/projectActions';
 import { fetchComments } from  './actions/commentActions';
 import { addVideo } from  './actions/videoActions';
 import { deleteCurrentUser } from  './actions/loginActions';
+import { addProject } from  './actions/projectActions';
 
 
 class App extends Component {
@@ -59,7 +60,7 @@ class App extends Component {
         <Route exact path='/projects/:id' render={routerProps => <Project {...routerProps} projects={this.props.projects} videos={this.props.videos} addVideo={this.props.addVideo}/>} />,
 
         <Route exact path='/users' component={UsersContainer} />,
-        <Route exact path='/users/:id' render={routerProps => <User {...routerProps} users={this.props.users} projects={this.props.projects} current_user={this.props.current_user}/>} />,
+        <Route exact path='/users/:id' render={routerProps => <User {...routerProps} users={this.props.users} projects={this.props.projects} current_user={this.props.current_user} addProject={this.props.addProject}/>} />,
         <Route exact path='/users/:id/edit' render={routerProps => <UserEdit {...routerProps} users={this.props.users} projects={this.props.projects}/>} />,
 
         <Route exact path="/videos" render={routerProps => <VideosContainer {...routerProps} videos={this.props.videos}  />} />,
@@ -115,7 +116,8 @@ const mapDispatchToProps = dispatch => ({
   fetchProjects: () => dispatch(fetchProjects()),
   fetchComments: () => dispatch(fetchComments()),
   addVideo: (video_state) => dispatch(addVideo(video_state)),
-  deleteCurrentUser: () => dispatch(deleteCurrentUser())
+  deleteCurrentUser: () => dispatch(deleteCurrentUser()),
+  addProject: project_state => dispatch(addProject(project_state))
 })
 
 export default connect(mapStateToProps,mapDispatchToProps)(App)

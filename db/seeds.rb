@@ -36,18 +36,18 @@ video03 = Video.create(url:'https://player.vimeo.com/video/217564062', version: 
 #COMMENTS
 #comment01 = Comment.create(content: 'Video 1 Comment 01a', timecode: Time.new(2015, 12, 8, 10, 19), user_id:user01.id, video_id:video01.id)
 
-comment02 = Comment.create(content: 'Video 1 Comment 02', timecode: 2.00, user_id:user02.id, video_id:video01.id)
+comment02 = Comment.create(content: 'Video 1 Comment 02', timecode: "00:00:00", user_id:user02.id, video_id:video01.id)
 
-comment03 = Comment.create(content: 'Video 1 Comment 03', timecode: 2.00, user_id:user03.id, video_id:video01.id)
+comment03 = Comment.create(content: 'Video 1 Comment 03', timecode: "00:00:00", user_id:user03.id, video_id:video01.id)
 
-comment04 = Comment.create(content: 'Video 2 Comment 01', timecode: 2.00, user_id:user01.id, video_id:video02.id)
+comment04 = Comment.create(content: 'Video 2 Comment 01', timecode: "00:00:00", user_id:user01.id, video_id:video02.id)
 
-comment05 = Comment.create(content: 'Video 2 Comment 02', timecode: 2.00, user_id:user02.id, video_id:video02.id)
+comment05 = Comment.create(content: 'Video 2 Comment 02', timecode: "00:00:00", user_id:user02.id, video_id:video02.id)
 
-comment06 = Comment.create(content: 'Video 2 Comment 03', timecode: 2.00, user_id:user03.id, video_id:video02.id)
+comment06 = Comment.create(content: 'Video 2 Comment 03', timecode: "00:00:00", user_id:user03.id, video_id:video02.id)
 
-comment07 = Comment.create(content: 'Video 3 Comment 01', timecode: 2.00, user_id:user01.id, video_id:video03.id)
+comment07 = Comment.create(content: 'Video 3 Comment 01', timecode: "00:00:00", user_id:user01.id, video_id:video03.id)
 
-comment08 = Comment.create(content: 'Video 3 Comment 02', timecode: 2.00, user_id:user02.id, video_id:video03.id)
+comment08 = Comment.create(content: 'Video 3 Comment 02', timecode: "00:00:00", user_id:user02.id, video_id:video03.id)
 
-comment09 = Comment.create(content: 'Video 3 Comment 03', timecode: 2.00, user_id:user03.id, video_id:video03.id)
+comment09 = Comment.create(content: 'Video 3 Comment 03', timecode: "00:00:00", user_id:user03.id, video_id:video03.id)

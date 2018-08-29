@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 
-import { addUser } from  '../../actions/userActions';
 import { editUser } from  '../../actions/userActions';
 
 class UserInput extends Component {
@@ -9,7 +8,7 @@ class UserInput extends Component {
   constructor(props) {
        super(props)
        this.state = {
-         pid: this.props.current_user,
+         id: this.props.current_user.id,
          user_name: this.props.current_user.user_name,
          email: this.props.current_user.email,
          password: '',
@@ -131,7 +130,6 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  addUser: user_state => dispatch(addUser(user_state)),
   editUser: user_state => dispatch(editUser(user_state))
 })
 

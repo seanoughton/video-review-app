@@ -10,7 +10,7 @@ class VideoApproval extends Component {
        super(props)
        this.state = {
          approval: '',
-         id: 1
+         id: this.props.video.id
        }
      }// end constructor
 

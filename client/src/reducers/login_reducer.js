@@ -33,10 +33,10 @@ export default function loginReducer(state = {current_user:false}, action) {
         }
 
         case "UPDATE_USER_INFO":
-          user = action.payload
+          let updatedUser = action.payload.payload
           return {
             ...state,
-            current_user:  user
+            current_user:  updatedUser
           }
 
 

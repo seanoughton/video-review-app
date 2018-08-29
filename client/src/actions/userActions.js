@@ -32,7 +32,7 @@ export function addUser(user_state) {
 
 export function editUser(user_state) {
  return (dispatch) => {
-   var url = `/users/2`;
+   var url = `/users/${user_state.id}`;
    //var url = `/users/${user_state.id}`;
    var data = {user:user_state };
    return fetch(url, {
@@ -42,8 +42,8 @@ export function editUser(user_state) {
        'Content-Type': 'application/json'
        },
      }).then(res => res.json())
+       .then(response => dispatch({ type: 'UPDATE_USER', payload: response }))
        .then(response => dispatch({ type: 'UPDATE_USER_INFO', payload: response }))
-       //.catch(error => console.error('Error:', error));
  };// end return
 
 }//end editUser **/
