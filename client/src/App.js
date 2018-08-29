@@ -98,8 +98,8 @@ class App extends Component {
            {whatToRender}
          </div>
        </Router>
-     );
-   }//end render**/
+     )//end return
+   }//end render
 }//end class
 
 // get all the elements from the store and place them in this component's props so that they can be passed down to other components

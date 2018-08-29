@@ -20,7 +20,7 @@ class Comment extends Component {
         <h4>Timecode: {comment.timecode}</h4>
 
       </div>
-    );
+    )//end return
   }// end render
 }// end class definition
 

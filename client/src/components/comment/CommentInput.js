@@ -78,7 +78,7 @@ class CommentInput extends Component {
         </div> {/**end row **/}
       </div> // end container
 
-    )
+    )// end return
   }// end render
 }// end class definition
 

@@ -1,23 +1,16 @@
+/// import React stuff
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux'
 
-import { deleteCurrentUser } from  '../../actions/loginActions';
-
-
 class NavBar extends Component {
-
 
 handleOnClick(event) {
   this.props.deleteCurrentUser()
 }
 
-
-
 render (){
-
   return (
-
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark border">
 
       <NavLink  class="navbar-brand" to={`/users/${this.props.current_user.current_user.id}`} class="btn btn-primary"> {this.props.current_user.current_user.user_name} </NavLink>
@@ -39,22 +32,17 @@ render (){
 
           <NavLink to="/" class="nav-item nav-link" onClick={(event) => this.handleOnClick(event)}> Logout </NavLink>
 
-
         </div>
       </div>
-
     </nav>
 
+    )//end return
+  }//end render
+}//end class
 
-
-
-
-  );
-};
+const mapStateToProps = (state) => {
+  return { current_user: state.current_user
+   }
 }
 
-
-
-
-
-export default NavBar
+export default connect(mapStateToProps)(NavBar)

@@ -1,13 +1,11 @@
+// import React Stuff
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+
+// import components
 import VideoInput from '../video/VideoInput'
 
-
-
 class Project extends Component {
-
-
-
   render() {
 
     let project = {project_name:'', id:''}
@@ -15,15 +13,13 @@ class Project extends Component {
     let projectId = parseInt(this.props.match.params.id,10)
     let projectVideos = ''
 
+    // if the async fetch request has been made and there are projects in the store
     if (allProjects.length > 0) {
       project = allProjects.find(project =>  project.id === projectId)
-
     }
 
-    let allVideos = this.props.videos.videos
-
-
-    let videos = allVideos.filter(video=> video.project.id === projectId)
+    // get the videos for this specific project
+    let videos = this.props.videos.videos.filter(video=> video.project.id === projectId)
 
     let displayVideos = videos.map( (video,index) =>
       <div class="col-sm-4" key={index}>
@@ -37,41 +33,30 @@ class Project extends Component {
       </div>)//end col
 
 
-
-
     return (
 
       <div class="container-fluid">
-        <h3 class="text-white">{project.project_name}</h3><br></br>
-
+        <h3 class="text-white">{project.project_name}</h3><br></br>\
         <div class="row">
           {displayVideos}
         </div>
-
 
         <div class="row ml-4">
           < VideoInput id={projectId} addVideo={this.props.addVideo}/>
         </div>
 
       </div>
-    );
-  }
-};
-
-
-
+    )//end return
+  }// end render
+}// end class definition
 
 
 export default Project
 
 /**
 
-
-
 handleOnClick = () => {
-  //this.props.deleteProject(this.props.project.id)
   this.props.deleteProject(this.props.match.params.id,10)
-  //find a way to reroute this to the projects index page
 }
 <button onClick={this.handleOnClick}> x </button>
 **/
