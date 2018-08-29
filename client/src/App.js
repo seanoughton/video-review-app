@@ -10,8 +10,6 @@ import { connect } from 'react-redux'
 import logo from './logo.svg';
 import './App.css';
 
-import sampleBootstrap from './containers/sampleBootstrap';
-
 import VideosContainer from './containers/VideosContainer';
 import UsersContainer from './containers/UsersContainer';
 import ProjectsContainer from './containers/ProjectsContainer';
@@ -32,6 +30,7 @@ import { fetchVideos } from  './actions/videoActions';
 import { fetchUsers } from  './actions/userActions';
 import { fetchProjects } from  './actions/projectActions';
 import { fetchComments } from  './actions/commentActions';
+import { addVideo } from  './actions/videoActions';
 //import * as actions from './actions/videoActions.js'
 
 class App extends Component {
@@ -48,15 +47,17 @@ class App extends Component {
 
 
    render() {
-     //console.log(this.props)
      let current_user = this.props.current_user
 
 
      let loggedIn = [
-       <NavBar user = {this.props.current_user.current_user.user_name}/>,
-        <Route exact path="/" render={routerProps => <ProjectsContainer {...routerProps} projects={this.props.projects}/>} />,
-        <Route exact path="/projects" render={routerProps => <ProjectsContainer {...routerProps} projects={this.props.projects}/>} />,
-        <Route exact path='/projects/:id' component={Project} />,
+
+       <NavBar />,
+        <Route exact path="/" component={ProjectsContainer} />,
+        <Route exact path="/projects" component={ProjectsContainer}  />,
+        <Route exact path="/users/:id/projects" component={ProjectsContainer} />,
+        <Route exact path='/projects/:id' render={routerProps => <Project {...routerProps} projects={this.props.projects} videos={this.props.videos} addVideo={this.props.addVideo}/>} />,
+
         <Route exact path='/users' render={routerProps => <UsersContainer {...routerProps} users={this.props.users} />} />,
         <Route exact path='/users/:id' render={routerProps => <User {...routerProps} users={this.props.users} projects={this.props.projects}/>} />,
         <Route exact path='/users/:id/edit' render={routerProps => <UserEdit {...routerProps} users={this.props.users} projects={this.props.projects}/>} />,
@@ -87,10 +88,7 @@ class App extends Component {
      return (
        <Router>
          <div className="app bg-dark">
-
            {whatToRender}
-
-
          </div>
        </Router>
      );
@@ -106,24 +104,12 @@ const mapDispatchToProps = dispatch => ({
   fetchVideos: () => dispatch(fetchVideos()),
   fetchUsers: () => dispatch(fetchUsers()),
   fetchProjects: () => dispatch(fetchProjects()),
-  fetchComments: () => dispatch(fetchComments())
+  fetchComments: () => dispatch(fetchComments()),
+  addVideo: (video_state) => dispatch(addVideo(video_state))
 })
 
 export default connect(mapStateToProps,mapDispatchToProps)(App)
-//export default App;
+
 /**
 
-
-
-
-
-<Route exact path="/" render={routerProps => <ProjectsContainer {...routerProps} projects={this.props.projects}/>}/>
-<Route exact path="/" render={routerProps => <ProjectsContainer {...routerProps} projects={this.props.projects}/>} />
-<Route exact path='/videos/:id' render={routerProps => <Video {...routerProps}  comments={this.props.comments} />} />
-<Route exact path="/projects" component={ProjectsContainer}/>
-<Route exact path="/comments" component={CommentsContainer} />
-<Route exact path="/videos" component={VideosContainer} />
-<Route exact path='/projects/:id' render={routerProps => <Project {...routerProps} allProjects={this.props.projects}/>} />
 **/
-
-//<Route exact path="/users" component={UsersContainer} />

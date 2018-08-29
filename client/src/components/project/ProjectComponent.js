@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import VideoInput from '../video/VideoInput'
 
-import { deleteProject } from  '../../actions/projectActions';
+
 
 class Project extends Component {
 
@@ -51,7 +50,7 @@ class Project extends Component {
 
 
         <div class="row ml-4">
-          < VideoInput id={projectId}/>
+          < VideoInput id={projectId} addVideo={this.props.addVideo}/>
         </div>
 
       </div>
@@ -59,23 +58,15 @@ class Project extends Component {
   }
 };
 
-const mapStateToProps = (state) => {
-  return { projects: state.projects, videos: state.videos, current_user: state.current_user}
-}
 
-const mapDispatchToProps = dispatch => ({
-  deleteProject: project_id => dispatch(deleteProject(project_id))
-})
 
-export default connect(mapStateToProps, mapDispatchToProps)(Project)
+
+
+export default Project
 
 /**
 
-projectVideos = project.videos.map((video,index) => <li key={index}>
-<Link to={`/videos/${video.id}`}>
-  {video.video_name}
-</Link>
-</li>)
+
 
 handleOnClick = () => {
   //this.props.deleteProject(this.props.project.id)

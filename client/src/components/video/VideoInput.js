@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
-import { addVideo } from  '../../actions/videoActions';
 
 class VideoInput extends Component {
 
@@ -8,7 +6,7 @@ class VideoInput extends Component {
     url: '',
     version: '',
     video_name: '',
-    project_id: this.props.id //this.props.projectId
+    project_id: this.props.id 
   }
 
   handleOnChange(event) {
@@ -108,13 +106,8 @@ class VideoInput extends Component {
   }
 };
 
-const mapStateToProps = (state) => {
-  return { videos: state.videos}
-}
 
 
-const mapDispatchToProps = dispatch => ({
-  addVideo: (video_state) => dispatch(addVideo(video_state))
-})
 
-export default connect(mapStateToProps,mapDispatchToProps)(VideoInput)
+
+export default VideoInput

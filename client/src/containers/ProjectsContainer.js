@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 
 import { deleteProject } from  '../actions/projectActions';
+import { addProject } from  '../actions/projectActions';
 
 import Project from '../components/project/ProjectComponent'
 import ProjectInput from '../components/project/ProjectInput'
@@ -41,7 +42,7 @@ class ProjectsContainer extends Component {
         <h1 class="text-white"> Here are all of your projects: </h1><br></br>
 
           <div class="row ml-4">
-            < ProjectInput/>
+            < ProjectInput addProject={this.props.addProject} current_user={this.props.current_user} projects={this.props.projects}/>
           </div>
 
           <div class="row">
@@ -57,9 +58,12 @@ class ProjectsContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return { current_user: state.current_user.current_user}
+  return { current_user: state.current_user.current_user, projects: state.projects}
 }
 
+const mapDispatchToProps = dispatch => ({
+  addProject: project_state => dispatch(addProject(project_state))
+})
 
-export default connect(mapStateToProps)(ProjectsContainer)
-//export default ProjectsContainer
+
+export default connect(mapStateToProps,mapDispatchToProps)(ProjectsContainer)

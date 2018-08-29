@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2018_08_23_195510) do
 
   create_table "comments", force: :cascade do |t|
     t.string "content"
-    t.float "timecode"
+    t.integer "timecode"
     t.integer "user_id"
     t.integer "video_id"
     t.datetime "created_at", null: false
