@@ -89,11 +89,11 @@ class VideoInput extends Component {
                   value={this.state.version}
                   onChange={(event) => this.handleOnChange(event)}
                   />
-
+                <button type="submit" class="btn btn-primary">Submit</button>
               </form>
             </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+
 
         </div>
       </div>

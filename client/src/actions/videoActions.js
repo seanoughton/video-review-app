@@ -11,6 +11,7 @@ export function fetchVideos() {
 }//end fetchVideos **/
 
 export function addVideo(video_state) {
+
  return (dispatch) => {
    var url = '/videos';
    var data = {video:video_state };
