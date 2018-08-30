@@ -22,7 +22,7 @@ export default function loginReducer(state = {current_user:false}, action) {
         current_user:  false
       }
 
-      case 'UPDATE_CURRENT_USER':
+      case 'CURRENT_USER_ADD_PROJECT':
         let project = action.payload.payload
         user = state.current_user
         user.projects.push(project)
@@ -31,6 +31,17 @@ export default function loginReducer(state = {current_user:false}, action) {
           ...state,
           current_user:  user
         }
+
+        case 'CURRENT_USER_DELETE_PROJECT':
+          let deletedProject = action.payload.payload
+
+          user = state.current_user
+          let updatedProjects = user.projects.filter( project => project.id !== parseInt(deletedProject.project_id,10) )
+          user.projects = updatedProjects
+          return {
+            ...state,
+            current_user:  user
+          }
 
         case "UPDATE_USER_INFO":
           let updatedUser = action.payload.payload

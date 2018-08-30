@@ -23,7 +23,7 @@ export function addProject(project_state) {
        },
      }).then(res => res.json())
        .then(response => dispatch({ type: 'ADD_PROJECT', payload: response }))
-       .then(response => dispatch({ type: 'UPDATE_CURRENT_USER', payload: response }))
+       .then(response => dispatch({ type: 'CURRENT_USER_ADD_PROJECT', payload: response }))
  };// end return
 
 }//end addProject **/
@@ -38,7 +38,8 @@ export function deleteProject(project_id) {
        'Content-Type': 'application/json'
        },
      }).then(res => res.json())
-       .then(response => dispatch({ type: 'DELETE_PROJECT', payload: response }));
+       .then(response => dispatch({ type: 'DELETE_PROJECT', payload: response }))
+       .then(response => dispatch({ type: 'CURRENT_USER_DELETE_PROJECT', payload: response }))
  };// end return
 
 }//end deleteProject **/
