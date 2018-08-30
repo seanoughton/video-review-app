@@ -4,14 +4,9 @@ import { Link } from 'react-router-dom';
 
 import ProjectInput from '../../components/project/ProjectInput'
 import NavBarUsers from '../../components/navbar/NavBarUsers';
+import DeleteProjectButton from './DeleteProjectButton';
 
 class User extends Component {
-
-  handleOnClick = (event) => {
-    event.preventDefault();
-    let projectId = parseInt(event.target.dataset.project,10)
-    this.props.deleteProject(projectId)
-  }// end handleOnClick
 
   render() {
 
@@ -49,7 +44,8 @@ class User extends Component {
                   <h5 class="card-title">{project.project_name}</h5>
                   <p class="card-text">{project.description}</p>
                   <Link to={`/projects/${project.id}`} class="btn btn-primary"> Work on this Project </Link>
-                  <button class="btn btn-danger" onClick={this.handleOnClick} data-project={project.id}> Delete </button>
+                  <DeleteProjectButton deleteProject={this.props.deleteProject} projectId ={project.id}/>
+
                 </div> {/**end card-body **/}
               </div> {/**end card **/} <br></br>
             </div>)//end col
