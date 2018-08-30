@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 //import components
 import CommentInput from '../../components/comment/CommentInput'
 import VideoApproval from './VideoApproval'
+import NavBarVideos from '../../components/navbar/NavBarVideos';
 
 // import actions
 import { deleteComment } from  '../../actions/commentActions';
@@ -59,7 +60,7 @@ class Video extends Component {
 
     return (
       <div class="container">
-
+        <NavBarVideos />
         <div class="row"  >
           <div class="col bg-secondary text-white-50 border">
             <div class="m-4">

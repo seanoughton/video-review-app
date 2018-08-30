@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux'
 
+import { deleteCurrentUser } from  '../../actions/loginActions';
+
+
 class NavBar extends Component {
 
 handleOnClick(event) {
@@ -23,7 +26,7 @@ render (){
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
 
-          <NavLink to={`/users/${this.props.current_user.current_user.id}/projects`} class="nav-item nav-link"> Projects </NavLink>
+          <NavLink to={`/projects`} class="nav-item nav-link"> Projects </NavLink>
 
           <NavLink to="/users" class="nav-item nav-link"> Users </NavLink>
 
@@ -40,9 +43,14 @@ render (){
   }//end render
 }//end class
 
+
 const mapStateToProps = (state) => {
-  return { current_user: state.current_user
+  return { videos: state.videos, users: state.users, projects: state.projects, comments: state.comments, current_user: state.current_user
    }
 }
 
-export default connect(mapStateToProps)(NavBar)
+const mapDispatchToProps = dispatch => ({
+  deleteCurrentUser: () => dispatch(deleteCurrentUser())
+})
+
+export default connect(mapStateToProps,mapDispatchToProps)(NavBar)

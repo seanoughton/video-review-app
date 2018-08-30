@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 
 import { editUser } from  '../../actions/userActions';
 
+import NavBarUsers from '../../components/navbar/NavBarUsers';
+
 class UserInput extends Component {
 
   constructor(props) {
@@ -61,6 +63,7 @@ class UserInput extends Component {
   render() {
     return (
       <div>
+        <NavBarUsers />
         <div>
           <h3 class="text-white">Update your User Profile</h3>
           <form onSubmit={(event) => this.handleOnSubmit(event)}>

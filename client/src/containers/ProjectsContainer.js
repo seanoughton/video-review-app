@@ -12,6 +12,8 @@ import { addProject } from  '../actions/projectActions';
 import Project from '../components/project/ProjectComponent'
 import ProjectInput from '../components/project/ProjectInput'
 
+import NavBarProjects from '../components/navbar/NavBarProjects';
+
 
 class ProjectsContainer extends Component {
 
@@ -50,6 +52,7 @@ class ProjectsContainer extends Component {
 
     return (
       <div class="container-fluid">
+        <NavBarProjects />
         <h1 class="text-white"> Here are all of the projects: </h1><br></br>
           <div class="row">
               {displayProjects}

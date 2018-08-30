@@ -49,15 +49,15 @@ class App extends Component {
    }
 
    render() {
+     console.log('app fired')
      let current_user = this.props.current_user
 
      // if the user is loggedIn, then these routes will be available
      let loggedIn = [
 
-        <NavBar current_user={this.props.current_user} deleteCurrentUser={this.props.deleteCurrentUser}/>,
+        //<NavBar />,
         <Route exact path="/" component={ProjectsContainer} />,
         <Route exact path="/projects" component={ProjectsContainer}  />,
-        <Route exact path="/users/:id/projects" component={ProjectsContainer} />,
         <Route exact path='/projects/:id' render={routerProps => <Project {...routerProps} projects={this.props.projects} videos={this.props.videos} addVideo={this.props.addVideo}/>} />,
 
         <Route exact path='/users' component={UsersContainer} />,

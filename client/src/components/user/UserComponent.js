@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import ProjectInput from '../../components/project/ProjectInput'
+import NavBarUsers from '../../components/navbar/NavBarUsers';
 
 class User extends Component {
 
@@ -61,6 +62,7 @@ class User extends Component {
 
     return (
       <div class="container-fluid">
+        <NavBarUsers />
         <div class="row">
           <div class="col">
             <div class="card w-50">

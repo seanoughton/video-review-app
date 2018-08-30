@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 /// import Components
 import VideoInput from '../components/video/VideoInput'
 import Video from '../components/video/VideoComponent'
+import NavBarVideos from '../components/navbar/NavBarVideos';
 
 class VideosContainer extends Component {
 
@@ -27,6 +28,7 @@ class VideosContainer extends Component {
 
     return (
       <div class="container-fluid">
+        <NavBarVideos />
         <h1 class="text-white"> Here are all of the Videos: </h1><br></br>
           <div class="row">
               {displayVideos}

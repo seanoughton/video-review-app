@@ -3,6 +3,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
 
+import NavBarUsers from '../components/navbar/NavBarUsers';
+
 class UsersContainer extends Component {
 
   render() {
@@ -20,6 +22,7 @@ class UsersContainer extends Component {
 
     return (
       <div class="container-fluid">
+        <NavBarUsers />
         <h1 class="text-white"> Here are all of the Users: </h1><br></br>
           <div class="row">
               {displayUsers}
