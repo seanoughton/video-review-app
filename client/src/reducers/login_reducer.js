@@ -2,19 +2,32 @@ export default function loginReducer(state = {current_user:false}, action) {
   switch (action.type) {
 
 
-    case "SET_CURRENT_USER":
-    let user = action.payload.payload
-    let login
-    if (user === false) {
-      login = false
-    } else {
-      login = true
-    }
-      return {
-        ...state,
-        current_user:  user,
-        login: login
+    case "SET_CURRENT_USER_LOGIN":
+      let user = action.payload
+      let login
+      if (user === false) {
+        login = false
+      } else {
+        login = true
       }
+        return {
+          ...state,
+          current_user:  user,
+          login: login
+        }
+
+        case "SET_CURRENT_USER_SIGNUP":
+          user = action.payload.payload
+          if (user === false) {
+            login = false
+          } else {
+            login = true
+          }
+            return {
+              ...state,
+              current_user:  user,
+              login: login
+            }
 
     case 'DELETE_CURRENT_USER':
       return {

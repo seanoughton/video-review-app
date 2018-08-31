@@ -53,6 +53,7 @@ class App extends Component {
      console.log('app fired')
      let current_user = this.props.current_user
 
+
      // if the user is loggedIn, then these routes will be available
      let loggedIn = [
 

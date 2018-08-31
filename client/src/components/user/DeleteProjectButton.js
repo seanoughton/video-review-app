@@ -3,6 +3,13 @@ import { connect } from 'react-redux'
 
 class DeleteProjectButton extends Component {
 
+  constructor(props) {
+       super(props)
+       this.state = {
+         projectId: this.props.id
+       }
+     }// end constructor
+
   handleDeleteOnClick = (event) => {
     //console.log('clicked')
     this.props.addItemToBeDeleted()

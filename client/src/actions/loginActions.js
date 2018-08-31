@@ -10,7 +10,7 @@ export function login(user_state) {
        'Content-Type': 'application/json'
        },
      }).then(res => res.json())
-       .then(response => dispatch({ type: 'SET_CURRENT_USER', payload: response }));
+       .then(response => dispatch({ type: 'SET_CURRENT_USER_LOGIN', payload: response }));
  };// end return
 
 }//end login **/
