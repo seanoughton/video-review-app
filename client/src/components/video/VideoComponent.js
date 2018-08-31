@@ -59,10 +59,10 @@ class Video extends Component {
     }
 
     return (
-      <div class="container">
+      <div class="container-fluid">
         <NavBarVideos />
         <div class="row"  >
-          <div class="col bg-secondary text-white-50 border">
+          <div class="col bg-secondary text-white-50 border ml-5">
             <div class="m-4">
                 {approvalDisplay}
 

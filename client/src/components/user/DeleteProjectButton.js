@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 
 class DeleteProjectButton extends Component {
+
+  handleDeleteOnClick = (event) => {
+    //console.log('clicked')
+    this.props.addItemToBeDeleted()
+  }
 
   handleOnClick = (event) => {
     event.preventDefault();
@@ -19,7 +25,7 @@ class DeleteProjectButton extends Component {
 
         <div id="test" data-id={this.props.id} ></div>
 
-        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal"  id="delete-button"> Delete </button>
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal"  id="delete-button" onClick={this.handleDeleteOnClick}> Delete </button>
 
 
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -48,4 +54,13 @@ class DeleteProjectButton extends Component {
 }// end render
 }// end class definition
 
-export default DeleteProjectButton
+const mapStateToProps = (state) => {
+  return { users: state.users, current_user: state.current_user.current_user}
+}
+
+const mapDispatchToProps = dispatch => ({
+  //editUser: user_state => dispatch(editUser(user_state))
+  addItemToBeDeleted: item_id => dispatch({ type: 'ADD_ID', payload: this.props.id })
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(DeleteProjectButton)

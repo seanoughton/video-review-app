@@ -13,7 +13,6 @@ class User extends Component {
     if (window.confirm('Are you sure you wish to delete this item?')){
       this.props.deleteProject(event.target.dataset.id)
     }
-
   }// end handleOnClick
 
   render() {
@@ -54,6 +53,7 @@ class User extends Component {
                   <p class="card-text">{project.description}</p>
                   <Link to={`/projects/${project.id}`} class="btn btn-primary"> Work on this Project </Link>
                   <button class="btn btn-danger"  onClick={this.handleOnClick} data-id={project.id}> Delete Project </button>
+
                 </div> {/**end card-body **/}
               </div> {/**end card **/} <br></br>
             </div>)//end col

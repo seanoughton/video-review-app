@@ -3,7 +3,7 @@ export default function loginReducer(state = {current_user:false}, action) {
 
 
     case "SET_CURRENT_USER":
-    let user = action.payload
+    let user = action.payload.payload
     let login
     if (user === false) {
       login = false
