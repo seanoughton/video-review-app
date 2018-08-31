@@ -14,23 +14,9 @@ class VideoInput extends Component {
 
 
   handleOnChange(event) {
-    if (event.target.id === 'video_name') {
-      this.setState({
-        video_name: event.target.value,
-      });// end setState
-    }// end if
-
-    if (event.target.id === 'url') {
-      this.setState({
-        url: event.target.value,
-      });// end setState
-    }// end if
-
-    if (event.target.id === 'version') {
-      this.setState({
-        version: event.target.value,
-      });// end setState
-    }// end if
+    this.setState({
+      [event.target.name]: event.target.value
+    })
   }// end handleOnChange
 
 
@@ -62,6 +48,7 @@ class VideoInput extends Component {
                 class="form-control"
                 type="text"
                 id="video_name"
+                name="video_name"
                 aria-describedby="videoHelp"
                 placeholder="Enter Video Name"
                 value={this.state.video_name}
@@ -73,6 +60,7 @@ class VideoInput extends Component {
                   class="form-control"
                   type="url"
                   id="url"
+                  name="url"
                   aria-describedby="urlHelp"
                   placeholder="Enter URL"
                   value={this.state.url}
@@ -84,6 +72,7 @@ class VideoInput extends Component {
                   class="form-control"
                   type="text"
                   id="version"
+                  name="version"
                   aria-describedby="versionHelp"
                   placeholder="Enter Version Number"
                   value={this.state.version}

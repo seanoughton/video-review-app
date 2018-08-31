@@ -13,17 +13,9 @@ class ProjectInput extends Component {
      }// end constructor
 
   handleOnChange(event) {
-    if (event.target.id === 'project_name'){
-      this.setState({
-        project_name: event.target.value,
-      })
-    }
-
-    if (event.target.id === 'description'){
-      this.setState({
-        description: event.target.value,
-      })
-    }
+    this.setState({
+      [event.target.name]: event.target.value
+    })
   }// end handleOnChange
 
   handleOnSubmit(event) {
@@ -45,6 +37,7 @@ class ProjectInput extends Component {
             type="text"
             class="form-control"
             id="project_name"
+            name="project_name"
             aria-describedby="userHelp"
             placeholder="Enter Project Name"
             value={this.state.project_name}
@@ -55,6 +48,7 @@ class ProjectInput extends Component {
               type="text"
               class="form-control mt-3"
               id="description"
+              name="description"
               aria-describedby="descriptionHelp"
               placeholder="Describe the Project"
               value={this.state.description}

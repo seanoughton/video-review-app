@@ -12,13 +12,12 @@ class DeleteProjectButton extends Component {
 
   handleDeleteOnClick = (event) => {
     //console.log('clicked')
-    this.props.addItemToBeDeleted()
+    //this.props.addItemToBeDeleted()
   }
 
   handleOnClick = (event) => {
     event.preventDefault();
-    let test = document.getElementById("test");
-    console.log(test)
+    console.log(this.state.projectId)
     //let projectId = parseInt(event.target.dataset.project,10)
     //this.props.deleteProject(parseInt(this.props.id,10))
   }// end handleOnClick
@@ -32,7 +31,7 @@ class DeleteProjectButton extends Component {
 
         <div id="test" data-id={this.props.id} ></div>
 
-        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal"  id="delete-button" onClick={this.handleDeleteOnClick}> Delete </button>
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal"  id="delete-button" > Delete {this.state.projectId}</button>
 
 
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

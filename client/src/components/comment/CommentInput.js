@@ -19,18 +19,9 @@ class CommentInput extends Component {
 
 
   handleOnChange(event) {
-    if (event.target.id === 'timecode') {
-      this.setState({
-        timecode: event.target.value,
-      })// end setState
-    }// end if
-
-    if (event.target.id === 'content') {
-      this.setState({
-        content: event.target.value,
-      })// end setState
-    }// end if
-
+    this.setState({
+      [event.target.name]: event.target.value
+    })
   }
 
 
@@ -54,6 +45,7 @@ class CommentInput extends Component {
               <input
                 class="form-control"
                 id="timecode"
+                name="timecode"
                 type="text"
                 pattern="\d{2}:{1}\d{2}:{1}\d{2}"
                 aria-describedby="timecode"
@@ -69,6 +61,7 @@ class CommentInput extends Component {
               <input
                 class="form-control"
                 id="content"
+                name="content"
                 aria-describedby="content"
                 placeholder="Comment"
                 type="text"

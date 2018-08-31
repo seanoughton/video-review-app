@@ -13,18 +13,9 @@ class LoginInput extends Component {
 
 
      handleOnChange(event) {
-       if (event.target.id === 'user_name') {
-         this.setState({
-           user_name: event.target.value,
-         })// end setState
-       }// end if
-
-
-       if (event.target.id === 'password') {
-         this.setState({
-           password: event.target.value,
-         })// end setState
-       }// end if
+       this.setState({
+         [event.target.name]: event.target.value
+       })
      }// end handleOnChange
 
      handleOnSubmit(event) {
@@ -58,6 +49,7 @@ class LoginInput extends Component {
                      <input type="text"
                        class="form-control"
                        id="user_name"
+                       name="user_name"
                        aria-describedby="userHelp"
                        placeholder="Enter User Name"
                        value={this.state.user_name}
@@ -74,6 +66,7 @@ class LoginInput extends Component {
                        type="password"
                        class="form-control"
                        id="password"
+                       name="password"
                        placeholder="Enter Password"
                        value={this.state.password}
                        onChange={(event) => this.handleOnChange(event)}

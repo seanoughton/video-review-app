@@ -15,30 +15,9 @@ class UserInput extends Component {
 
 
   handleOnChange(event) {
-    if (event.target.id === 'user_name') {
-      this.setState({
-        user_name: event.target.value,
-      });// end setState
-    }// end if
-
-    if (event.target.id === 'email') {
-      this.setState({
-        email: event.target.value,
-      });// end setState
-    }// end if
-
-    if (event.target.id === 'password') {
-      this.setState({
-        password: event.target.value,
-      });// end setState
-    }// end if
-
-    if (event.target.id === 'password_confirmation') {
-      this.setState({
-        password_confirmation: event.target.value,
-      });// end setState
-    }// end if
-
+    this.setState({
+      [event.target.id]: event.target.value
+    })
   }// end handleOnChange
 
 
