@@ -66,7 +66,7 @@ class App extends Component {
         <Route exact path='/users/:id' render={routerProps => <User {...routerProps} users={this.props.users} projects={this.props.projects} current_user={this.props.current_user} addProject={this.props.addProject} deleteProject={this.props.deleteProject}/>} />,
         <Route exact path='/users/:id/edit' render={routerProps => <UserEdit {...routerProps} users={this.props.users} projects={this.props.projects}/>} />,
 
-        <Route exact path="/videos" render={routerProps => <VideosContainer {...routerProps} videos={this.props.videos}  />} />,
+        <Route exact path="/videos" render={routerProps => <VideosContainer {...routerProps} videos={this.props.videos} deleteVideo={this.props.deleteVideo} />} />,
         <Route exact path='/videos/:id' component={Video} />,
 
         <Route exact path="/comments" render={routerProps => <CommentsContainer {...routerProps} comments={this.props.comments}/>} />,
@@ -98,9 +98,11 @@ class App extends Component {
 
      return (
        <Router>
-         <div className="app bg-dark">
-           {whatToRender}
-         </div>
+         <React.Fragment>
+           <div className="app bg-dark">
+             {whatToRender}
+           </div>
+         </React.Fragment>
        </Router>
      )//end return
    }//end render

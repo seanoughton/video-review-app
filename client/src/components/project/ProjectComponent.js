@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 // import components
 import VideoInput from '../video/VideoInput'
+import VideosList from '../video/VideosList'
 import NavBarProjects from '../../components/navbar/NavBarProjects';
 
 class Project extends Component {
@@ -31,22 +32,13 @@ class Project extends Component {
     let videos = this.props.videos.videos.filter(video=> video.project.id === projectId)
 
     let displayVideos = videos.map( (video,index) =>
-      <div class="col-sm-4" key={index}>
-        <div class="card">
-          <div class="card-body text-dark">
-            <h5 class="card-title">{video.video_name}</h5>
-            <p class="card-text">Version {video.version}.</p>
-            <Link to={`/videos/${video.id}`} class="btn btn-primary"> Work on this Video </Link>
-            <button class="btn btn-danger"  onClick={this.handleOnClick} data-id={video.id}> Delete Video </button>
-          </div> {/**end card-body **/}
-        </div> {/**end card **/} <br></br>
-      </div>)//end col
-
+      <VideosList video={video} handleOnClick={this.handleOnClick}/> )
 
     return (
 
       <div class="container-fluid">
         <NavBarProjects />
+
         <h3 class="text-white">{project.project_name}</h3><br></br>\
         <div class="row">
           {displayVideos}

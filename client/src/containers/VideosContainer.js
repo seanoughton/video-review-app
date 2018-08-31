@@ -5,25 +5,22 @@ import { Link } from 'react-router-dom';
 /// import Components
 import VideoInput from '../components/video/VideoInput'
 import Video from '../components/video/VideoComponent'
+import VideosList from '../components/video/VideosList'
 import NavBarVideos from '../components/navbar/NavBarVideos';
 
 class VideosContainer extends Component {
 
+  handleOnClick = (event) => {
+    event.preventDefault();
+    if (window.confirm('Are you sure you wish to delete this item?')){
+      this.props.deleteVideo(event.target.dataset.id)
+    }
+  }// end handleOnClick
+
   render() {
     let allVideos = this.props.videos.videos
-
-    let displayVideos = allVideos.map((video,index) =>
-          <div class="col-sm-4" key={index}>
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">{video.video_name}</h5>
-                  <button type="button" class="btn btn-success">
-                    V  <span class="badge badge-light">{video.version}</span>
-                  </button>
-                <Link to={`/videos/${video.id}`} class="btn btn-primary ml-4"> Work on Video</Link>
-              </div> {/**end card-body **/}
-            </div> {/**end card **/} <br></br>
-        </div>)//end col and displayVideos
+    let displayVideos = allVideos.map( (video,index) =>
+      <VideosList video={video} handleOnClick={this.handleOnClick}/> )
 
 
     return (
