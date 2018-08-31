@@ -33,6 +33,7 @@ import { fetchUsers } from  './actions/userActions';
 import { fetchProjects } from  './actions/projectActions';
 import { fetchComments } from  './actions/commentActions';
 import { addVideo } from  './actions/videoActions';
+import { deleteVideo } from  './actions/videoActions';
 import { deleteCurrentUser } from  './actions/loginActions';
 import { addProject } from  './actions/projectActions';
 import { deleteProject } from  './actions/projectActions';
@@ -58,7 +59,7 @@ class App extends Component {
         //<NavBar />,
         <Route exact path="/" component={ProjectsContainer} />,
         <Route exact path="/projects" component={ProjectsContainer}  />,
-        <Route exact path='/projects/:id' render={routerProps => <Project {...routerProps} projects={this.props.projects} videos={this.props.videos} addVideo={this.props.addVideo}/>} />,
+        <Route exact path='/projects/:id' render={routerProps => <Project {...routerProps} projects={this.props.projects} videos={this.props.videos} addVideo={this.props.addVideo} deleteVideo={this.props.deleteVideo}/>} />,
 
         <Route exact path='/users' component={UsersContainer} />,
         <Route exact path='/users/:id' render={routerProps => <User {...routerProps} users={this.props.users} projects={this.props.projects} current_user={this.props.current_user} addProject={this.props.addProject} deleteProject={this.props.deleteProject}/>} />,
@@ -117,6 +118,7 @@ const mapDispatchToProps = dispatch => ({
   fetchProjects: () => dispatch(fetchProjects()),
   fetchComments: () => dispatch(fetchComments()),
   addVideo: (video_state) => dispatch(addVideo(video_state)),
+  deleteVideo: (video_state) => dispatch(deleteVideo(video_state)),
   deleteCurrentUser: () => dispatch(deleteCurrentUser()),
   addProject: project_state => dispatch(addProject(project_state)),
   deleteProject: project_state => dispatch(deleteProject(project_state)),

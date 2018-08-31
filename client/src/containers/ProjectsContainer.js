@@ -45,6 +45,7 @@ class ProjectsContainer extends Component {
              <h5 class="card-title">{project.project_name}</h5>
              <p class="card-text">{project.description}</p>
              <Link to={`/projects/${project.id}`} class="btn btn-primary"> Work on this Project </Link>
+             
            </div> {/**end card-body **/}
          </div> {/**end card **/} <br></br>
        </div>)//end col

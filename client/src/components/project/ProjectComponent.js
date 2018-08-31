@@ -4,8 +4,17 @@ import { Link } from 'react-router-dom';
 
 // import components
 import VideoInput from '../video/VideoInput'
+import NavBarProjects from '../../components/navbar/NavBarProjects';
 
 class Project extends Component {
+
+  handleOnClick = (event) => {
+    event.preventDefault();
+    if (window.confirm('Are you sure you wish to delete this item?')){
+      this.props.deleteVideo(event.target.dataset.id)
+    }
+
+  }// end handleOnClick
   render() {
 
     let project = {project_name:'', id:''}
@@ -28,6 +37,7 @@ class Project extends Component {
             <h5 class="card-title">{video.video_name}</h5>
             <p class="card-text">Version {video.version}.</p>
             <Link to={`/videos/${video.id}`} class="btn btn-primary"> Work on this Video </Link>
+            <button class="btn btn-danger"  onClick={this.handleOnClick} data-id={video.id}> Delete Video </button>
           </div> {/**end card-body **/}
         </div> {/**end card **/} <br></br>
       </div>)//end col
@@ -36,6 +46,7 @@ class Project extends Component {
     return (
 
       <div class="container-fluid">
+        <NavBarProjects />
         <h3 class="text-white">{project.project_name}</h3><br></br>\
         <div class="row">
           {displayVideos}

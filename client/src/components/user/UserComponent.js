@@ -8,6 +8,14 @@ import DeleteProjectButton from './DeleteProjectButton';
 
 class User extends Component {
 
+  handleOnClick = (event) => {
+    event.preventDefault();
+    if (window.confirm('Are you sure you wish to delete this item?')){
+      this.props.deleteProject(event.target.dataset.id)
+    }
+
+  }// end handleOnClick
+
   render() {
 
     let user = {user_name:'', email:'', password:'', id:''}
@@ -18,6 +26,7 @@ class User extends Component {
     let createProject
     let projectHeader
     let userProjects = []
+
 
     // test to see if the async request for fetching all of the users has been made by testing to see if there are any users in the store
     if (allUsers.length > 0) {
@@ -44,8 +53,7 @@ class User extends Component {
                   <h5 class="card-title">{project.project_name}</h5>
                   <p class="card-text">{project.description}</p>
                   <Link to={`/projects/${project.id}`} class="btn btn-primary"> Work on this Project </Link>
-                  <DeleteProjectButton deleteProject={this.props.deleteProject} projectId ={project.id}/>
-
+                  <button class="btn btn-danger"  onClick={this.handleOnClick} data-id={project.id}> Delete Project </button>
                 </div> {/**end card-body **/}
               </div> {/**end card **/} <br></br>
             </div>)//end col
@@ -93,6 +101,6 @@ export default User
 /**
 
 <button onClick={this.handleOnClick}> x </button>
-
+                <DeleteProjectButton id={project.id} deleteProject={this.props.deleteProject}/>
 
 **/
