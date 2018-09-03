@@ -36,7 +36,7 @@ class ProjectsContainer extends Component {
     }
 
     displayProjects = projects.map( (project,index) =>
-      <ProjectsList project={project} handleOnClick={this.handleOnClick}/> )
+      <ProjectsList key={project.id} project={project} handleOnClick={this.handleOnClick}/> )
 
 
     return (

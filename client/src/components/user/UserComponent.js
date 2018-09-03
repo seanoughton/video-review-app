@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import ProjectInput from '../../components/project/ProjectInput'
 import NavBarUsers from '../../components/navbar/NavBarUsers';
 import DeleteProjectButton from './DeleteProjectButton';
+import UserProjectsList from './UserProjectsList'
 
 class User extends Component {
 
@@ -45,19 +46,8 @@ class User extends Component {
 
       projectHeader = <h1 class="text-white mt-3"> Here are all of your projects: </h1>
 
-      displayUserProjects = userProjects.map( (project,index) =>
-            <div class="col-sm-4" key={index}>
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">{project.project_name}</h5>
-                  <p class="card-text">{project.description}</p>
-                  <Link to={`/projects/${project.id}`} class="btn btn-primary"> Work on this Project </Link>
-                  <button class="btn btn-danger"  onClick={this.handleOnClick} data-id={project.id}> Delete Project </button>
-    
-
-                </div> {/**end card-body **/}
-              </div> {/**end card **/} <br></br>
-            </div>)//end col
+      displayUserProjects = userProjects.map( (project) =>
+        <UserProjectsList project={project} key={project.id} handleOnClick={this.handleOnClick}/> )
 
       createProject = < ProjectInput addProject={this.props.addProject} current_user={this.props.current_user} projects={this.props.projects}/>
     }// end if

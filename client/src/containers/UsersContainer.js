@@ -12,7 +12,7 @@ class UsersContainer extends Component {
 
     let allUsers = this.props.users.users
     let displayUsers = allUsers.map( (user,index) =>
-      <UsersList user={user} /> )
+      <UsersList user={user} key={user.id}/> )
 
     return (
       <div class="container-fluid">

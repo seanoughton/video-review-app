@@ -50,7 +50,7 @@ class Video extends Component {
       comments = allComments.filter(comment => comment.video.id === videoId)
       // get the comments for just this video
       videoComments = comments.map((comment,index) =>
-      <CommentsList comment={comment} index={index} handleOnClick={this.handleOnClick}/> )
+      <CommentsList comment={comment} index={index} handleOnClick={this.handleOnClick} key={comment.id}/> )
     }
 
     return (

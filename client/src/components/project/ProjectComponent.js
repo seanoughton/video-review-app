@@ -33,7 +33,7 @@ class Project extends Component {
     let videos = this.props.videos.videos.filter(video=> video.project.id === projectId)
 
     let displayVideos = videos.map( (video,index) =>
-      <VideosList video={video} handleOnClick={this.handleOnClick}/> )
+      <VideosList video={video} key={video.id} handleOnClick={this.handleOnClick}/> )
 
     return (
 

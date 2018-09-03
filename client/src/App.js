@@ -51,7 +51,6 @@ class App extends Component {
    }
 
    render() {
-     console.log('app fired')
      let current_user = this.props.current_user
 
 

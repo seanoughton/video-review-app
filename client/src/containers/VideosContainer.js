@@ -20,7 +20,7 @@ class VideosContainer extends Component {
   render() {
     let allVideos = this.props.videos.videos
     let displayVideos = allVideos.map( (video,index) =>
-      <VideosList video={video} handleOnClick={this.handleOnClick}/> )
+      <VideosList video={video} key={video.id} handleOnClick={this.handleOnClick}/> )
 
 
     return (
