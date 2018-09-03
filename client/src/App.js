@@ -14,7 +14,6 @@ import './App.css'; // some extra styling is added in here on top of bootstrap
 import VideosContainer from './containers/VideosContainer';
 import UsersContainer from './containers/UsersContainer';
 import ProjectsContainer from './containers/ProjectsContainer';
-import CommentsContainer from './containers/CommentsContainer';
 
 /// import Components
 import NavBar from './components/navbar/NavBar';
@@ -55,7 +54,7 @@ class App extends Component {
 
 
      // if the user is loggedIn, then these routes will be available
-     let loggedIn = [ 
+     let loggedIn = [
         <Route exact path="/" component={ProjectsContainer} />,
         <Route exact path="/projects" component={ProjectsContainer}  />,
         <Route exact path='/projects/:id' render={routerProps => <Project {...routerProps} projects={this.props.projects} videos={this.props.videos} addVideo={this.props.addVideo} deleteVideo={this.props.deleteVideo} editProject={this.props.editProject} current_user={this.props.current_user}/>} />,
@@ -67,7 +66,6 @@ class App extends Component {
         <Route exact path="/videos" render={routerProps => <VideosContainer {...routerProps} videos={this.props.videos} deleteVideo={this.props.deleteVideo} />} />,
         <Route exact path='/videos/:id' component={Video} />,
 
-        <Route exact path="/comments" render={routerProps => <CommentsContainer {...routerProps} comments={this.props.comments}/>} />,
         <Route exact path='/comments/:id' render={routerProps => <Comment {...routerProps} comments={this.props.comments}/>} />,
 
         <Route exact path="/logout"  component={Login} />
@@ -124,7 +122,7 @@ const mapDispatchToProps = dispatch => ({
   addProject: project_state => dispatch(addProject(project_state)),
   deleteProject: project_state => dispatch(deleteProject(project_state)),
   deleteProject: project_state => dispatch(deleteProject(project_state)),
-  editProject: project_state => dispatch(editProject(project_state)),
+  editProject: project_state => dispatch(editProject(project_state))
 })
 
 export default connect(mapStateToProps,mapDispatchToProps)(App)

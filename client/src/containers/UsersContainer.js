@@ -5,14 +5,38 @@ import { Link } from 'react-router-dom';
 
 import UsersList from '../components/user/UsersList'
 import NavBarUsers from '../components/navbar/NavBarUsers';
+import { deleteUser } from  '../actions/userActions';
 
 class UsersContainer extends Component {
 
-  render() {
+  handleOnClick = (event) => {
+    event.preventDefault();
+    if (window.confirm('Are you sure you wish to delete this item?')){
+      this.props.deleteUser(event.target.dataset.id)
+    }
+  }// end handleOnClick
 
+  render() {
     let allUsers = this.props.users.users
-    let displayUsers = allUsers.map( (user,index) =>
-      <UsersList user={user} key={user.id}/> )
+    let displayUsers
+    // if the current_user is admin show delete button
+    if (this.props.current_user.admin == true ) {
+      displayUsers = allUsers.map( (user,index) =>
+        <UsersList
+          user={user}
+          key={user.id}
+          handleOnClick={this.handleOnClick}
+          button={<button className="btn btn-danger"  onClick={this.handleOnClick} data-id={user.id}>  Delete User </button>}
+          /> )
+    } else {
+      displayUsers = allUsers.map( (user,index) =>
+        <UsersList
+          user={user}
+          key={user.id}
+          handleOnClick={this.handleOnClick}
+          /> )
+    }
+
 
     return (
       <div className="container-fluid">
@@ -27,8 +51,11 @@ class UsersContainer extends Component {
 }// end class definition
 
 const mapStateToProps = (state) => {
-  return { users: state.users}
+  return { users: state.users, current_user: state.current_user.current_user}
 }
 
+const mapDispatchToProps = dispatch => ({
+  deleteUser: user_state => dispatch(deleteUser(user_state))
+})
 
-export default connect(mapStateToProps)(UsersContainer)
+export default connect(mapStateToProps,mapDispatchToProps)(UsersContainer)
