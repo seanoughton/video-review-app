@@ -15,10 +15,10 @@ class UsersContainer extends Component {
       <UsersList user={user} key={user.id}/> )
 
     return (
-      <div class="container-fluid">
+      <div className="container-fluid">
         <NavBarUsers />
-        <h1 class="text-white"> Here are all of the Users: </h1><br></br>
-          <div class="row">
+        <h1 className="text-white"> Here are all of the Users: </h1><br></br>
+          <div className="row">
               {displayUsers}
           </div>
       </div>

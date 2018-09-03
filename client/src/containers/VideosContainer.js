@@ -24,10 +24,10 @@ class VideosContainer extends Component {
 
 
     return (
-      <div class="container-fluid">
+      <div className="container-fluid">
         <NavBarVideos />
-        <h1 class="text-white"> Here are all of the Videos: </h1><br></br>
-          <div class="row">
+        <h1 className="text-white"> Here are all of the Videos: </h1><br></br>
+          <div className="row">
               {displayVideos}
           </div>
       </div>

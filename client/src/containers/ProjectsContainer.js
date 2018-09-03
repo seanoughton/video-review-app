@@ -40,10 +40,10 @@ class ProjectsContainer extends Component {
 
 
     return (
-      <div class="container-fluid">
+      <div className="container-fluid">
         <NavBarProjects />
-        <h1 class="text-white"> Here are all of the projects: </h1><br></br>
-          <div class="row">
+        <h1 className="text-white"> Here are all of the projects: </h1><br></br>
+          <div className="row">
               {displayProjects}
           </div>
 

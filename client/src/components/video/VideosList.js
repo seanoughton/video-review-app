@@ -4,15 +4,15 @@ import { Link } from 'react-router-dom';
 
 const VideosList = ({ video,handleOnClick }) =>
 
-<div class="col-sm-4" key={video.id}>
-  <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">{video.video_name}</h5>
-        <button type="button" class="btn btn-success">
-          V  <span class="badge badge-light">{video.version}</span>
+<div className="col-sm-4" key={video.id}>
+  <div className="card">
+    <div className="card-body">
+      <h5 className="card-title">{video.video_name}</h5>
+        <button type="button" className="btn btn-success">
+          V  <span className="badge badge-light">{video.version}</span>
         </button>
-      <Link to={`/videos/${video.id}`} class="btn btn-primary ml-4"> Work on Video</Link>
-      <button class="btn btn-danger"  onClick={handleOnClick} data-id={video.id}> Delete Video </button>
+      <Link to={`/videos/${video.id}`} className="btn btn-primary ml-4"> Work on Video</Link>
+      <button className="btn btn-danger"  onClick={handleOnClick} data-id={video.id}> Delete Video </button>
     </div> {/**end card-body **/}
   </div> {/**end card **/} <br></br>
 </div>//end col and displayVideos

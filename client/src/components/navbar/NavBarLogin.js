@@ -6,10 +6,10 @@ class NavBar extends Component {
 
   render (){
     return (
-      <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark border">
-        <a class="navbar-brand" href="/">Video Review</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+      <nav className="navbar sticky-top navbar-expand-lg navbar-dark bg-dark border">
+        <a className="navbar-brand" href="/">Video Review</a>
+        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
         </button>
       </nav>
     )//end return

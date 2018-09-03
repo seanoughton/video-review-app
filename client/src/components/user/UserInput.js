@@ -51,10 +51,10 @@ class UserInput extends Component {
           {alert}
           <form onSubmit={(event) => this.handleOnSubmit(event)}>
 
-            <div class="form-group">
-              <label for="user_name">User Name</label>
+            <div className="form-group">
+              <label htmlFor="user_name">User Name</label>
               <input
-                class="form-control"
+                className="form-control"
                 type="text"
                 id="user_name"
                 aria-describedby="userHelp"
@@ -64,10 +64,10 @@ class UserInput extends Component {
                 required/>
             </div>
 
-              <div class="form-group">
-                <label for="email">Email</label>
+              <div className="form-group">
+                <label htmlFor="email">Email</label>
                 <input
-                  class="form-control"
+                  className="form-control"
                   type="email"
                   id="email"
                   aria-describedby="userHelp"
@@ -78,11 +78,11 @@ class UserInput extends Component {
               </div>
 
 
-              <div class="form-group">
-                <label for="password">Password</label>
+              <div className="form-group">
+                <label htmlFor="password">Password</label>
                 <input
                   type="password"
-                  class="form-control"
+                  className="form-control"
                   id="password"
                   placeholder="Enter Password"
                   value={this.state.password}
@@ -90,18 +90,18 @@ class UserInput extends Component {
                   required/>
               </div>
 
-              <div class="form-group">
-                <label for="password_confirmation">Password Confirmation</label>
+              <div className="form-group">
+                <label htmlFor="password_confirmation">Password Confirmation</label>
                 <input
                   type="password"
-                  class="form-control"
+                  className="form-control"
                   id="password_confirmation"
                   placeholder="Confirm Password"
                   value={this.state.password_confirmation}
                   onChange={(event) => this.handleOnChange(event)}
                   required/>
               </div>
-              <button type="submit" class="btn btn-secondary">Submit</button>
+              <button type="submit" className="btn btn-secondary">Submit</button>
           </form>
         </div>
       </div>

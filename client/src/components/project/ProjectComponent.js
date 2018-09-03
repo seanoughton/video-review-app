@@ -37,19 +37,19 @@ class Project extends Component {
 
     return (
 
-      <div class="container-fluid">
+      <div className="container-fluid">
         <NavBarProjects />
 
-        <h3 class="text-white">{project.project_name}</h3><br></br>\
-        <div class="row">
+        <h3 className="text-white">{project.project_name}</h3><br></br>\
+        <div className="row">
           {displayVideos}
         </div>
 
-        <div class="row ml-4">
-          <div class="col">
+        <div className="row ml-4">
+          <div className="col">
             < EditProject current_user={this.props.current_user} editProject={this.props.editProject} projectId = {project.id}/>
           </div>
-          <div class="col">
+          <div className="col">
             < VideoInput id={projectId} addVideo={this.props.addVideo}/>
           </div>
         </div>

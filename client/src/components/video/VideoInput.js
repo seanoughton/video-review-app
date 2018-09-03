@@ -39,13 +39,13 @@ class VideoInput extends Component {
     return (
       <div>
         <div>
-          <h2 class="text-white">Add a Video</h2>
+          <h2 className="text-white">Add a Video</h2>
 
-            <div class="form-group mt-4" >
+            <div className="form-group mt-4" >
               <form onSubmit={(event) => this.handleOnSubmit(event)}>
-              <label for="video_name" class="text-white">Video Name</label>
+              <label htmlFor="video_name" className="text-white">Video Name</label>
               <input
-                class="form-control"
+                className="form-control"
                 type="text"
                 id="video_name"
                 name="video_name"
@@ -55,9 +55,9 @@ class VideoInput extends Component {
                 onChange={(event) => this.handleOnChange(event)}
                 />
 
-              <label for="url" class="text-white">URL</label>
+              <label htmlFor="url" className="text-white">URL</label>
                 <input
-                  class="form-control"
+                  className="form-control"
                   type="url"
                   id="url"
                   name="url"
@@ -67,9 +67,9 @@ class VideoInput extends Component {
                   onChange={(event) => this.handleOnChange(event)}
                   />
 
-                <label for="url" class="text-white">Version Number</label>
+                <label htmlFor="url" className="text-white">Version Number</label>
                 <input
-                  class="form-control"
+                  className="form-control"
                   type="text"
                   id="version"
                   name="version"
@@ -78,7 +78,7 @@ class VideoInput extends Component {
                   value={this.state.version}
                   onChange={(event) => this.handleOnChange(event)}
                   />
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" className="btn btn-primary">Submit</button>
               </form>
             </div>
 

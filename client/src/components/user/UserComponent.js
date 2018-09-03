@@ -40,11 +40,11 @@ class User extends Component {
     }
 
     if (user.id === this.props.current_user.current_user.id){
-      editProfileButton = <Link class="btn btn-primary" to={`/users/${this.props.current_user.current_user.id}/edit`}>
+      editProfileButton = <Link className="btn btn-primary" to={`/users/${this.props.current_user.current_user.id}/edit`}>
         Edit Profile
       </Link>
 
-      projectHeader = <h1 class="text-white mt-3"> Here are all of your projects: </h1>
+      projectHeader = <h1 className="text-white mt-3"> Here are all of your projects: </h1>
 
       displayUserProjects = userProjects.map( (project) =>
         <UserProjectsList project={project} key={project.id} handleOnClick={this.handleOnClick}/> )
@@ -56,30 +56,30 @@ class User extends Component {
 
 
     return (
-      <div class="container-fluid">
+      <div className="container-fluid">
         <NavBarUsers />
-        <div class="row">
-          <div class="col">
-            <div class="card w-50">
-              <div class="card-body">
-                <h4 class="card-title">User Info</h4>
-                <p class="card-text">User Name: {user.user_name}</p>
-                <p class="card-text">Email: {user.email}</p>
+        <div className="row">
+          <div className="col">
+            <div className="card w-50">
+              <div className="card-body">
+                <h4 className="card-title">User Info</h4>
+                <p className="card-text">User Name: {user.user_name}</p>
+                <p className="card-text">Email: {user.email}</p>
                   {editProfileButton}
               </div> {/** end card body **/}
             </div>{/** end card **/}
           </div> {/** end col **/}
 
-          <div class="col">
+          <div className="col">
             {createProject}
           </div> {/** end col **/}
         </div>{/** end row **/}
 
-        <div class="row mt-2">
+        <div className="row mt-2">
           {projectHeader}
         </div> {/** end row **/}
 
-        <div class="row mt-2">
+        <div className="row mt-2">
           {displayUserProjects}
         </div> {/** end row **/}
 

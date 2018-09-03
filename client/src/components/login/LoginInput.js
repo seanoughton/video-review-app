@@ -40,14 +40,14 @@ class LoginInput extends Component {
 
        return (
 
-         <div class="container">
+         <div className="container">
                <h2>Log In </h2>
                {alert}
                  <form onSubmit={(event) => this.handleOnSubmit(event)}>
-                   <div class="form-group">
-                     <label for="user_name">User Name</label>
+                   <div className="form-group">
+                     <label htmlFor="user_name">User Name</label>
                      <input type="text"
-                       class="form-control"
+                       className="form-control"
                        id="user_name"
                        name="user_name"
                        aria-describedby="userHelp"
@@ -61,10 +61,10 @@ class LoginInput extends Component {
                    </div>
 
                    <div class="form-group">
-                     <label for="password">Password</label>
+                     <label htmlFor="password">Password</label>
                      <input
                        type="password"
-                       class="form-control"
+                       className="form-control"
                        id="password"
                        name="password"
                        placeholder="Enter Password"
@@ -75,7 +75,7 @@ class LoginInput extends Component {
                          Please choose a username.
                        </div>
                    </div>
-                   <button type="submit" class="btn btn-secondary">Submit</button>
+                   <button type="submit" className="btn btn-secondary">Submit</button>
                  </form>
          </div>// end container
        )

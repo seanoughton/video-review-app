@@ -14,26 +14,26 @@ handleOnClick(event) {
 
 render (){
   return (
-    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark border">
+    <nav className="navbar sticky-top navbar-expand-lg navbar-dark bg-dark border">
 
-      <NavLink  class="navbar-brand" to={`/users/${this.props.current_user.current_user.id}`} class="btn btn-primary"> {this.props.current_user.current_user.user_name} </NavLink>
+      <NavLink  className="navbar-brand" to={`/users/${this.props.current_user.current_user.id}`} className="btn btn-primary"> {this.props.current_user.current_user.user_name} </NavLink>
 
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span className="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
+      <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div className="navbar-nav">
 
-          <NavLink to={`/projects`} class="nav-item nav-link"> Projects </NavLink>
+          <NavLink to={`/projects`} className="nav-item nav-link"> Projects </NavLink>
 
-          <NavLink to="/users" class="nav-item nav-link"> Users </NavLink>
+          <NavLink to="/users" className="nav-item nav-link"> Users </NavLink>
 
-          <NavLink to="/videos" class="nav-item nav-link"> Videos </NavLink>
+          <NavLink to="/videos" className="nav-item nav-link"> Videos </NavLink>
 
 
-          <NavLink to="/" class="nav-item nav-link" onClick={(event) => this.handleOnClick(event)}> Logout </NavLink>
+          <NavLink to="/" className="nav-item nav-link" onClick={(event) => this.handleOnClick(event)}> Logout </NavLink>
 
         </div>
       </div>

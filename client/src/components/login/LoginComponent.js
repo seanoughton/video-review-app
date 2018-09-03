@@ -58,13 +58,13 @@ class Login extends Component {
 
     return (
 
-      <div class="container">
-        <div class="row">
-          <div class="col bg-info text-white border-right">
+      <div className="container">
+        <div className="row">
+          <div className="col bg-info text-white border-right">
             < LoginInput current_user={this.props.current_user} login={this.props.login}/>
           </div>{/* end col */}
 
-          <div class="col bg-info text-white">
+          <div className="col bg-info text-white">
             <h2>Sign Up</h2>
             < UserInput current_user={this.props.current_user} addUser={this.props.addUser}/>
 

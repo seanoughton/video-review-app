@@ -37,13 +37,13 @@ class CommentInput extends Component {
 
   render() {
     return (
-      <div class="container">
-        <div class="row"  >
+      <div className="container">
+        <div className="row"  >
           <form onSubmit={(event) => this.handleOnSubmit(event)}>
-            <div class="form-group">
+            <div className="form-group">
               <label> Timecode (Hr:Mn:Sec)</label>
               <input
-                class="form-control"
+                className="form-control"
                 id="timecode"
                 name="timecode"
                 type="text"
@@ -56,10 +56,10 @@ class CommentInput extends Component {
                 />
             </div> {/** end form group**/}
 
-            <div class="form-group">
+            <div className="form-group">
               <label> Comment </label>
               <input
-                class="form-control"
+                className="form-control"
                 id="content"
                 name="content"
                 aria-describedby="content"
@@ -71,7 +71,7 @@ class CommentInput extends Component {
                 />
             </div> {/** end form group**/}
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" className="btn btn-primary">Submit</button>
           </form>
         </div> {/**end row **/}
       </div> // end container

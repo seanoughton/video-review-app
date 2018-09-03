@@ -33,14 +33,14 @@ class Video extends Component {
     let videoComments = ''
     let currentUserId = 2
     let project = ''
-    let approvalDisplay = <span class="badge badge-danger">Not Approved</span>
+    let approvalDisplay = <span className="badge badge-danger">Not Approved</span>
 
     // check if there are videos in the store
     if (allVideos.length > 0) {
       video = allVideos.find(video =>  video.id === videoId)
       project = video.project.project_name
       if (video.approval === true) {
-        approvalDisplay = <span class="badge badge-success">Approved</span>
+        approvalDisplay = <span className="badge badge-success">Approved</span>
       }
     }
 
@@ -54,15 +54,15 @@ class Video extends Component {
     }
 
     return (
-      <div class="container-fluid">
+      <div className="container-fluid">
         <NavBarVideos />
-        <div class="row"  >
-          <div class="col bg-secondary text-white-50 border ml-5">
-            <div class="m-4">
+        <div className="row"  >
+          <div className="col bg-secondary text-white-50 border ml-5">
+            <div className="m-4">
                 {approvalDisplay}
 
-                <button type="button" class="btn btn-primary">
-                  Version <span class="badge badge-light">{video.version}</span>
+                <button type="button" className="btn btn-primary">
+                  Version <span className="badge badge-light">{video.version}</span>
                 </button>
 
               <iframe src={video.url} width="640" height="360" frameBorder="0" webkitallowfullscreen mozallowfullscreen allowFullScreen></iframe>
@@ -70,13 +70,13 @@ class Video extends Component {
             </div>
           </div>{/* end col */}
 
-          <div class="col bg-dark text-white m-3">
-              <div class="row"  >
+          <div className="col bg-dark text-white m-3">
+              <div className="row"  >
                 <h4>Add a Comment</h4>
                 < CommentInput videoId={videoId} currentUserId={this.props.current_user.id}/>
             </div>{/**end row **/}
              <br></br>
-              <div class="row"  >
+              <div className="row"  >
                 < VideoApproval video={video}/>
               </div>{/**end row **/}
           </div>{/* end col */}
@@ -84,11 +84,11 @@ class Video extends Component {
         </div>{/* end row */}
 
 
-        <div class="row"  >
-          <div class="col bg-dark text-white border commentsList ">
+        <div className="row"  >
+          <div className="col bg-dark text-white border commentsList ">
               <h4 >Comments</h4>
-              <span class="badge badge-info">{comments.length} Comments</span>
-                <table class="table">
+              <span className="badge badge-info">{comments.length} Comments</span>
+                <table className="table">
                   <thead>
                     <tr>
                       <th scope="col">#</th>

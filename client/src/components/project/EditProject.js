@@ -31,12 +31,12 @@ class EditProject extends Component {
 
   render() {
     return (
-      <div class="form-group mt-4" >
+      <div className="form-group mt-4" >
         <form onSubmit={(event) => this.handleOnSubmit(event)}>
-          <h3 class="text-white">Edit Project</h3>
+          <h3 className="text-white">Edit Project</h3>
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             id="project_name"
             name="project_name"
             aria-describedby="userHelp"
@@ -47,7 +47,7 @@ class EditProject extends Component {
 
             <input
               type="text"
-              class="form-control mt-3"
+              className="form-control mt-3"
               id="description"
               name="description"
               aria-describedby="descriptionHelp"
@@ -55,7 +55,7 @@ class EditProject extends Component {
               value={this.state.description}
               onChange={(event) => this.handleOnChange(event)}
               />
-          <button type="submit" class="btn btn-primary mt-4">Submit</button>
+          <button type="submit" className="btn btn-primary mt-4">Submit</button>
         </form>
       </div>
     )// end return
