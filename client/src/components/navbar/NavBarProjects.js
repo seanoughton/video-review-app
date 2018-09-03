@@ -34,7 +34,7 @@ render (){
           <NavLink to="/videos" className="nav-item nav-link"> Videos </NavLink>
 
 
-          <NavLink to="/" className="nav-item nav-link" onClick={(event) => this.handleOnClick(event)} > Logout </NavLink>
+          <NavLink to="/" className="nav-item nav-link text-white-50" onClick={(event) => this.handleOnClick(event)} > Logout </NavLink>
 
         </div>
       </div>
