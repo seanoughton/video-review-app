@@ -21,6 +21,7 @@ import NavBarLogin from './components/navbar/NavBarLogin';
 import Project from './components/project/ProjectComponent'
 import Comment from './components/comment/CommentComponent'
 import Video from './components/video/VideoComponent'
+import VideoEdit from './components/video/VideoEdit'
 import User from './components/user/UserComponent'
 import UserEdit from './components/user/UserEdit'
 import Login from './components/login/LoginComponent'
@@ -65,6 +66,7 @@ class App extends Component {
 
         <Route exact path="/videos" render={routerProps => <VideosContainer {...routerProps} videos={this.props.videos} deleteVideo={this.props.deleteVideo} />} />,
         <Route exact path='/videos/:id' component={Video} />,
+        <Route exact path='/videos/:id/edit' render={routerProps => <VideoEdit {...routerProps} users={this.props.users} projects={this.props.projects}/>} />,
 
         <Route exact path='/comments/:id' render={routerProps => <Comment {...routerProps} comments={this.props.comments}/>} />,
 

@@ -12,6 +12,7 @@ const VideosList = ({ video,handleOnClick }) =>
           V  <span className="badge badge-light">{video.version}</span>
         </button>
       <Link to={`/videos/${video.id}`} className="btn btn-primary ml-4"> Work on Video</Link>
+      <Link to={`/videos/${video.id}/edit`} className="btn btn-warning ml-2"> Edit </Link>
       <button className="btn btn-danger"  onClick={handleOnClick} data-id={video.id}> Delete Video </button>
     </div> {/**end card-body **/}
   </div> {/**end card **/} <br></br>
