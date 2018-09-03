@@ -37,6 +37,7 @@ import { deleteVideo } from  './actions/videoActions';
 import { deleteCurrentUser } from  './actions/loginActions';
 import { addProject } from  './actions/projectActions';
 import { deleteProject } from  './actions/projectActions';
+import { editProject } from  './actions/projectActions';
 
 
 class App extends Component {
@@ -60,7 +61,7 @@ class App extends Component {
         //<NavBar />,
         <Route exact path="/" component={ProjectsContainer} />,
         <Route exact path="/projects" component={ProjectsContainer}  />,
-        <Route exact path='/projects/:id' render={routerProps => <Project {...routerProps} projects={this.props.projects} videos={this.props.videos} addVideo={this.props.addVideo} deleteVideo={this.props.deleteVideo}/>} />,
+        <Route exact path='/projects/:id' render={routerProps => <Project {...routerProps} projects={this.props.projects} videos={this.props.videos} addVideo={this.props.addVideo} deleteVideo={this.props.deleteVideo} editProject={this.props.editProject} current_user={this.props.current_user}/>} />,
 
         <Route exact path='/users' component={UsersContainer} />,
         <Route exact path='/users/:id' render={routerProps => <User {...routerProps} users={this.props.users} projects={this.props.projects} current_user={this.props.current_user} addProject={this.props.addProject} deleteProject={this.props.deleteProject}/>} />,
@@ -125,6 +126,8 @@ const mapDispatchToProps = dispatch => ({
   deleteCurrentUser: () => dispatch(deleteCurrentUser()),
   addProject: project_state => dispatch(addProject(project_state)),
   deleteProject: project_state => dispatch(deleteProject(project_state)),
+  deleteProject: project_state => dispatch(deleteProject(project_state)),
+  editProject: project_state => dispatch(editProject(project_state)),
 })
 
 export default connect(mapStateToProps,mapDispatchToProps)(App)

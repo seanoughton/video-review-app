@@ -30,7 +30,6 @@ export function addUser(user_state) {
 export function editUser(user_state) {
  return (dispatch) => {
    var url = `/users/${user_state.id}`;
-   //var url = `/users/${user_state.id}`;
    var data = {user:user_state };
    return fetch(url, {
      method: 'PATCH',

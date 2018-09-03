@@ -7,6 +7,7 @@ import { Route } from 'react-router-dom';
 /// import actions
 import { deleteProject } from  '../actions/projectActions';
 import { addProject } from  '../actions/projectActions';
+import { editProject } from  '../actions/projectActions';
 
 /// import Components
 import Project from '../components/project/ProjectComponent'

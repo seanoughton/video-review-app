@@ -39,7 +39,7 @@ class ProjectsController < ApplicationController
 
   def edit
     @project = Project.find(params[:id])
-    render json: @project
+    #render json: @project
   end
 
   def update

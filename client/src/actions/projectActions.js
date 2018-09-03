@@ -14,7 +14,7 @@ export function addProject(project_state) {
  return (dispatch) => {
    var url = '/projects';
    var data = {project:project_state};
-
+   console.log(data)
    return fetch(url, {
      method: 'POST',
      body: JSON.stringify(data),
@@ -25,8 +25,23 @@ export function addProject(project_state) {
        .then(response => dispatch({ type: 'ADD_PROJECT', payload: response }))
        .then(response => dispatch({ type: 'CURRENT_USER_ADD_PROJECT', payload: response }))
  };// end return
-
 }//end addProject **/
+
+ export function editProject(project_state) {
+
+  return (dispatch) => {
+    var url = `/projects/${project_state.id}`;
+    var data = {project:project_state};
+    return fetch(url, {
+      method: 'PATCH',
+      body: JSON.stringify(data),
+      headers:{
+        'Content-Type': 'application/json'
+        },
+      }).then(res => res.json())
+        .then(response => dispatch({ type: 'UPDATE_PROJECT', payload: response }))
+  };// end return
+}//end editProject **/
 
 export function deleteProject(project_id) {
  return (dispatch) => {

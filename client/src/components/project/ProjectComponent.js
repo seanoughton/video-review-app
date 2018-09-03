@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 // import components
 import VideoInput from '../video/VideoInput'
 import VideosList from '../video/VideosList'
+import EditProject from '../../components/project/EditProject';
 import NavBarProjects from '../../components/navbar/NavBarProjects';
 
 class Project extends Component {
@@ -45,7 +46,12 @@ class Project extends Component {
         </div>
 
         <div class="row ml-4">
-          < VideoInput id={projectId} addVideo={this.props.addVideo}/>
+          <div class="col">
+            < EditProject current_user={this.props.current_user} editProject={this.props.editProject} projectId = {project.id}/>
+          </div>
+          <div class="col">
+            < VideoInput id={projectId} addVideo={this.props.addVideo}/>
+          </div>
         </div>
 
       </div>
@@ -55,11 +61,3 @@ class Project extends Component {
 
 
 export default Project
-
-/**
-
-handleOnClick = () => {
-  this.props.deleteProject(this.props.match.params.id,10)
-}
-<button onClick={this.handleOnClick}> x </button>
-**/
