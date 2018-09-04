@@ -11,7 +11,7 @@ class CommentInput extends Component {
        super(props)
        this.state = {
          content: '',
-         timecode: '',
+         timecode: '00:00:00',
          user_id: this.props.currentUserId,
          video_id: this.props.videoId
        }
@@ -30,7 +30,7 @@ class CommentInput extends Component {
     this.props.addComment(this.state);
     this.setState({
       content: '',
-      timecode: ''
+      timecode: '00:00:00'
     })// end setState
   }
 
