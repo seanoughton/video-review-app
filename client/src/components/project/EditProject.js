@@ -6,9 +6,9 @@ class EditProject extends Component {
   constructor(props) {
        super(props)
        this.state = {
-         id: this.props.projectId,
-         project_name: '',
-         description: '',
+         id: this.props.project.id,
+         project_name: this.props.project.project_name,
+         description: this.props.project.description,
          user_ids: [parseInt(this.props.current_user.id,10)]
        }
      }// end constructor

@@ -40,14 +40,15 @@ class Project extends Component {
       <div className="container-fluid">
         <NavBarProjects />
 
-        <h3 className="text-white">{project.project_name}</h3><br></br>\
+        <h3 className="text-white">{project.project_name}</h3><br></br>
+        <h5 className="text-white">{project.description}</h5><br></br>
         <div className="row">
           {displayVideos}
         </div>
 
         <div className="row ml-4">
           <div className="col">
-            < EditProject current_user={this.props.current_user} editProject={this.props.editProject} projectId = {project.id}/>
+            < EditProject current_user={this.props.current_user} editProject={this.props.editProject} project={project}/>
           </div>
           <div className="col">
             < VideoInput id={projectId} addVideo={this.props.addVideo}/>
