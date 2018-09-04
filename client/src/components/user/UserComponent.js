@@ -89,9 +89,3 @@ class User extends Component {
 }// end class definition
 
 export default User
-/**
-
-<button onClick={this.handleOnClick}> x </button>
-                <DeleteProjectButton id={project.id} deleteProject={this.props.deleteProject}/>
-
-**/

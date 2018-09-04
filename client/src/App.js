@@ -123,7 +123,6 @@ const mapDispatchToProps = dispatch => ({
   deleteCurrentUser: () => dispatch(deleteCurrentUser()),
   addProject: project_state => dispatch(addProject(project_state)),
   deleteProject: project_state => dispatch(deleteProject(project_state)),
-  deleteProject: project_state => dispatch(deleteProject(project_state)),
   editProject: project_state => dispatch(editProject(project_state))
 })
 
