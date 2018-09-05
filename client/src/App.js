@@ -51,7 +51,7 @@ class App extends Component {
    }
 
    render() {
-     let current_user = this.props.current_user
+     let current_user = this.props.current_user // gets the current user
 
 
      // if the user is loggedIn, then these routes will be available
@@ -112,7 +112,7 @@ const mapStateToProps = (state) => {
    }
 }
 
-// get all of the actions that will be fired when this component mounts
+// get all of the actions that will be fired when this component mounts or that need to get passed down as props
 const mapDispatchToProps = dispatch => ({
   fetchVideos: () => dispatch(fetchVideos()),
   fetchUsers: () => dispatch(fetchUsers()),
@@ -127,7 +127,3 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(mapStateToProps,mapDispatchToProps)(App)
-
-/**
-
-**/

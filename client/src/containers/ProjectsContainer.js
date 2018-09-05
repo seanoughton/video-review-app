@@ -18,6 +18,7 @@ import NavBarProjects from '../components/navbar/NavBarProjects';
 
 class ProjectsContainer extends Component {
 
+//fires off deleteProject action if confirmation
   handleOnClick = (event) => {
     event.preventDefault();
     if (window.confirm('Are you sure you wish to delete this item?')){
@@ -27,6 +28,7 @@ class ProjectsContainer extends Component {
 
   render() {
 
+    //set default values
     let projects = []
     let displayProjects = ''
 
@@ -63,7 +65,3 @@ const mapDispatchToProps = dispatch => ({
 
 
 export default connect(mapStateToProps,mapDispatchToProps)(ProjectsContainer)
-
-/**
-
-**/

@@ -12,39 +12,6 @@ import LoginInput from './LoginInput'
 
 class Login extends Component {
 
-  constructor(props) {
-       super(props)
-       this.state = {
-         user_name: '',
-         password: ''
-       }
-     }// end constructor
-
-  handleOnChange(event) {
-    if (event.target.id === 'user_name') {
-      this.setState({
-        user_name: event.target.value,
-      })// end setState
-    }// end if
-
-
-    if (event.target.id === 'password') {
-      this.setState({
-        password: event.target.value,
-      })// end setState
-    }// end if
-  }// end handleOnChange
-
-  handleOnSubmit(event) {
-    event.preventDefault();
-    this.props.login(this.state)
-    this.setState({
-      user_name: '',
-      password: ''
-    })// end setState
-  }// end handleOnSubmit
-
-
 
   render() {
 

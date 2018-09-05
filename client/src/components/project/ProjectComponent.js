@@ -15,10 +15,9 @@ class Project extends Component {
     if (window.confirm('Are you sure you wish to delete this item?')){
       this.props.deleteVideo(event.target.dataset.id)
     }
-
   }// end handleOnClick
   render() {
-
+    //set Defaults
     let project = {project_name:'', id:''}
     let allProjects = this.props.projects.projects
     let projectId = parseInt(this.props.match.params.id,10)
@@ -32,6 +31,7 @@ class Project extends Component {
     // get the videos for this specific project
     let videos = this.props.videos.videos.filter(video=> video.project.id === projectId)
 
+    //display all of the videos
     let displayVideos = videos.map( (video,index) =>
       <VideosList video={video} key={video.id} handleOnClick={this.handleOnClick}/> )
 

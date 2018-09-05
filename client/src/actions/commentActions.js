@@ -1,15 +1,15 @@
 
-
+// gets all of the comments from the Rails API
 export function fetchComments() {
  return (dispatch) => {
    dispatch({ type: 'LOADING_COMMENTS' });
    return fetch('/comments')
      .then(response => response.json() )
-     .then(response => dispatch({ type: 'FETCH_COMMENTS', payload: response }));
+     .then(json => dispatch({ type: 'FETCH_COMMENTS', payload: json }));
  };// end return
-
 }//end fetchComments **/
 
+// adds a comment to the Rails API backend
 export function addComment(comment_state) {
  return (dispatch) => {
    var url = '/comments';
@@ -21,7 +21,7 @@ export function addComment(comment_state) {
      headers:{
        'Content-Type': 'application/json'
        },
-     }).then(res => res.json())
+     }).then(response => response.json())
        .then(response => dispatch({ type: 'ADD_COMMENT', payload: response }));
        //.then(response => console.log('Success:', response))
        //.catch(error => console.error('Error:', error));
@@ -29,7 +29,7 @@ export function addComment(comment_state) {
 
 }//end addComment **/
 
-
+//deletes a comment from the Rails API backend
 export function deleteComment(comment_id) {
  return (dispatch) => {
    var url = `/comments/${comment_id}`;

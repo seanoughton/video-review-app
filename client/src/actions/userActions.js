@@ -1,3 +1,4 @@
+// gets all of the users from the Rails API
 export function fetchUsers() {
  return (dispatch) => {
    dispatch({ type: 'LOADING_USERS' });
@@ -8,6 +9,7 @@ export function fetchUsers() {
 
 }//end fetchUsers **/
 
+// adds a user to the Rails API backend
 export function addUser(user_state) {
  return (dispatch) => {
    var url = '/users';
@@ -27,6 +29,7 @@ export function addUser(user_state) {
 
 }//end addUser **/
 
+// edits a user to the Rails API backend
 export function editUser(user_state) {
  return (dispatch) => {
    var url = `/users/${user_state.id}`;
@@ -44,6 +47,7 @@ export function editUser(user_state) {
 
 }//end editUser **/
 
+// deletes a comment from the Rails API backend
 export function deleteUser(user_id) {
  return (dispatch) => {
    var url = `/users/${user_id}`;

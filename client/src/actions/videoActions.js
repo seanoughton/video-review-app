@@ -1,5 +1,5 @@
 
-
+// gets all of the videos from the Rails API
 export function fetchVideos() {
  return (dispatch) => {
    dispatch({ type: 'LOADING_VIDEOS' });
@@ -10,6 +10,8 @@ export function fetchVideos() {
 
 }//end fetchVideos **/
 
+
+// adds a video to the Rails API backend
 export function addVideo(video_state) {
 
  return (dispatch) => {
@@ -21,7 +23,7 @@ export function addVideo(video_state) {
      headers:{
        'Content-Type': 'application/json'
        },
-     }).then(res => res.json())
+     }).then(response => response.json())
        .then(response => dispatch({ type: 'ADD_VIDEO', payload: response }));
        //.then(response => console.log('Success:', response))
        //.catch(error => console.error('Error:', error));
@@ -29,6 +31,7 @@ export function addVideo(video_state) {
 
 }//end addVideo **/
 
+// deletes a video from the Rails API backend
 export function deleteVideo(video_id) {
  return (dispatch) => {
    var url = `/videos/${video_id}`;
@@ -38,12 +41,13 @@ export function deleteVideo(video_id) {
      headers:{
        'Content-Type': 'application/json'
        },
-     }).then(res => res.json())
+     }).then(response => response.json())
        .then(response => dispatch({ type: 'DELETE_VIDEO', payload: response }));
  };// end return
 
 }//end deleteVideo **/
 
+// updates a user to the Rails API backend
 export function updateVideo(video_state) {
  return (dispatch) => {
    var url = `/videos/${video_state.id}`;
@@ -54,7 +58,7 @@ export function updateVideo(video_state) {
      headers:{
        'Content-Type': 'application/json'
        },
-     }).then(res => res.json())
+     }).then(response => response.json())
        .then(response => dispatch({ type: 'UPDATE_VIDEO', payload: response }));
 
  };// end return

@@ -1,5 +1,5 @@
 import React from 'react'
-
+//functional Component
 const CommentsList = ({ comment,index,handleOnClick }) =>
 
   <tr key={index}>

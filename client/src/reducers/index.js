@@ -6,7 +6,7 @@ import commentsReducer from './comments_reducer';
 import loginReducer from './login_reducer';
 import deleteItemReducer from './delete_item_reducer';
 
-
+//combines all of the reducers 
 const rootReducer = combineReducers({
   videos: videosReducer,
   users: usersReducer,

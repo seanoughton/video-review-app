@@ -5,9 +5,12 @@ class Comment extends Component {
 
   render() {
 
+    //set default values
     let comment = {content:'', id:'', timecode:''}
     let allComments = this.props.comments.comments
     let commentId = parseInt(this.props.match.params.id,10)
+
+    // if there are comments in the store, then find individual comment
     if (allComments.length > 0) {
       comment = allComments.find(comment =>  comment.id === commentId)
     }

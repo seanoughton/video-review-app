@@ -1,4 +1,4 @@
-
+//checks to see if the user is in the database and if the username and password are correct. If so it returns that user and the user is added as the current user in the redux store.
 export function login(user_state) {
  return (dispatch) => {
    var url = '/login';
@@ -15,20 +15,12 @@ export function login(user_state) {
 
 }//end login **/
 
+//dispatch to delete the current_user from the redux store
 export function deleteCurrentUser(user_id) {
  return (dispatch) => {
 
    dispatch({ type: 'DELETE_CURRENT_USER', payload: true })
-   /**
-   var url = `/users/${user_id}`;
 
-   return fetch(url, {
-     method: 'DELETE',
-     headers:{
-       'Content-Type': 'application/json'
-       },
-     }).then(res => res.json())
-       .then(response => dispatch({ type: 'DELETE_USER', payload: response })); **/
  };// end return
 
 }//end deleteCurrentUser **/

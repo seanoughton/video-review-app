@@ -3,12 +3,16 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
 
+/// import Components
 import UsersList from '../components/user/UsersList'
 import NavBarUsers from '../components/navbar/NavBarUsers';
+
+/// import actions
 import { deleteUser } from  '../actions/userActions';
 
 class UsersContainer extends Component {
 
+//fires off deleteUser action if confirmation
   handleOnClick = (event) => {
     event.preventDefault();
     if (window.confirm('Are you sure you wish to delete this item?')){
@@ -17,8 +21,11 @@ class UsersContainer extends Component {
   }// end handleOnClick
 
   render() {
+
+    //set default values
     let allUsers = this.props.users.users
     let displayUsers
+    
     // if the current_user is admin show delete button
     if (this.props.current_user.admin == true ) {
       displayUsers = allUsers.map( (user,index) =>

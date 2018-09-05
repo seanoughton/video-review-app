@@ -26,6 +26,7 @@ class Video extends Component {
 
   render() {
 
+    //set defaults
     let video = {url: '', version: '', video_name:'', project_id: '', id:''}
     let allVideos = this.props.videos.videos
     let videoId = parseInt(this.props.match.params.id,10)
@@ -34,6 +35,8 @@ class Video extends Component {
     let currentUserId = 2
     let project = ''
     let approvalDisplay = <span className="badge badge-danger">Not Approved</span>
+
+
 
     // check if there are videos in the store
     if (allVideos.length > 0) {
@@ -44,7 +47,8 @@ class Video extends Component {
       }
     }
 
-    //check if there are comments in the store
+    //check if there are comments in the store, if so get the comments
+    // it is done this way rather than grabbing the video comments, because the video comments in the store does not have the user info about who made the comment
     let allComments = this.props.comments.comments
     if (allComments.length > 0){
       comments = allComments.filter(comment => comment.video.id === videoId)

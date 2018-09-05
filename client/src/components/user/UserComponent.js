@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 import ProjectInput from '../../components/project/ProjectInput'
 import NavBarUsers from '../../components/navbar/NavBarUsers';
-import DeleteProjectButton from './DeleteProjectButton';
 import UserProjectsList from './UserProjectsList'
 
 class User extends Component {

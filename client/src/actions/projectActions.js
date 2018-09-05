@@ -1,5 +1,5 @@
 
-
+// gets all of the projects from the Rails API
 export function fetchProjects() {
  return (dispatch) => {
    dispatch({ type: 'LOADING_PROJECTS' });
@@ -10,6 +10,7 @@ export function fetchProjects() {
 
 }//end fetchProjects **/
 
+// adds a project to the Rails API backend
 export function addProject(project_state) {
  return (dispatch) => {
    var url = '/projects';
@@ -27,6 +28,7 @@ export function addProject(project_state) {
  };// end return
 }//end addProject **/
 
+// edits a comment to the Rails API backend
  export function editProject(project_state) {
 
   return (dispatch) => {
@@ -43,6 +45,7 @@ export function addProject(project_state) {
   };// end return
 }//end editProject **/
 
+// deletes a comment from the Rails API backend
 export function deleteProject(project_id) {
  return (dispatch) => {
    var url = `/projects/${project_id}`;

@@ -37,7 +37,9 @@ class UserInput extends Component {
 
   render() {
 
+    // set default values
     let alert
+    
     //set an alert if the password and password_confirmation do not match
     if (this.props.current_user.login === false){
       alert = <div class="alert alert-danger" role="alert">

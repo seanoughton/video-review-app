@@ -10,6 +10,7 @@ import NavBarVideos from '../components/navbar/NavBarVideos';
 
 class VideosContainer extends Component {
 
+//fires off deleteVideo action if confirmation
   handleOnClick = (event) => {
     event.preventDefault();
     if (window.confirm('Are you sure you wish to delete this item?')){
