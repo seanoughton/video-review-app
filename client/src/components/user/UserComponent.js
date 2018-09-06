@@ -52,7 +52,7 @@ class User extends Component {
 // sort through the projects for this users projects
     this.props.projects.projects.forEach( function (project){
       project.users.forEach( function (user){
-        if (user.id === 2){
+        if (user.id === userId){
           newUserProjects.push(project)
         }
       })
@@ -79,10 +79,6 @@ class User extends Component {
 
       projectHeader = <h1 className="text-white mt-3"> Here are all of your projects: </h1>
 
-/**
-      displayUserProjects = userProjects.map( (project) =>
-        <UserProjectsList project={project} key={project.id} handleOnClick={this.handleOnClick} handleOnLikeClick={this.handleOnLikeClick} counter={this.state.counter}/> )
-**/
 
         displayUserProjects = newUserProjects.map( (project) =>
           <ProjectsList project={project} key={project.id}/> )
