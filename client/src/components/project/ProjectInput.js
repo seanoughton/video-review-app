@@ -8,7 +8,7 @@ class ProjectInput extends Component {
        this.state = {
          project_name: '',
          description: '',
-         user_ids: [parseInt(this.props.current_user.id,10)]
+         user_ids: [parseInt(this.props.current_user.current_user.id,10)]
        }
      }// end constructor
 
@@ -29,6 +29,7 @@ class ProjectInput extends Component {
 
 
   render() {
+    console.log(this.props.current_user.current_user.id)
     return (
       <div className="form-group mt-4" >
         <form onSubmit={(event) => this.handleOnSubmit(event)}>

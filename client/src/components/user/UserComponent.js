@@ -4,15 +4,30 @@ import { Link } from 'react-router-dom';
 
 import ProjectInput from '../../components/project/ProjectInput'
 import NavBarUsers from '../../components/navbar/NavBarUsers';
-import UserProjectsList from './UserProjectsList'
+import ProjectsList from '../../components/project/ProjectsList'
 
 class User extends Component {
+
+  constructor(props) {
+       super(props)
+       this.state = {
+         counter: 0
+       }
+
+     }// end constructor
 
   handleOnClick = (event) => {
     event.preventDefault();
     if (window.confirm('Are you sure you wish to delete this item?')){
       this.props.deleteProject(event.target.dataset.id)
     }
+  }// end handleOnClick
+
+  handleOnLikeClick = (event) => {
+    event.preventDefault();
+    this.setState({
+      counter: this.state.counter + 1
+    })
   }// end handleOnClick
 
   render() {
@@ -25,6 +40,8 @@ class User extends Component {
     let createProject
     let projectHeader
     let userProjects = []
+    let newUserProjects = []
+
 
 
     // test to see if the async request for fetching all of the users has been made by testing to see if there are any users in the store
@@ -32,11 +49,28 @@ class User extends Component {
       user = allUsers.find(user =>  user.id === userId)
     }
 
+// sort through the projects for this users projects
+    this.props.projects.projects.forEach( function (project){
+      project.users.forEach( function (user){
+        if (user.id === 2){
+          newUserProjects.push(project)
+        }
+      })
+    })
 
-    //test to see if this user has any projects and if assign them
-    if (this.props.current_user.current_user.projects){
-      userProjects = this.props.current_user.current_user.projects
-    }
+// sort the projects by project id
+  newUserProjects.sort(function(a, b) {
+      if (a.id < b.id) {
+        return -1;
+      }
+      if (a.id > b.id) {
+        return 1;
+      }
+      return 0;
+    });
+
+
+
 
     if (user.id === this.props.current_user.current_user.id){
       editProfileButton = <Link className="btn btn-primary" to={`/users/${this.props.current_user.current_user.id}/edit`}>
@@ -45,13 +79,16 @@ class User extends Component {
 
       projectHeader = <h1 className="text-white mt-3"> Here are all of your projects: </h1>
 
+/**
       displayUserProjects = userProjects.map( (project) =>
-        <UserProjectsList project={project} key={project.id} handleOnClick={this.handleOnClick}/> )
+        <UserProjectsList project={project} key={project.id} handleOnClick={this.handleOnClick} handleOnLikeClick={this.handleOnLikeClick} counter={this.state.counter}/> )
+**/
+
+        displayUserProjects = newUserProjects.map( (project) =>
+          <ProjectsList project={project} key={project.id}/> )
 
       createProject = < ProjectInput addProject={this.props.addProject} current_user={this.props.current_user} projects={this.props.projects}/>
     }// end if
-
-
 
 
     return (

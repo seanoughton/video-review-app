@@ -59,7 +59,7 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:project_name, :team_id, :description, user_ids:[])
+    params.require(:project).permit(:project_name, :team_id, :description, :likes, user_ids:[])
   end
 
 

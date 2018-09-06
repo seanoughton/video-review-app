@@ -12,10 +12,10 @@ export function fetchProjects() {
 
 // adds a project to the Rails API backend
 export function addProject(project_state) {
+  console.log(project_state)
  return (dispatch) => {
    var url = '/projects';
    var data = {project:project_state};
-   console.log(data)
    return fetch(url, {
      method: 'POST',
      body: JSON.stringify(data),
@@ -30,7 +30,7 @@ export function addProject(project_state) {
 
 // edits a comment to the Rails API backend
  export function editProject(project_state) {
-
+   console.log(project_state)
   return (dispatch) => {
     var url = `/projects/${project_state.id}`;
     var data = {project:project_state};

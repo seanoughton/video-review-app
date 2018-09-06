@@ -7,8 +7,9 @@ import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
 
 import registerServiceWorker from './registerServiceWorker'; // allows the user access to a cached page when not online
 
-//Provider will alert our app when there has been a change in state, and this will re-render the app
+//Provider will alert our app when there has been a change in state, and this will re-render the app, means you don't have to pass down Redux store state as props
 import { Provider } from 'react-redux';
+// import createStore method from Redux Library
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk'; // middlware for async fetch requests
 import rootReducer from './reducers';
@@ -26,6 +27,9 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, rootReducer) // for redux persist
 
+//createStore() returns an instance of the Redux store
+// pass createStore() the combined reducers
+// the store gets passed to Provider in the render method
 const store = createStore(
   persistedReducer,
   //rootReducer, using Redux Persist to help with page refreshes
@@ -40,7 +44,7 @@ let persistor = persistStore(store) // for redux persist
 
 ReactDOM.render(
 
-  <Provider store={store}> 
+  <Provider store={store}>
     <PersistGate loading={null} persistor={persistor} >
       <div>
         <App />

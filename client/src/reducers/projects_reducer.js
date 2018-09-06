@@ -22,7 +22,7 @@ export default function projectsReducer(state = {loading: false, projects: []}, 
       let updatedProject = action.payload
       // gets all of the projects except for the one being updated
       let projects = state.projects.filter( project => project.id !== updatedProject.id)
-      //pushes the updated project into projects 
+      //pushes the updated project into projects
       projects.push(updatedProject)
       return { ...state, projects}
 

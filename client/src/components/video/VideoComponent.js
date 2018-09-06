@@ -118,6 +118,11 @@ class Video extends Component {
   }// end render
 }// end class definition
 
+
+export default connect(state => ({ videos: state.videos, comments: state.comments, current_user: state.current_user.current_user}), { deleteComment })(Video);
+
+
+/**
 const mapStateToProps = (state) => {
   return { videos: state.videos, comments: state.comments, current_user: state.current_user.current_user}
 }
@@ -126,15 +131,7 @@ const mapDispatchToProps = dispatch => ({
   deleteComment: comment_state => dispatch(deleteComment(comment_state))
 })
 
+
 export default connect(mapStateToProps,mapDispatchToProps)(Video)
-
-/**
-
-handleOnClick = () => {
-  //this.props.deleteVideo (this.props.video.id)
-  this.props.deleteVideo(this.props.match.params.id,10)
-  //find a way to reroute this to the projects index page
-}
-<button onClick={this.handleOnClick}> x </button>
-
-  **/
+//export default connect(mapStateToProps, { deleteComment })(Video);
+**/

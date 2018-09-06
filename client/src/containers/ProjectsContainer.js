@@ -35,10 +35,19 @@ class ProjectsContainer extends Component {
     //test to see if this user has any projects and if assign them
     if (this.props.current_user.projects){
       projects = this.props.projects
+      projects.sort(function(a, b) {
+          if (a.id < b.id) {
+            return -1;
+          }
+          if (a.id > b.id) {
+            return 1;
+          }
+          return 0;
+        });
     }
 
-    displayProjects = projects.map( (project,index) =>
-      <ProjectsList key={project.id} project={project} handleOnClick={this.handleOnClick}/> )
+    displayProjects = projects.map( (project) =>
+      <ProjectsList key={project.id} project={project} /> )
 
 
     return (
