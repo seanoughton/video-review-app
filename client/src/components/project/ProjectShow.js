@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 // import components
 import VideoInput from '../video/VideoInput'
-import VideosList from '../video/VideosList'
+import VideoInfo from '../video/VideoInfo'
 import EditProject from '../../components/project/EditProject';
 import NavBarProjects from '../../components/navbar/NavBarProjects';
 
@@ -33,7 +33,7 @@ class ProjectShow extends Component {
 
     //display all of the videos
     let displayVideos = videos.map( (video,index) =>
-      <VideosList video={video} key={video.id} handleDeleteVideo={this.handleDeleteVideo}/> )
+      <VideoInfo video={video} key={video.id} handleDeleteVideo={this.handleDeleteVideo}/> )
 
     return (
 

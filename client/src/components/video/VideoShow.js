@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 import CommentInput from '../../components/comment/CommentInput'
 import VideoApproval from './VideoApproval'
 import NavBarVideos from '../../components/navbar/NavBarVideos';
-import CommentsList from '../../components/comment/CommentsList'
+import CommentInfo from '../../components/comment/CommentInfo'
 
 // import actions
 import { deleteComment } from  '../../actions/commentActions';
@@ -54,7 +54,7 @@ class VideoShow extends Component {
       comments = allComments.filter(comment => comment.video.id === videoId)
       // get the comments for just this video
       videoComments = comments.map((comment,index) =>
-      <CommentsList comment={comment} index={index} handleDeleteComment={this.handleDeleteComment} key={comment.id}/> )
+      <CommentInfo comment={comment} index={index} handleDeleteComment={this.handleDeleteComment} key={comment.id}/> )
     }
 
     return (

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 /// import Components
 import VideoInput from '../components/video/VideoInput'
 import VideoShow from '../components/video/VideoShow'
-import VideosList from '../components/video/VideosList'
+import VideoInfo from '../components/video/VideoInfo'
 import NavBarVideos from '../components/navbar/NavBarVideos';
 
 class VideosContainer extends Component {
@@ -21,7 +21,7 @@ class VideosContainer extends Component {
   render() {
     let allVideos = this.props.videos.videos
     let displayVideos = allVideos.map( (video,index) =>
-      <VideosList video={video} key={video.id} handleDeleteVideo={this.handleDeleteVideo}/> )
+      <VideoInfo video={video} key={video.id} handleDeleteVideo={this.handleDeleteVideo}/> )
 
 
     return (

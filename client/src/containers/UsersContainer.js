@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
 
 /// import Components
-import UsersList from '../components/user/UsersList'
+import UserInfo from '../components/user/UserInfo'
 import NavBarUsers from '../components/navbar/NavBarUsers';
 
 /// import actions
@@ -29,7 +29,7 @@ class UsersContainer extends Component {
     // if the current_user is admin show delete button
     if (this.props.current_user.admin == true ) {
       displayUsers = allUsers.map( (user,index) =>
-        <UsersList
+        <UserInfo
           user={user}
           key={user.id}
           handleOnClick={this.handleOnClick}
@@ -37,7 +37,7 @@ class UsersContainer extends Component {
           /> )
     } else {
       displayUsers = allUsers.map( (user,index) =>
-        <UsersList
+        <UserInfo
           user={user}
           key={user.id}
           /> )
