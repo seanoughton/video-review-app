@@ -1,6 +1,5 @@
 // import React Stuff
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 
 // import components
 import VideoInput from '../video/VideoInput'
@@ -46,11 +45,11 @@ class ProjectShow extends Component {
           {displayVideos}
         </div>
 
-        <div className="row ml-4">
+        <div className="row ml-4" id="edit-project">
           <div className="col">
             < EditProject current_user={this.props.current_user} editProject={this.props.editProject} project={project}/>
           </div>
-          <div className="col">
+          <div className="col" id="add-video">
             < VideoInput id={projectId} addVideo={this.props.addVideo}/>
           </div>
         </div>

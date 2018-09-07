@@ -8,14 +8,6 @@ import ProjectInfo from '../../components/project/ProjectInfo'
 
 class UserShow extends Component {
 
-  constructor(props) {
-       super(props)
-       this.state = {
-         counter: 0
-       }
-
-     }// end constructor
-
   handleOnClick = (event) => {
     event.preventDefault();
     if (window.confirm('Are you sure you wish to delete this item?')){
@@ -23,12 +15,6 @@ class UserShow extends Component {
     }
   }// end handleOnClick
 
-  handleOnLikeClick = (event) => {
-    event.preventDefault();
-    this.setState({
-      counter: this.state.counter + 1
-    })
-  }// end handleOnClick
 
   render() {
 
@@ -40,8 +26,6 @@ class UserShow extends Component {
     let createProject
     let projectHeader
     let userProjects = []
-    let newUserProjects = []
-
 
 
     // test to see if the async request for fetching all of the users has been made by testing to see if there are any users in the store
@@ -53,12 +37,10 @@ class UserShow extends Component {
     this.props.projects.projects.forEach( function (project){
       project.users.forEach( function (user){
         if (user.id === userId){
-          newUserProjects.push(project)
+          userProjects.push(project)
         }
       })
     })
-
-
 
 
     if (user.id === this.props.current_user.current_user.id){
@@ -69,8 +51,8 @@ class UserShow extends Component {
       projectHeader = <h1 className="text-white mt-3"> Here are all of your projects: </h1>
 
 
-        displayUserProjects = newUserProjects.map( (project) =>
-          <ProjectInfo project={project} key={project.id}/> )
+      displayUserProjects = userProjects.map( (project) =>
+        <ProjectInfo project={project} key={project.id}/> )
 
       createProject = < ProjectInput addProject={this.props.addProject} current_user={this.props.current_user} projects={this.props.projects}/>
     }// end if

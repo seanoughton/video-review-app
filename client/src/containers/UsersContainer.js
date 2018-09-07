@@ -1,7 +1,6 @@
 /// import React stuff
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom';
 
 /// import Components
 import UserInfo from '../components/user/UserInfo'

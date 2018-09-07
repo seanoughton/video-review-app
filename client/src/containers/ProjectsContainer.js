@@ -36,7 +36,7 @@ class ProjectsContainer extends Component {
     }
 
     displayProjects = projects.map( (project) =>
-      <ProjectInfo key={project.id} project={project} deleteProject={this.props.deleteProject} editProject={this.props.editProject}/> )
+      < ProjectInfo key={project.id} project={project} /> )
 
     return (
       <div className="container-fluid">
