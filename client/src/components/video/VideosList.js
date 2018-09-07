@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 
-const VideosList = ({ video,handleOnClick }) =>
+const VideosList = ({ video,handleDeleteVideo }) =>
 
 <div className="col-sm-4" key={video.id}>
   <div className="card">
@@ -13,7 +13,7 @@ const VideosList = ({ video,handleOnClick }) =>
         </button>
       <Link to={`/videos/${video.id}`} className="btn btn-primary ml-4"> Work on Video</Link>
       <Link to={`/videos/${video.id}/edit`} className="btn btn-warning ml-2"> Edit </Link>
-      <button className="btn btn-danger"  onClick={handleOnClick} data-id={video.id}> Delete Video </button>
+      <button className="btn btn-danger"  onClick={handleDeleteVideo} data-id={video.id}> Delete Video </button>
     </div> {/**end card-body **/}
   </div> {/**end card **/} <br></br>
 </div>//end col and displayVideos

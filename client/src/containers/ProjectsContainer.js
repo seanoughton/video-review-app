@@ -10,15 +10,13 @@ import { addProject } from  '../actions/projectActions';
 import { editProject } from  '../actions/projectActions';
 
 /// import Components
-import Project from '../components/project/ProjectComponent'
 import ProjectInput from '../components/project/ProjectInput'
-import ProjectsList from '../components/project/ProjectsList'
+import ProjectInfo from '../components/project/ProjectInfo'
 import NavBarProjects from '../components/navbar/NavBarProjects';
 
 
 class ProjectsContainer extends Component {
 
-//fires off deleteProject action if confirmation
   handleOnClick = (event) => {
     event.preventDefault();
     if (window.confirm('Are you sure you wish to delete this item?')){
@@ -35,21 +33,10 @@ class ProjectsContainer extends Component {
     //test to see if this user has any projects and if assign them
     if (this.props.current_user.projects){
       projects = this.props.projects
-      projects.sort(function(a, b) {
-          if (a.id < b.id) {
-            return -1;
-          }
-          if (a.id > b.id) {
-            return 1;
-          }
-          return 0;
-        });
     }
 
     displayProjects = projects.map( (project) =>
-      <ProjectsList key={project.id} project={project} /> )
-
-
+      <ProjectInfo key={project.id} project={project} deleteProject={this.props.deleteProject} editProject={this.props.editProject}/> )
 
     return (
       <div className="container-fluid">
@@ -70,7 +57,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => ({
   addProject: project_state => dispatch(addProject(project_state)),
-  deleteProject: project_state => dispatch(deleteProject(project_state))
+  deleteProject: project_state => dispatch(deleteProject(project_state)),
+  editProject: project_state => dispatch(editProject(project_state))
 })
 
 

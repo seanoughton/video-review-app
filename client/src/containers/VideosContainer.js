@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 
 /// import Components
 import VideoInput from '../components/video/VideoInput'
-import Video from '../components/video/VideoComponent'
+import VideoShow from '../components/video/VideoShow'
 import VideosList from '../components/video/VideosList'
 import NavBarVideos from '../components/navbar/NavBarVideos';
 
 class VideosContainer extends Component {
 
 //fires off deleteVideo action if confirmation
-  handleOnClick = (event) => {
+  handleDeleteVideo = (event) => {
     event.preventDefault();
     if (window.confirm('Are you sure you wish to delete this item?')){
       this.props.deleteVideo(event.target.dataset.id)
@@ -21,7 +21,7 @@ class VideosContainer extends Component {
   render() {
     let allVideos = this.props.videos.videos
     let displayVideos = allVideos.map( (video,index) =>
-      <VideosList video={video} key={video.id} handleOnClick={this.handleOnClick}/> )
+      <VideosList video={video} key={video.id} handleDeleteVideo={this.handleDeleteVideo}/> )
 
 
     return (

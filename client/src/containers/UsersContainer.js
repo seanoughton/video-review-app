@@ -13,7 +13,7 @@ import { deleteUser } from  '../actions/userActions';
 class UsersContainer extends Component {
 
 //fires off deleteUser action if confirmation
-  handleOnClick = (event) => {
+  handleDeleteUser = (event) => {
     event.preventDefault();
     if (window.confirm('Are you sure you wish to delete this item?')){
       this.props.deleteUser(event.target.dataset.id)
@@ -25,7 +25,7 @@ class UsersContainer extends Component {
     //set default values
     let allUsers = this.props.users.users
     let displayUsers
-    
+
     // if the current_user is admin show delete button
     if (this.props.current_user.admin == true ) {
       displayUsers = allUsers.map( (user,index) =>
@@ -33,14 +33,13 @@ class UsersContainer extends Component {
           user={user}
           key={user.id}
           handleOnClick={this.handleOnClick}
-          button={<button className="btn btn-danger"  onClick={this.handleOnClick} data-id={user.id}>  Delete User </button>}
+          button={<button className="btn btn-danger"  onClick={this.handleDeleteUser} data-id={user.id}>  Delete User </button>}
           /> )
     } else {
       displayUsers = allUsers.map( (user,index) =>
         <UsersList
           user={user}
           key={user.id}
-          handleOnClick={this.handleOnClick}
           /> )
     }
 

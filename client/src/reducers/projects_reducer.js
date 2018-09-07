@@ -24,6 +24,16 @@ export default function projectsReducer(state = {loading: false, projects: []}, 
       let projects = state.projects.filter( project => project.id !== updatedProject.id)
       //pushes the updated project into projects
       projects.push(updatedProject)
+      projects.sort(function(a, b) {
+          if (a.id < b.id) {
+            return -1;
+          }
+          if (a.id > b.id) {
+            return 1;
+          }
+          return 0;
+        });
+
       return { ...state, projects}
 
 

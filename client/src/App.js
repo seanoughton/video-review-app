@@ -18,11 +18,11 @@ import ProjectsContainer from './containers/ProjectsContainer';
 /// import Components
 import NavBar from './components/navbar/NavBar';
 import NavBarLogin from './components/navbar/NavBarLogin';
-import Project from './components/project/ProjectComponent'
+import ProjectShow from './components/project/ProjectShow'
 import Comment from './components/comment/CommentComponent'
-import Video from './components/video/VideoComponent'
+import VideoShow from './components/video/VideoShow'
 import VideoEdit from './components/video/VideoEdit'
-import User from './components/user/UserComponent'
+import UserShow from './components/user/UserShow'
 import UserEdit from './components/user/UserEdit'
 import Login from './components/login/LoginComponent'
 
@@ -58,14 +58,14 @@ class App extends Component {
      let loggedIn = [
         <Route exact path="/" component={ProjectsContainer} />,
         <Route exact path="/projects" component={ProjectsContainer}  />,
-        <Route exact path='/projects/:id' render={routerProps => <Project {...routerProps} projects={this.props.projects} videos={this.props.videos} addVideo={this.props.addVideo} deleteVideo={this.props.deleteVideo} editProject={this.props.editProject} current_user={this.props.current_user}/>} />,
+        <Route exact path='/projects/:id' render={routerProps => <ProjectShow {...routerProps} projects={this.props.projects} videos={this.props.videos} addVideo={this.props.addVideo} deleteVideo={this.props.deleteVideo} editProject={this.props.editProject} current_user={this.props.current_user}/>} />,
 
         <Route exact path='/users' component={UsersContainer} />,
-        <Route exact path='/users/:id' render={routerProps => <User {...routerProps} users={this.props.users} projects={this.props.projects} current_user={this.props.current_user} addProject={this.props.addProject} deleteProject={this.props.deleteProject}/>} />,
+        <Route exact path='/users/:id' render={routerProps => <UserShow {...routerProps} users={this.props.users} projects={this.props.projects} current_user={this.props.current_user} addProject={this.props.addProject} deleteProject={this.props.deleteProject}/>} />,
         <Route exact path='/users/:id/edit' render={routerProps => <UserEdit {...routerProps} users={this.props.users} projects={this.props.projects}/>} />,
 
         <Route exact path="/videos" render={routerProps => <VideosContainer {...routerProps} videos={this.props.videos} deleteVideo={this.props.deleteVideo} />} />,
-        <Route exact path='/videos/:id' component={Video} />,
+        <Route exact path='/videos/:id' component={VideoShow} />,
         <Route exact path='/videos/:id/edit' render={routerProps => <VideoEdit {...routerProps} users={this.props.users} projects={this.props.projects}/>} />,
 
         <Route exact path='/comments/:id' render={routerProps => <Comment {...routerProps} comments={this.props.comments}/>} />,

@@ -15,7 +15,7 @@ class VideoApproval extends Component {
      }// end constructor
 
 
-  handleOnClick(event) {
+  handleApproval(event) {
     event.preventDefault();
     if (event.target.id === "approved") {
       this.state.approval = true
@@ -41,8 +41,8 @@ class VideoApproval extends Component {
             Approve
           </button>
           <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a className="dropdown-item " href="#" id="approved" onClick={(event) => this.handleOnClick(event)} >Approved</a>
-            <a className="dropdown-item" href="#" id="not_approved" onClick={(event) => this.handleOnClick(event)} >Needs more work</a>
+            <a className="dropdown-item " href="#" id="approved" onClick={(event) => this.handleApproval(event)} >Approved</a>
+            <a className="dropdown-item" href="#" id="not_approved" onClick={(event) => this.handleApproval(event)} >Needs more work</a>
           </div>
         </div>
 
