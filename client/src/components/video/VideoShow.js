@@ -118,5 +118,14 @@ class VideoShow extends Component {
   }// end render
 }// end class definition
 
+const mapStateToProps = (state) => {
+  return { videos: state.videos, comments: state.comments, current_user: state.current_user.current_user }
+}
 
-export default connect(state => ({ videos: state.videos, comments: state.comments, current_user: state.current_user.current_user}), { deleteComment })(VideoShow);
+const mapDispatchToProps = dispatch => ({
+  deleteComment: state => dispatch(deleteComment(state))
+})
+
+export default connect(mapStateToProps,mapDispatchToProps)(VideoShow)
+/**
+export default connect(state => ({ videos: state.videos, comments: state.comments, current_user: state.current_user.current_user}), { deleteComment })(VideoShow); **/

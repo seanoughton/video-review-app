@@ -1,6 +1,7 @@
 /// import React stuff
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 /// import Components
 import VideoInput from '../components/video/VideoInput'
