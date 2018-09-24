@@ -24,6 +24,7 @@ export default function projectsReducer(state = {loading: false, projects: []}, 
       let projects = state.projects.filter( project => project.id !== updatedProject.id)
       //pushes the updated project into projects
       projects.push(updatedProject)
+
       projects.sort(function(a, b) {
           if (a.id < b.id) {
             return -1;
@@ -32,9 +33,24 @@ export default function projectsReducer(state = {loading: false, projects: []}, 
             return 1;
           }
           return 0;
-        });
+        }); 
 
       return { ...state, projects}
+
+
+      case 'SORT_PROJECTS':
+        projects = state.projects
+        projects.sort(function(a,b){
+          if(a.likes > b.like){
+            return -1
+          }
+          if(a.likes < b.likes){
+            return 1
+          }
+          return 0
+        })
+        return { ...state, projects}
+
 
 
     case 'DELETE_PROJECT':

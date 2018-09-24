@@ -30,7 +30,6 @@ export function addProject(project_state) {
 
 // edits a comment to the Rails API backend
  export function editProject(project_state) {
-   console.log(project_state)
   return (dispatch) => {
     var url = `/projects/${project_state.id}`;
     var data = {project:project_state};
