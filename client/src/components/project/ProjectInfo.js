@@ -42,7 +42,6 @@ class ProjectInfo extends Component {
         <div className="card">
           <div className="card-body">
             <h5 className="card-title">{this.props.project.project_name}</h5>
-            <h5 className="card-title">Likes: {this.props.project.likes}</h5>
             <p className="card-text">{this.props.project.description}</p>
             <Link to={`/projects/${this.props.project.id}`} className="btn btn-primary"> Work on this Project </Link>
             <button className="btn btn-danger"  onClick={this.handleOnClick} data-id={this.props.project.id}> Delete Project </button>
