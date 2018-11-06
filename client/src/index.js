@@ -1,5 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom'; // for clientside routing
+import ReactDOM from 'react-dom'; // takes React elements and updates the DOM with the appropriate HTML
+// ReactDOM compares React Elements and their children the their previous ones, and only applies a DOM change if necessary
+// Components are like javascript functions, they accept input and return something, they accept props and return React elements that describe what should be rendered to the screen
 import './index.css';
 import App from './App';
 import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
@@ -54,3 +56,5 @@ ReactDOM.render(
   </Provider>,
     document.getElementById('root')
 );
+
+// everything inside the root element is managed by React DOM,

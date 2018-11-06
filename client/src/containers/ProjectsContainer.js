@@ -24,6 +24,11 @@ class ProjectsContainer extends Component {
     }
   }// end handleOnClick
 
+
+  handleSort =(event) => {
+    this.props.sort()
+  }
+
   render() {
 
     //set default values
@@ -43,6 +48,7 @@ class ProjectsContainer extends Component {
         <NavBarProjects />
         <h1 className="text-white"> Here are all of the projects: </h1><br></br>
           <div className="row">
+            <button onClick={this.handleSort}>Sort</button>
               {displayProjects}
           </div>
 
@@ -58,7 +64,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => ({
   addProject: project_state => dispatch(addProject(project_state)),
   deleteProject: project_state => dispatch(deleteProject(project_state)),
-  editProject: project_state => dispatch(editProject(project_state))
+  editProject: project_state => dispatch(editProject(project_state)),
+  sort: () => dispatch({type: 'SORT_PROJECTS'})
 })
 
 
