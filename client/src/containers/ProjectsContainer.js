@@ -48,7 +48,6 @@ class ProjectsContainer extends Component {
         <NavBarProjects />
         <h1 className="text-white"> Here are all of the projects: </h1><br></br>
           <div className="row">
-            <button onClick={this.handleSort}>Sort</button>
               {displayProjects}
           </div>
 
@@ -70,3 +69,5 @@ const mapDispatchToProps = dispatch => ({
 
 
 export default connect(mapStateToProps,mapDispatchToProps)(ProjectsContainer)
+
+//<button onClick={this.handleSort}>Sort</button>

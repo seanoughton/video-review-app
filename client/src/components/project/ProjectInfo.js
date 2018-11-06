@@ -46,7 +46,6 @@ class ProjectInfo extends Component {
             <p className="card-text">{this.props.project.description}</p>
             <Link to={`/projects/${this.props.project.id}`} className="btn btn-primary"> Work on this Project </Link>
             <button className="btn btn-danger"  onClick={this.handleOnClick} data-id={this.props.project.id}> Delete Project </button>
-            <button className="btn btn-success"  name="like" onClick={this.handleOnLikeClick} data-id={this.props.project.id}> Like </button>
           </div> {/**end card-body **/}
         </div> {/**end card **/} <br></br>
       </div>//end col
@@ -66,3 +65,5 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(mapStateToProps,mapDispatchToProps)(ProjectInfo)
+
+/**              <button className="btn btn-success"  name="like" onClick={this.handleOnLikeClick} data-id={this.props.project.id}> Like </button>**/
