@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+// import components
+import VideoApproval from './VideoApproval'
+import SendToDropbox from './OauthSender'
+import ReceiveFromDropbox from './OauthReceiver'
 
 class VideoInput extends Component {
 
@@ -11,6 +15,8 @@ class VideoInput extends Component {
          project_id: this.props.id
        }
      }// end constructor
+
+
 
 
   handleOnChange(event) {
@@ -34,12 +40,16 @@ class VideoInput extends Component {
 
 
 
+
+
   render() {
 
     return (
       <div>
         <div>
           <h2 className="text-white">Add a Video</h2>
+
+          < SendToDropbox />
 
             <div className="form-group mt-4" >
               <form onSubmit={(event) => this.handleOnSubmit(event)}>
